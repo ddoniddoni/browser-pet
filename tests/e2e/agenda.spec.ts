@@ -1,0 +1,76 @@
+import { test,expect } from '@playwright/test';
+import { withExtension,enableCat } from './browser';
+
+test('펫에서 만든 매월 알람을 도구 모음에서 수정한다',async()=>{
+  await withExtension(async context=>{
+    const tab=context.pages()[0]!;
+    await tab.goto('http://reading.browser-pet.test:4187/basic');
+    expect(await tab.evaluate(()=>window.isSecureContext)).toBe(false);
+    const popupUrl=await enableCat(context,tab);
+    const trigger=tab.getByRole('button',{name:'누룽 메뉴'});
+    await trigger.focus();
+    await trigger.press('Enter');
+    const opening=context.waitForEvent('page');
+    await tab.getByRole('button',{name:'알람 관리'}).click();
+    const editor=await opening;
+    await expect(editor).toHaveURL(/popup\.html\?panel=agenda$/);
+    await editor.getByLabel('알람 이름').fill('편집 회의');
+    await editor.getByLabel('반복').selectOption('monthly');
+    await editor.getByRole('combobox',{name:'매월 며칠'}).selectOption('31');
+    await editor.getByRole('button',{name:'저장하고 켜기'}).click();
+    await expect(editor.getByRole('checkbox',{name:'편집 회의 알람 켜기 또는 끄기'})).toBeChecked();
+    await editor.getByRole('button',{name:'닫기'}).click();
+    const toolbar=await context.newPage();await toolbar.goto(popupUrl);
+    await toolbar.locator('summary').filter({hasText:'알람'}).click();
+    const alarm=toolbar.getByRole('checkbox',{name:'편집 회의 알람 켜기 또는 끄기'});
+    await toolbar.getByRole('button',{name:'편집 회의 알람 수정'}).click();
+    await expect(toolbar.getByRole('combobox',{name:'매월 며칠'})).toHaveValue('31');
+    await toolbar.getByLabel('반복').selectOption('weekly');
+    await toolbar.getByLabel('요일').selectOption('2');
+    await toolbar.getByRole('button',{name:'저장하고 켜기'}).click();
+    await expect(toolbar.locator('.agenda-list')).toContainText('매주 화요일');
+    await expect(alarm).toBeChecked();await alarm.click();await expect(alarm).not.toBeChecked();
+  });
+});
+
+test('팝업이 닫힌 뒤 예약 시각에 펫이 한 번 알리고 기록을 유지한다',async()=>{
+  test.setTimeout(125_000);
+  await withExtension(async context=>{
+    const tab=context.pages()[0]!;
+    await tab.goto('http://reading.browser-pet.test:4187/basic');
+    const url=await enableCat(context,tab);
+    const editor=await context.newPage();
+    await editor.goto(url+'?panel=agenda');
+    const name='물 주기';
+    await editor.getByLabel('알람 이름').fill(name);
+    const due=new Date(Date.now()+70_000);
+    due.setSeconds(0,0);
+    const pad=(n:number)=>String(n).padStart(2,'0');
+    const date=[due.getFullYear(),pad(due.getMonth()+1),pad(due.getDate())].join('-');
+    await editor.getByLabel('반복').selectOption('once');
+    await editor.getByLabel('날짜').fill(date);
+    await editor.getByLabel('시간',{exact:true}).fill(pad(due.getHours())+':'+pad(due.getMinutes()));
+    await editor.getByRole('button',{name:'저장하고 켜기'}).click();
+    await expect(editor.getByRole('checkbox',{name:name+' 알람 켜기 또는 끄기'})).toBeChecked();
+    await editor.close();
+    await tab.bringToFront();
+    const bubble=tab.locator('browser-pet-overlay .pet-alarm');
+    await expect(bubble.getByText(name,{exact:true})).toBeVisible({timeout:95_000});
+    await expect(bubble).toBeVisible();
+    const inbox=await context.newPage();await inbox.goto(url+'?panel=agenda');
+    await inbox.locator('.agenda-history summary').click();
+    await expect(inbox.locator('.agenda-history li')).toHaveCount(1);
+    await expect(inbox.locator('.agenda-history li')).toContainText(name);
+    await expect(inbox.getByRole('checkbox',{name:name+' 알람 켜기 또는 끄기'})).not.toBeChecked();
+    await tab.bringToFront();
+    await tab.reload();
+    await bubble.getByRole('button',{name:name+' 알람 확인'}).click();
+    await expect(bubble).toBeHidden();
+    await tab.reload();
+    await expect(tab.getByRole('button',{name:'누룽 메뉴'})).toBeVisible();
+    await expect(bubble).toBeHidden();
+    await inbox.bringToFront();
+    await expect(inbox.locator('.agenda-history li')).toContainText(name);
+    await expect(inbox.locator('.agenda-pending')).toHaveCount(0);
+  });
+});

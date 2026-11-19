@@ -1,0 +1,23 @@
+@media (prefers-reduced-motion: no-preference) {
+  [data-action=WALK][data-movement=walk]:not([data-paused]) .pet-uploaded,
+  [data-movement=walk] .preview-sprite { animation: pet-step .7s ease-in-out infinite; }
+  [data-action=WALK][data-movement=bounce]:not([data-paused]) .pet-uploaded,
+  [data-movement=bounce] .preview-sprite { animation: pet-hop .72s ease-in-out infinite; }
+  [data-action=WALK][data-movement=crawl]:not([data-paused]) :is(.pet-uploaded,.pet-clay,.pet-facing > .pet-avatar),
+  [data-movement=crawl] .preview-sprite { animation: pet-crawl .85s ease-in-out infinite; }
+  [data-action=WALK][data-movement=float]:not([data-paused]) .pet-uploaded,
+  [data-movement=float] .preview-sprite { animation: pet-glide 1.8s ease-in-out infinite; }
+  [data-action=WALK][data-movement=spin]:not([data-paused]) :is(.pet-uploaded,.pet-clay,.pet-facing > .pet-avatar),
+  [data-movement=spin] .preview-sprite { animation: pet-whirl 1.9s linear infinite; }
+  .motion-journey { animation: pet-cross 5s ease-in-out infinite alternate; }
+  .motion-journey[data-faces] .preview-heading { animation: pet-turn 10s step-end infinite; }
+  .motion-journey[data-faces=left] { --outward: -1; --homeward: 1; }
+}
+.motion-stage[data-still] *, .motion-stage[data-still] .preview-sprite { animation: none; }
+@keyframes pet-step { 0%,100% { rotate: -4deg; } 50% { rotate: 4deg; translate: 0 -3%; } }
+@keyframes pet-hop { 0%,100% { scale: 1.06 .94; } 45% { scale: .98 1.02; translate: 0 -16%; } }
+@keyframes pet-crawl { 0%,100% { scale: 1.09 .88; rotate: -2deg; } 50% { scale: .91 1.02; rotate: 3deg; translate: 3% 2%; } }
+@keyframes pet-glide { 0%,100% { translate: 0 -3%; rotate: -5deg; } 50% { translate: 0 -13%; rotate: 5deg; } }
+@keyframes pet-whirl { 0% { transform: rotate(0) translateY(-5%); } 100% { transform: rotate(360deg) translateY(-5%); } }
+@keyframes pet-cross { from { transform: translateX(-40%); } to { transform: translateX(40%); } }
+@keyframes pet-turn { 0%,100% { scale: var(--outward,1) 1; } 50% { scale: var(--homeward,-1) 1; } }

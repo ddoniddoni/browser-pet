@@ -1,0 +1,1532 @@
+{
+  "settingsHeading": {
+    "message": "환경설정"
+  },
+  "settingsIntro": {
+    "message": "함께 지내는 친구를 나답게, 편안하게."
+  },
+  "settingsFriend": {
+    "message": "내 친구"
+  },
+  "settingsNavigation": {
+    "message": "설정 바로가기"
+  },
+  "nameValidation": {
+    "message": "이름은 줄바꿈 없이 1~20자로 입력해 주세요."
+  },
+  "nameSaveError": {
+    "message": "이름을 저장하지 못했어요. 다시 시도해 주세요."
+  },
+  "speciesName": {
+    "message": "$value$ 이름",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "saving": {
+    "message": "저장 중…"
+  },
+  "saveName": {
+    "message": "이름 저장"
+  },
+  "nameSaved": {
+    "message": "이름을 저장했어요."
+  },
+  "mySpecies": {
+    "message": "내 $value$",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "speciesSaveError": {
+    "message": "선택을 저장하지 못했어요. 다시 골라 주세요."
+  },
+  "choosePet": {
+    "message": "함께할 동물"
+  },
+  "speciesHint": {
+    "message": "친구마다 이름, 돌봄 기록, 옷과 위치를 따로 기억해요. 각 친구의 상태는 탭 사이에서 이어져요."
+  },
+  "unknownPet": {
+    "message": "이번 버전에 없는 친구는 누룽의 모습으로 표시해요. 이전 기록은 기기에 남아요."
+  },
+  "speciesSaved": {
+    "message": "$value$ 선택을 저장했어요.",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "petGeneric": {
+    "message": "반려동물"
+  },
+  "speciesSettings": {
+    "message": "$value$ 설정",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "speciesProfile": {
+    "message": "$value$ 프로필",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "nameHint": {
+    "message": "이 동물의 이름을 1~20자로 지어 주세요. 저장하면 모든 탭에 반영돼요."
+  },
+  "loadingPet": {
+    "message": "반려동물을 불러오는 중이에요."
+  },
+  "updateNeeded": {
+    "message": "확장 프로그램 업데이트가 필요해요."
+  },
+  "unreadablePet": {
+    "message": "저장된 반려동물 정보를 읽을 수 없어요."
+  },
+  "settingsLoadError": {
+    "message": "설정을 불러오지 못했어요."
+  },
+  "newerDataNotice": {
+    "message": "더 새 버전에서 저장한 데이터예요. 원본은 그대로 두었어요."
+  },
+  "resetHint": {
+    "message": "원본은 보존했어요. 처음부터 다시 시작하려면 아래에서 데이터를 초기화해 주세요."
+  },
+  "poseStand": {
+    "message": "서 있기"
+  },
+  "poseWalk": {
+    "message": "사뿐사뿐"
+  },
+  "poseSit": {
+    "message": "앉기"
+  },
+  "poseNap": {
+    "message": "낮잠"
+  },
+  "petAction": {
+    "message": "쓰다듬기"
+  },
+  "poseLift": {
+    "message": "매달려 버둥대기"
+  },
+  "poseReplay": {
+    "message": "포즈 다시 보기"
+  },
+  "poseSettle": {
+    "message": "자리 잡기"
+  },
+  "poseEat": {
+    "message": "냠냠"
+  },
+  "poseSpotBall": {
+    "message": "공 발견"
+  },
+  "poseBall": {
+    "message": "공놀이"
+  },
+  "poseFetch": {
+    "message": "공 물기"
+  },
+  "poseBat": {
+    "message": "공 굴리기"
+  },
+  "poseBook": {
+    "message": "포즈 수첩"
+  },
+  "smallPreview": {
+    "message": "작은 크기"
+  },
+  "choosePose": {
+    "message": "포즈 고르기"
+  },
+  "poseHint": {
+    "message": "포즈를 골라도 웹페이지의 펫은 그대로예요."
+  },
+  "saveError": {
+    "message": "변경을 저장하지 못했어요. 다시 시도해 주세요."
+  },
+  "sizeSmall": {
+    "message": "작게"
+  },
+  "sizeMedium": {
+    "message": "보통"
+  },
+  "sizeLarge": {
+    "message": "크게"
+  },
+  "speciesSize": {
+    "message": "$value$ 크기",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "onLabel": {
+    "message": "켜기"
+  },
+  "offLabel": {
+    "message": "끄기"
+  },
+  "slow": {
+    "message": "느리게"
+  },
+  "systemMotion": {
+    "message": "기기 설정 따르기"
+  },
+  "reduceAlways": {
+    "message": "항상 줄이기"
+  },
+  "saved": {
+    "message": "저장했어요."
+  },
+  "appearance": {
+    "message": "모습과 행동"
+  },
+  "allTabsHint": {
+    "message": "이 프로필의 모든 탭에 적용돼요."
+  },
+  "personality": {
+    "message": "성격"
+  },
+  "livelyHint": {
+    "message": "공을 보면 바로 뛰어들어요."
+  },
+  "calmHint": {
+    "message": "공을 잠깐 살펴본 뒤 다가가요."
+  },
+  "speechBubbles": {
+    "message": "말풍선"
+  },
+  "speechHint": {
+    "message": "펫이 가끔 인사하거나 지금 몇 시인지 알려 줘요."
+  },
+  "walkSpeed": {
+    "message": "산책 속도"
+  },
+  "reduceMotion": {
+    "message": "동작 줄이기"
+  },
+  "resetError": {
+    "message": "초기화하지 못했어요. 다시 확인해 주세요."
+  },
+  "storedData": {
+    "message": "저장 데이터"
+  },
+  "storageHint": {
+    "message": "펫 정보와 설정, 알람과 최근 알람 기록은 이 Chrome 프로필에 저장돼요."
+  },
+  "resetData": {
+    "message": "데이터 초기화"
+  },
+  "resetDone": {
+    "message": "초기화했어요. 누룽으로 돌아가고 전체 표시가 꺼졌어요."
+  },
+  "resetQuestion": {
+    "message": "모든 동물의 데이터를 초기화할까요?"
+  },
+  "resetWarning": {
+    "message": "모든 동물의 이름, 위치, 설정, 돌봄 기록, 경험치, 추억 카드와 방 꾸미기, 타이머, 알람과 그 기록이 삭제돼요. 누룽으로 돌아가고 모든 탭에서 숨겨져요. 저장한 PNG 파일은 남아요. 되돌릴 수 없어요."
+  },
+  "cancel": {
+    "message": "취소"
+  },
+  "resetting": {
+    "message": "초기화 중…"
+  },
+  "confirmReset": {
+    "message": "초기화하기"
+  },
+  "railEveryday": {
+    "message": "평상복"
+  },
+  "railChristmas": {
+    "message": "크리스마스"
+  },
+  "scarf": {
+    "message": "스카프"
+  },
+  "defaultLook": {
+    "message": "기본 모습"
+  },
+  "wardrobe": {
+    "message": "옷장"
+  },
+  "wardrobeHint": {
+    "message": "옷과 스카프를 함께 입혀 보세요."
+  },
+  "tryingOn": {
+    "message": "미리 입혀 보는 중"
+  },
+  "wearingNow": {
+    "message": "지금 입은 차림"
+  },
+  "outfits": {
+    "message": "의상"
+  },
+  "none": {
+    "message": "없음"
+  },
+  "lookSaved": {
+    "message": "차림을 저장했어요."
+  },
+  "applyLook": {
+    "message": "차림 적용"
+  },
+  "chooseAgain": {
+    "message": "다시 고르기"
+  },
+  "visibilitySaveError": {
+    "message": "표시 설정을 저장하지 못했어요."
+  },
+  "openSettingsError": {
+    "message": "설정을 열지 못했어요. 확장 관리에서 Browser Pet을 새로고침해 주세요."
+  },
+  "hiddenOnPages": {
+    "message": "웹페이지에서 숨김"
+  },
+  "changePet": {
+    "message": "친구 선택과 이름"
+  },
+  "extensionsHelp": {
+    "message": "주소창에 chrome://extensions 를 입력하고 Browser Pet 카드의 새로고침(↻)을 눌러 주세요."
+  },
+  "openExtensions": {
+    "message": "확장 관리 열기"
+  },
+  "fed": {
+    "message": "먹이를 줬어요."
+  },
+  "petted": {
+    "message": "쓰다듬어 줬어요."
+  },
+  "feedCooldown": {
+    "message": "조금 전에 먹었어요. 마지막 먹이로부터 10분 후에 다시 줄 수 있어요."
+  },
+  "petCooldown": {
+    "message": "쓰다듬어 줬어요. 기분과 경험치는 1분에 한 번 올라요."
+  },
+  "careError": {
+    "message": "돌봄을 저장하지 못했어요. 다시 시도해 주세요."
+  },
+  "speciesCare": {
+    "message": "$value$ 돌봄 기록",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "totalXp": {
+    "message": "누적 경험치"
+  },
+  "fullness": {
+    "message": "포만감"
+  },
+  "mood": {
+    "message": "기분"
+  },
+  "feed": {
+    "message": "먹이 주기"
+  },
+  "feeding": {
+    "message": "먹이 주는 중…"
+  },
+  "petting": {
+    "message": "쓰다듬는 중…"
+  },
+  "pingWaiting": {
+    "message": "응답 대기 중"
+  },
+  "pongReceived": {
+    "message": "PONG 수신"
+  },
+  "noPong": {
+    "message": "PONG을 받지 못했어요."
+  },
+  "connection": {
+    "message": "연결 확인"
+  },
+  "sendPing": {
+    "message": "PING 보내기"
+  },
+  "noTab": {
+    "message": "선택된 웹페이지를 찾지 못했어요."
+  },
+  "noReceiver": {
+    "message": "이 페이지에서 확장이 응답하지 않았어요. 새 탭이나 확장 관리 화면에서는 펫이 나오지 않아요. 일반 사이트라면 해당 탭의 새로고침과 확장의 사이트 액세스를 확인해 주세요."
+  },
+  "checkingPage": {
+    "message": "이 페이지의 표시 상태를 확인하고 있어요."
+  },
+  "visibleHere": {
+    "message": "이 페이지에 표시 중"
+  },
+  "recheckPage": {
+    "message": "표시 상태 다시 확인"
+  },
+  "hideEverywhere": {
+    "message": "모든 탭에서 펫 숨기기"
+  },
+  "showEverywhere": {
+    "message": "모든 탭에서 펫 표시하기"
+  },
+  "showPet": {
+    "message": "펫 표시"
+  },
+  "openSettings": {
+    "message": "설정 열기"
+  },
+  "timerError": {
+    "message": "타이머를 변경하지 못했어요. 다시 시도해 주세요."
+  },
+  "studyTimer": {
+    "message": "공부 타이머"
+  },
+  "timerToolTitle": {
+    "message": "타이머"
+  },
+  "timerChoices": {
+    "message": "집중 / 문제 풀이"
+  },
+  "setTime": {
+    "message": "시간 설정"
+  },
+  "timerMode": {
+    "message": "타이머 모드"
+  },
+  "timeLimit": {
+    "message": "제한 시간"
+  },
+  "minutesUnit": {
+    "message": "분"
+  },
+  "start": {
+    "message": "시작"
+  },
+  "focusHint": {
+    "message": "펫 위에 집중 모드와 남은 시간이 표시돼요."
+  },
+  "examHint": {
+    "message": "펫 위에서 문제 풀이 시간을 바로 확인할 수 있어요."
+  },
+  "modeTimer": {
+    "message": "$value$ 타이머",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "timeLeft": {
+    "message": "남은 시간"
+  },
+  "timesUp": {
+    "message": "시간이 끝났어요."
+  },
+  "paused": {
+    "message": "일시정지 중"
+  },
+  "sessionMinutes": {
+    "message": "$value$분 진행 중",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "resume": {
+    "message": "이어서"
+  },
+  "pause": {
+    "message": "일시정지"
+  },
+  "ok": {
+    "message": "확인"
+  },
+  "end": {
+    "message": "종료"
+  },
+  "invalidWalkTime": {
+    "message": "유효한 산책 시각이 필요합니다."
+  },
+  "speechNight": {
+    "message": "밤공기가 조용하네."
+  },
+  "speechMorning": {
+    "message": "좋은 아침이야!"
+  },
+  "speechWalk": {
+    "message": "나랑 잠깐 걸을래?"
+  },
+  "speechEvening": {
+    "message": "오늘도 만나서 반가워."
+  },
+  "speechHello": {
+    "message": "안녕?"
+  },
+  "speechStretch": {
+    "message": "잠깐 기지개 켤까?"
+  },
+  "speechHere": {
+    "message": "나 여기 있어!"
+  },
+  "cat": {
+    "message": "고양이"
+  },
+  "dog": {
+    "message": "강아지"
+  },
+  "rabbit": {
+    "message": "토끼"
+  },
+  "hamster": {
+    "message": "햄스터"
+  },
+  "fox": {
+    "message": "여우"
+  },
+  "otter": {
+    "message": "수달"
+  },
+  "redPanda": {
+    "message": "레서판다"
+  },
+  "hedgehog": {
+    "message": "고슴도치"
+  },
+  "penguin": {
+    "message": "펭귄"
+  },
+  "duck": {
+    "message": "오리"
+  },
+  "nabi": {
+    "message": "나비"
+  },
+  "invalidFrame": {
+    "message": "프레임 번호 또는 배율이 잘못되었습니다."
+  },
+  "throwBall": {
+    "message": "공 던지기"
+  },
+  "resumeWalk": {
+    "message": "산책 다시 시작"
+  },
+  "hideAllTabs": {
+    "message": "모든 탭에서 숨기기"
+  },
+  "modePaused": {
+    "message": "$value$ · 일시정지",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "speechExamOver": {
+    "message": "문제 풀이 시간이 끝났어!"
+  },
+  "speechFocusOver": {
+    "message": "집중 끝! 잠깐 쉴까?"
+  },
+  "pinned": {
+    "message": "자리 고정"
+  },
+  "walkMode": {
+    "message": "산책 모드"
+  },
+  "petMenu": {
+    "message": "$value$ 메뉴",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "shareError": {
+    "message": "변경을 공유하지 못했어요. 다시 시도해 주세요."
+  },
+  "fedReward": {
+    "message": "먹이를 줬어요. 경험치 +5!"
+  },
+  "fedWait": {
+    "message": "방금 먹었어요. 먹이는 10분마다 줄 수 있어요."
+  },
+  "pattedReward": {
+    "message": "쓰다듬었어요. 경험치 +2!"
+  },
+  "pattedWait": {
+    "message": "쓰다듬었어요. 경험치는 1분마다 받아요."
+  },
+  "careResultError": {
+    "message": "돌봄 결과를 확인하지 못했어요."
+  },
+  "fetchAnnounce": {
+    "message": "공을 던졌어요. 물어 올 거예요."
+  },
+  "batAnnounce": {
+    "message": "공을 던졌어요. 톡 쳐서 굴려요."
+  },
+  "openInPopup": {
+    "message": "설정을 열지 못했어요. Browser Pet 팝업에서 설정 열기를 눌러 주세요."
+  },
+  "calm": {
+    "message": "차분한 성격"
+  },
+  "lively": {
+    "message": "활발한 성격"
+  },
+  "removeScarf": {
+    "message": "벗기"
+  },
+  "pineGreen": {
+    "message": "솔잎 초록"
+  },
+  "berryRed": {
+    "message": "산딸기 빨강"
+  },
+  "skyBlue": {
+    "message": "하늘 파랑"
+  },
+  "noOutfit": {
+    "message": "옷 없음"
+  },
+  "denim": {
+    "message": "데님 멜빵바지"
+  },
+  "santa": {
+    "message": "산타 코트"
+  },
+  "elf": {
+    "message": "솔잎 요정복"
+  },
+  "reindeer": {
+    "message": "순록 조끼"
+  },
+  "badFormat": {
+    "message": "지원하지 않는 메시지 형식입니다."
+  },
+  "internalOnly": {
+    "message": "확장 내부 요청만 처리합니다."
+  },
+  "badRead": {
+    "message": "잘못된 읽기 요청입니다."
+  },
+  "badRequest": {
+    "message": "지원하지 않는 요청입니다."
+  },
+  "wrongScreen": {
+    "message": "이 화면에서는 요청을 처리할 수 없어요."
+  },
+  "badSave": {
+    "message": "저장 요청의 값을 확인해 주세요."
+  },
+  "timerInPopup": {
+    "message": "타이머는 팝업에서 조작해 주세요."
+  },
+  "cannotHideSite": {
+    "message": "이 페이지에서는 사이트 숨김을 사용할 수 없어요."
+  },
+  "chooseValidPet": {
+    "message": "선택할 수 있는 펫을 골라 주세요."
+  },
+  "invalidName": {
+    "message": "이름은 줄바꿈과 제어문자 없이 1~20자로 입력해 주세요."
+  },
+  "onlyOptions": {
+    "message": "이 설정은 옵션에서만 바꿀 수 있어요."
+  },
+  "pageVisible": {
+    "message": "이 페이지에 펫을 표시하고 있어요."
+  },
+  "wrongWindow": {
+    "message": "이 창은 현재 표시 대상으로 확인되지 않았어요. 팝업을 닫고 일반 Chrome 창의 페이지를 선택해 주세요."
+  },
+  "displayOff": {
+    "message": "전체 표시가 꺼져 있어요."
+  },
+  "pageLoading": {
+    "message": "페이지가 아직 펫 정보를 받고 있어요. 잠시 후 다시 확인해 주세요."
+  },
+  "pageStateError": {
+    "message": "페이지가 펫 정보를 불러오지 못했어요. 일반 웹페이지를 다시 열어 주세요."
+  },
+  "pageDetached": {
+    "message": "웹페이지에서 펫 표시가 끊겼어요. 페이지의 빈 곳을 누른 뒤 다시 확인해 주세요."
+  },
+  "unsupportedMessage": {
+    "message": "지원하지 않는 메시지입니다."
+  },
+  "newerSchema": {
+    "message": "더 새로운 버전에서 저장한 정보예요. 확장을 업데이트해 주세요."
+  },
+  "corruptState": {
+    "message": "저장 정보를 읽을 수 없어요. 설정에서 초기화할 수 있어요."
+  },
+  "focus": {
+    "message": "집중"
+  },
+  "exam": {
+    "message": "문제 풀이"
+  },
+  "invalidReply": {
+    "message": "펫 정보를 읽을 수 없어요. 확장을 새로고침해 주세요."
+  },
+  "transportError": {
+    "message": "확장의 응답을 받지 못했어요. 다시 열어 저장된 값을 확인해 주세요."
+  },
+  "reloadExtension": {
+    "message": "확장 관리에서 Browser Pet 카드의 새로고침(↻)을 누른 뒤 팝업을 다시 열어 주세요."
+  },
+  "conflict": {
+    "message": "저장 정보가 바뀌었어요. 현재 값을 확인한 뒤 다시 시도해 주세요."
+  },
+  "requestReused": {
+    "message": "이미 다른 내용으로 처리한 요청이에요."
+  },
+  "hiddenLimit": {
+    "message": "숨긴 사이트는 200개까지 저장할 수 있어요. 설정에서 하나를 해제해 주세요."
+  },
+  "revisionLimit": {
+    "message": "저장 버전을 더 이상 올릴 수 없어요."
+  },
+  "storageError": {
+    "message": "로컬 저장소에 접근하지 못했어요. 다시 시도해 주세요."
+  },
+  "uiLanguage": {
+    "message": "ko"
+  },
+  "extensionDescription": {
+    "message": "웹서핑을 함께하는 작은 반려동물. 돌보고 놀고, 집중할 때는 함께 시간을 재요."
+  },
+  "optionsTitle": {
+    "message": "반려동물 설정 | Browser Pet"
+  },
+  "scarfLook": {
+    "message": "$value$ 스카프",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "normalSpeed": {
+    "message": "보통"
+  },
+  "speechTime": {
+    "message": "지금은 $value$이야.",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "speechTimeOne": {
+    "message": "지금은 $value$이야.",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "hourSharp": {
+    "message": "$value$ 정각",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "posePetted": {
+    "message": "쓰다듬기"
+  },
+  "highFive": {
+    "message": "하이파이브"
+  },
+  "fiveTap": {
+    "message": "하이파이브 할까?"
+  },
+  "fivePrompt": {
+    "message": "펫을 한 번 더 눌러 하이파이브해요."
+  },
+  "fiveDone": {
+    "message": "짝!"
+  },
+  "fiveFirst": {
+    "message": "짝! 첫 하이파이브를 추억 앨범에 담았어요."
+  },
+  "firstHighFive": {
+    "message": "처음 손을 맞댄 날"
+  },
+  "toyBox": {
+    "message": "장난감 상자"
+  },
+  "windupMouse": {
+    "message": "태엽 쥐"
+  },
+  "toyProgress": {
+    "message": "잠김 · $value$ XP",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "toyUnlockAt": {
+    "message": "이 동물이 $value$ XP를 모으면 열려요.",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "toyPlay": {
+    "message": "놀기"
+  },
+  "mouseReleased": {
+    "message": "태엽을 감았어요. 쥐가 달려가요!"
+  },
+  "memoryAlbum": {
+    "message": "추억 앨범"
+  },
+  "albumEmpty": {
+    "message": "아직 빈 앨범이에요. 웹페이지에서 이 친구에게 공을 던져 첫 장을 남겨 보세요."
+  },
+  "firstBall": {
+    "message": "처음 공을 던진 날"
+  },
+  "firstMouse": {
+    "message": "첫 태엽 쥐 놀이"
+  },
+  "firstSanta": {
+    "message": "산타 코트를 처음 입은 날"
+  },
+  "firstFocus": {
+    "message": "25분 이상 함께 집중한 날"
+  },
+  "roomOf": {
+    "message": "$value$의 방",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "sculptOpen": {
+    "message": "360° 보기"
+  },
+  "sculptRoom": {
+    "message": "방으로"
+  },
+  "sculptFront": {
+    "message": "앞모습"
+  },
+  "sculptSide": {
+    "message": "옆모습"
+  },
+  "sculptBack": {
+    "message": "뒷모습"
+  },
+  "sculptHint": {
+    "message": "좌우로 끌어 돌려 보세요"
+  },
+  "sculptAngle": {
+    "message": "회전 각도"
+  },
+  "sculptModel": {
+    "message": "$value$ 입체 모형",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "sculptLoading": {
+    "message": "모형을 불러오는 중…"
+  },
+  "sculptError": {
+    "message": "이 브라우저에서 모형을 그릴 수 없어요."
+  },
+  "roomAttic": {
+    "message": "햇살 다락방"
+  },
+  "roomEdit": {
+    "message": "방 꾸미기"
+  },
+  "roomClose": {
+    "message": "꾸미기 닫기"
+  },
+  "roomCushion": {
+    "message": "방석"
+  },
+  "roomMoss": {
+    "message": "잎사귀 자수"
+  },
+  "roomApricot": {
+    "message": "살구 체크"
+  },
+  "roomIndigo": {
+    "message": "남빛 별밤"
+  },
+  "roomWall": {
+    "message": "벽에 걸 그림"
+  },
+  "roomFlowers": {
+    "message": "들꽃 그림"
+  },
+  "roomEmptyWall": {
+    "message": "첫 추억 카드가 생기면 여기에 걸 수 있어요."
+  },
+  "roomHang": {
+    "message": "방에 걸기"
+  },
+  "roomUnhang": {
+    "message": "벽에서 내리기"
+  },
+  "photoTitle": {
+    "message": "또또네컷"
+  },
+  "photoHint": {
+    "message": "지금 입은 옷으로 인사부터 낮잠까지, 네 장을 한 장에 담아요."
+  },
+  "photoPaper": {
+    "message": "배경색"
+  },
+  "photoApricot": {
+    "message": "살구"
+  },
+  "photoSage": {
+    "message": "세이지"
+  },
+  "photoBlue": {
+    "message": "소라"
+  },
+  "photoShoot": {
+    "message": "네컷 찍기"
+  },
+  "photoRetake": {
+    "message": "다시 찍기"
+  },
+  "photoSave": {
+    "message": "PNG 저장"
+  },
+  "photoProgress": {
+    "message": "촬영 중 $value$ / 4",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "photoReady": {
+    "message": "네컷 사진이 완성됐어요."
+  },
+  "photoError": {
+    "message": "사진을 만들지 못했어요. 팝업을 다시 열고 촬영해 주세요."
+  },
+  "photoDescription": {
+    "message": "$value$의 네컷 사진: 정면, 옆모습, 하이파이브, 낮잠.",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "pageMeetPet": {
+    "message": "일반 웹페이지를 열면 $value$의 모습을 볼 수 있어요.",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "pageHelp": {
+    "message": "여기서는 왜 안 보이나요?"
+  },
+  "habitTitle": {
+    "message": "나만의 버릇"
+  },
+  "habitWash": {
+    "message": "앞발로 세수하기"
+  },
+  "habitChase": {
+    "message": "제 꼬리 따라 돌기"
+  },
+  "habitStone": {
+    "message": "배 위에서 돌 굴리기"
+  },
+  "habitThump": {
+    "message": "뒷발로 바닥 톡톡"
+  },
+  "habitCheeks": {
+    "message": "양 볼 문지르기"
+  },
+  "habitTail": {
+    "message": "꼬리 끝 돌아보기"
+  },
+  "habitStretch": {
+    "message": "앞발 쭉 뻗기"
+  },
+  "habitSniff": {
+    "message": "킁킁 냄새 맡기"
+  },
+  "habitWaddle": {
+    "message": "좌우로 뒤뚱거리기"
+  },
+  "habitPreen": {
+    "message": "날개 깃 다듬기"
+  },
+  "roomBox": {
+    "message": "종이상자"
+  },
+  "roomToy": {
+    "message": "방에 놓을 장난감"
+  },
+  "boxReplay": {
+    "message": "상자로 다시 놀기"
+  },
+  "boxCat": {
+    "message": "쏙 들어가 귀 끝만 내밀어요."
+  },
+  "boxDog": {
+    "message": "상자 가장자리에 턱을 괴고 쉬어요."
+  },
+  "boxRabbit": {
+    "message": "모서리를 앞니로 오물거려요."
+  },
+  "boxHamster": {
+    "message": "한쪽 가장자리에서 고개를 빼꼼 내밀어요."
+  },
+  "boxFox": {
+    "message": "꼬리를 감고 어깨 너머로 돌아봐요."
+  },
+  "boxOtter": {
+    "message": "두 앞발로 상자 가장자리를 번갈아 두드려요."
+  },
+  "boxPanda": {
+    "message": "두 발을 걸친 채 고개를 갸웃해요."
+  },
+  "boxHedgehog": {
+    "message": "구석에 파고들어 눈을 감아요."
+  },
+  "boxPenguin": {
+    "message": "양 날개를 펴고 균형을 잡아요."
+  },
+  "boxDuck": {
+    "message": "부리로 상자 가장자리를 콕콕 찍어요."
+  },
+  "habitReplay": {
+    "message": "버릇 다시 보기"
+  },
+  "agendaTitle": {
+    "message": "알람"
+  },
+  "agendaSubtitle": {
+    "message": "예정된 알람 없음"
+  },
+  "agendaMonthDay": {
+    "message": "매월 $value$일",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "agendaAlarms": {
+    "message": "내 알람"
+  },
+  "agendaAdd": {
+    "message": "+ 알람 추가"
+  },
+  "agendaEmpty": {
+    "message": "등록한 알람이 없어요."
+  },
+  "agendaDetails": {
+    "message": "새 알람"
+  },
+  "agendaName": {
+    "message": "알람 이름"
+  },
+  "agendaTime": {
+    "message": "시간"
+  },
+  "agendaRepeat": {
+    "message": "반복"
+  },
+  "agendaOnce": {
+    "message": "한 번"
+  },
+  "agendaDaily": {
+    "message": "매일"
+  },
+  "agendaWeekdays": {
+    "message": "평일 (월~금)"
+  },
+  "agendaDate": {
+    "message": "날짜"
+  },
+  "agendaSave": {
+    "message": "저장하고 켜기"
+  },
+  "agendaEdit": {
+    "message": "수정"
+  },
+  "agendaDelete": {
+    "message": "삭제"
+  },
+  "agendaToggle": {
+    "message": "$value$ 알람 켜기 또는 끄기",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "agendaEditNamed": {
+    "message": "$value$ 알람 수정",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "agendaDeleteNamed": {
+    "message": "$value$ 알람 삭제",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "agendaHistory": {
+    "message": "최근 알람 기록"
+  },
+  "agendaDesktop": {
+    "message": "시스템 알림도 받기"
+  },
+  "agendaPending": {
+    "message": "미확인 알람 $value$개",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "agendaAck": {
+    "message": "확인"
+  },
+  "agendaAckNamed": {
+    "message": "$value$ 알람 확인",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "agendaAckFailed": {
+    "message": "확인을 저장하지 못했어요. 다시 눌러 주세요."
+  },
+  "agendaMore": {
+    "message": "더 보기"
+  },
+  "agendaDeliveryHint": {
+    "message": "펫 위의 알람은 직접 확인할 때까지 남아요. Chrome을 닫거나 기기가 잠든 사이 15분 넘게 지난 알람은 최근 기록에서 볼 수 있어요."
+  },
+  "agendaRestore": {
+    "message": "알람 예약 다시 허용"
+  },
+  "agendaClockDenied": {
+    "message": "알람을 예약하려면 Chrome에서 알람 권한을 허용해 주세요."
+  },
+  "agendaNotifyDenied": {
+    "message": "시스템 알림을 켜려면 알림 권한을 허용해 주세요."
+  },
+  "agendaScheduleError": {
+    "message": "예약 상태를 확인하지 못했어요. 팝업을 다시 열어 확인해 주세요."
+  },
+  "agendaFuture": {
+    "message": "한 번 울릴 알람은 지금보다 나중으로 설정해 주세요."
+  },
+  "agendaGone": {
+    "message": "이미 삭제된 알람이에요."
+  },
+  "agendaLimit": {
+    "message": "알람은 $value$개까지 저장할 수 있어요.",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "agendaNotification": {
+    "message": "Browser Pet 알람"
+  },
+  "agendaSeveral": {
+    "message": "알람 $value$개가 함께 울렸어요.",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "agendaRinging": {
+    "message": "알람: $value$",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "agendaManage": {
+    "message": "알람 관리"
+  },
+  "agendaWindowName": {
+    "message": "Browser Pet 일정 편집"
+  },
+  "agendaClose": {
+    "message": "닫기"
+  },
+  "agendaWindowFailed": {
+    "message": "알람 창을 열 수 없어요. 확장 아이콘에서 알람을 열어 주세요."
+  },
+  "agendaWeekly": {
+    "message": "매주"
+  },
+  "agendaMonthly": {
+    "message": "매월"
+  },
+  "agendaOnWeekday": {
+    "message": "매주 $value$",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "agendaWeekday": {
+    "message": "요일"
+  },
+  "agendaMonthDate": {
+    "message": "매월 며칠"
+  },
+  "agendaShortMonth": {
+    "message": "이 날짜가 없는 달에는 그달의 마지막 날에 울려요."
+  },
+  "agendaDelivery": {
+    "message": "알림 방식"
+  },
+  "agendaNameExample": {
+    "message": "예: 스트레칭"
+  },
+  "pageChooseTab": {
+    "message": "일반 탭에서 펫을 만날 수 있어요"
+  },
+  "photoRowHint": {
+    "message": "네 장의 사진을 한 줄에"
+  },
+  "agendaNextRing": {
+    "message": "다음 알람"
+  },
+  "agendaDayNumber": {
+    "message": "$value$일",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "kkogit": {
+    "message": "꼬깃"
+  },
+  "nurung": {
+    "message": "누룽"
+  },
+  "pongdang": {
+    "message": "퐁당"
+  },
+  "habitKkogit": {
+    "message": "접힌 꼬리로 숨바꼭질"
+  },
+  "habitNurung": {
+    "message": "긴 귀를 베고 꾸벅"
+  },
+  "habitPongdang": {
+    "message": "한 짝 장화로 뒤뚱"
+  },
+  "boxKkogit": {
+    "message": "종이 꼬리를 상자 밖으로 빼꼼 내밀어요."
+  },
+  "boxNurung": {
+    "message": "긴 귀를 상자 가장자리에 걸치고 쉬어요."
+  },
+  "boxPongdang": {
+    "message": "상자 밖을 보려고 두 날개를 펼쳐요."
+  },
+  "friendsTogether": {
+    "message": "함께할 친구들"
+  },
+  "friendsHint": {
+    "message": "함께 표시할 친구를 켜 주세요. 이름과 옷은 친구 그림을 눌러 바꿀 수 있어요."
+  },
+  "friendSize": {
+    "message": "크기"
+  },
+  "friendMovement": {
+    "message": "움직임"
+  },
+  "moveWalk": {
+    "message": "걷기"
+  },
+  "moveBounce": {
+    "message": "깡충거리기"
+  },
+  "moveFloat": {
+    "message": "둥실거리기"
+  },
+  "friendDisplay": {
+    "message": "함께 표시"
+  },
+  "friendEditing": {
+    "message": "설정 중"
+  },
+  "friendEdit": {
+    "message": "이 친구 설정"
+  },
+  "friendsMasterOff": {
+    "message": "전체 표시가 꺼져 있어요. 위에서 친구를 켜거나 팝업의 펫 표시를 켜 주세요."
+  },
+  "editFriend": {
+    "message": "$value$ 설정",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "displayFriend": {
+    "message": "$value$ 함께 표시",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "imagePetsTitle": {
+    "message": "내 이미지 펫"
+  },
+  "imagePetsIntro": {
+    "message": "좋아하는 그림이나 사진을 작은 친구로 데려오세요."
+  },
+  "imagePetBadge": {
+    "message": "내 이미지"
+  },
+  "imagePetChooseFile": {
+    "message": "이미지 선택"
+  },
+  "imagePetChangeFile": {
+    "message": "다른 이미지 선택"
+  },
+  "imagePetPreview": {
+    "message": "등록할 이미지 미리보기"
+  },
+  "imagePetFileHint": {
+    "message": "PNG, JPG, WebP, GIF · 최대 5MB"
+  },
+  "imagePetLocalHint": {
+    "message": "그림은 이 기기에서만 처리하고 저장해요. 두 효과를 끄면 원래 모습으로 돌아가요."
+  },
+  "imagePetReading": {
+    "message": "이미지 준비 중"
+  },
+  "imagePetRegister": {
+    "message": "내 펫으로 등록"
+  },
+  "imagePetAdded": {
+    "message": "등록했어요. 일반 웹페이지에서 만나 보세요."
+  },
+  "imagePetDefault": {
+    "message": "나의 펫"
+  },
+  "imagePetManage": {
+    "message": "이미지 펫 추가와 설정"
+  },
+  "imagePetLimit": {
+    "message": "이미지 펫은 최대 5마리까지 등록할 수 있어요."
+  },
+  "imagePetFormat": {
+    "message": "PNG, JPG, WebP 또는 GIF 이미지를 선택해 주세요."
+  },
+  "imagePetTooLarge": {
+    "message": "5MB 이하의 이미지를 골라 주세요."
+  },
+  "imagePetUnreadable": {
+    "message": "이미지를 읽지 못했어요. 다른 파일을 골라 주세요."
+  },
+  "imagePetDimensions": {
+    "message": "사진 해상도가 너무 커요. 크기를 줄여 다시 골라 주세요."
+  },
+  "imagePetEmpty": {
+    "message": "보이는 그림이 없는 투명 이미지예요. 다른 이미지를 골라 주세요."
+  },
+  "imageRemove": {
+    "message": "이 이미지 펫 삭제"
+  },
+  "imageRemovePrompt": {
+    "message": "$value$의 이미지와 돌봄 기록을 삭제할까요? 원본 파일은 그대로 남아요.",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "imageRemoveConfirm": {
+    "message": "삭제하기"
+  },
+  "petName": {
+    "message": "이름"
+  },
+  "imageAppearance": {
+    "message": "펫 모습"
+  },
+  "imageLookEdit": {
+    "message": "모습 편집"
+  },
+  "imageLookSave": {
+    "message": "모습 적용"
+  },
+  "imageCutout": {
+    "message": "단색 배경 자동 제거"
+  },
+  "imageRelief": {
+    "message": "입체 스티커"
+  },
+  "imageTilt": {
+    "message": "좌우로 기울이기"
+  },
+  "imageFront": {
+    "message": "정면으로"
+  },
+  "imageBackgroundUncertain": {
+    "message": "배경색을 구분하기 어려워 원래 배경을 유지했어요. 투명 PNG나 단색 배경 그림을 써 보세요."
+  },
+  "imagePreviewError": {
+    "message": "효과를 미리 볼 수 없어 원본 그림을 표시했어요."
+  },
+  "atticCount": {
+    "message": "나와 있는 펫 $value$마리",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "atticEmpty": {
+    "message": "지금 나와 있는 친구가 없어요"
+  },
+  "moveCrawl": {
+    "message": "꼬물꼬물 기기"
+  },
+  "moveSpin": {
+    "message": "빙글 날기"
+  },
+  "imageHeading": {
+    "message": "그림이 보는 방향"
+  },
+  "keepFacing": {
+    "message": "그대로 유지"
+  },
+  "facesLeft": {
+    "message": "왼쪽을 봐요"
+  },
+  "facesRight": {
+    "message": "오른쪽을 봐요"
+  },
+  "customFriends": {
+    "message": "내 캐릭터"
+  },
+  "builtInFriends": {
+    "message": "기본 캐릭터"
+  },
+  "addCharacter": {
+    "message": "캐릭터 추가"
+  },
+  "createCharacter": {
+    "message": "새 캐릭터 만들기"
+  },
+  "gifUnavailable": {
+    "message": "이 Chrome에서는 GIF를 읽을 수 없어요. 다른 그림을 선택해 주세요."
+  },
+  "gifFrameLimit": {
+    "message": "GIF는 $value$프레임까지 등록할 수 있어요.",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "backupTitle": {
+    "message": "다른 컴퓨터로 옮기기"
+  },
+  "backupHint": {
+    "message": "펫과 돌봄 기록, 이미지, 설정, 알람을 JSON 파일 하나에 담아요. 새 컴퓨터에서 이 파일을 가져오세요."
+  },
+  "backupExport": {
+    "message": "백업 내보내기"
+  },
+  "backupImport": {
+    "message": "백업 가져오기"
+  },
+  "backupDownloaded": {
+    "message": "백업 파일 다운로드를 시작했어요."
+  },
+  "backupInvalid": {
+    "message": "Browser Pet 백업을 읽을 수 없어요. 내보낸 JSON 파일을 다시 선택해 주세요."
+  },
+  "backupVersion": {
+    "message": "이 백업 버전을 지원하지 않아요. 파일을 만든 버전과 호환되는 Browser Pet에서 열어 주세요."
+  },
+  "backupTooLarge": {
+    "message": "백업은 최대 16MB까지 가져올 수 있어요."
+  },
+  "backupReview": {
+    "message": "이 백업을 가져올까요?"
+  },
+  "backupDate": {
+    "message": "백업한 날짜"
+  },
+  "backupReplace": {
+    "message": "이 기기의 Browser Pet 기록 전체를 파일의 내용으로 교체해요. 지금 기록도 보관하려면 취소하고 먼저 내보내세요."
+  },
+  "backupConfirm": {
+    "message": "교체하고 가져오기"
+  },
+  "backupDone": {
+    "message": "가져왔어요. 이 기기에서 이어서 돌볼 수 있어요."
+  },
+  "backupDoneAlarms": {
+    "message": "펫과 알람을 가져왔어요. 새 기기에서는 팝업의 알람 메뉴에서 알람 권한을 확인해 주세요."
+  },
+  "meetPet": {
+    "message": "$value$ 만나기",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "meetOnWeb": {
+    "message": "일반 웹페이지에서 만나요. 웹사이트를 열고 이 아이콘을 다시 눌러 주세요."
+  }
+}

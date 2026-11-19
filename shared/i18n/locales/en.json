@@ -1,0 +1,1532 @@
+{
+  "settingsHeading": {
+    "message": "Settings"
+  },
+  "settingsIntro": {
+    "message": "A little more like you. A little more at home."
+  },
+  "settingsFriend": {
+    "message": "My companion"
+  },
+  "settingsNavigation": {
+    "message": "Settings navigation"
+  },
+  "nameValidation": {
+    "message": "Enter 1–20 characters without line breaks."
+  },
+  "nameSaveError": {
+    "message": "Couldn’t save the name. Try again."
+  },
+  "speciesName": {
+    "message": "Name: $value$",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "saving": {
+    "message": "Saving…"
+  },
+  "saveName": {
+    "message": "Save name"
+  },
+  "nameSaved": {
+    "message": "Name saved."
+  },
+  "mySpecies": {
+    "message": "My pet: $value$",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "speciesSaveError": {
+    "message": "Couldn’t save your choice. Please choose again."
+  },
+  "choosePet": {
+    "message": "Choose a companion"
+  },
+  "speciesHint": {
+    "message": "Each friend keeps their own name, care, outfit and position across tabs."
+  },
+  "unknownPet": {
+    "message": "This look is unavailable. Nurung appears in its place; your original record stays on this device."
+  },
+  "speciesSaved": {
+    "message": "Selected: $value$.",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "petGeneric": {
+    "message": "Pet"
+  },
+  "speciesSettings": {
+    "message": "Settings: $value$",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "speciesProfile": {
+    "message": "Profile: $value$",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "nameHint": {
+    "message": "Pick a name with 1–20 characters. Save it to use it across your tabs."
+  },
+  "loadingPet": {
+    "message": "Loading your pet…"
+  },
+  "updateNeeded": {
+    "message": "Browser Pet needs an update."
+  },
+  "unreadablePet": {
+    "message": "Can’t read the saved pet data."
+  },
+  "settingsLoadError": {
+    "message": "Couldn’t load settings."
+  },
+  "newerDataNotice": {
+    "message": "This data was saved by a newer version. Your original data is unchanged."
+  },
+  "resetHint": {
+    "message": "Your data is unchanged. To start over, reset it below."
+  },
+  "poseStand": {
+    "message": "Standing"
+  },
+  "poseWalk": {
+    "message": "Little steps"
+  },
+  "poseSit": {
+    "message": "Sitting"
+  },
+  "poseNap": {
+    "message": "Napping"
+  },
+  "petAction": {
+    "message": "Pet"
+  },
+  "poseLift": {
+    "message": "Dangle and squirm"
+  },
+  "poseReplay": {
+    "message": "Replay pose"
+  },
+  "poseSettle": {
+    "message": "Settling in"
+  },
+  "poseEat": {
+    "message": "Snack time"
+  },
+  "poseSpotBall": {
+    "message": "Spotted a ball"
+  },
+  "poseBall": {
+    "message": "Ball play"
+  },
+  "poseFetch": {
+    "message": "Fetching"
+  },
+  "poseBat": {
+    "message": "Rolling the ball"
+  },
+  "poseBook": {
+    "message": "Pose book"
+  },
+  "smallPreview": {
+    "message": "Small preview"
+  },
+  "choosePose": {
+    "message": "Choose a pose"
+  },
+  "poseHint": {
+    "message": "Previewing a pose won’t change what your pet is doing on the page."
+  },
+  "saveError": {
+    "message": "Couldn’t save your changes. Try again."
+  },
+  "sizeSmall": {
+    "message": "Small"
+  },
+  "sizeMedium": {
+    "message": "Medium"
+  },
+  "sizeLarge": {
+    "message": "Large"
+  },
+  "speciesSize": {
+    "message": "Size: $value$",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "onLabel": {
+    "message": "On"
+  },
+  "offLabel": {
+    "message": "Off"
+  },
+  "slow": {
+    "message": "Slow"
+  },
+  "systemMotion": {
+    "message": "Use device setting"
+  },
+  "reduceAlways": {
+    "message": "Always reduce"
+  },
+  "saved": {
+    "message": "Saved."
+  },
+  "appearance": {
+    "message": "Look and behavior"
+  },
+  "allTabsHint": {
+    "message": "Applies to all tabs in this profile."
+  },
+  "personality": {
+    "message": "Personality"
+  },
+  "livelyHint": {
+    "message": "Dashes after the ball right away."
+  },
+  "calmHint": {
+    "message": "Looks at the ball before approaching."
+  },
+  "speechBubbles": {
+    "message": "Speech bubbles"
+  },
+  "speechHint": {
+    "message": "Your pet sometimes says hello or tells you the time."
+  },
+  "walkSpeed": {
+    "message": "Walking speed"
+  },
+  "reduceMotion": {
+    "message": "Reduce motion"
+  },
+  "resetError": {
+    "message": "Couldn’t reset your data. Please try again."
+  },
+  "storedData": {
+    "message": "Saved data"
+  },
+  "storageHint": {
+    "message": "Your pet details, settings, reminders and recent reminder history stay in this Chrome profile."
+  },
+  "resetData": {
+    "message": "Reset data"
+  },
+  "resetDone": {
+    "message": "Data reset. You’re back to Nurung, with Show pet off."
+  },
+  "resetQuestion": {
+    "message": "Reset data for all pets?"
+  },
+  "resetWarning": {
+    "message": "This clears all pets, names, positions, settings, care, XP, memories, room decor, the timer, reminders and reminder history. Nurung returns, hidden on every tab. Exported PNG files remain. This cannot be undone."
+  },
+  "cancel": {
+    "message": "Cancel"
+  },
+  "resetting": {
+    "message": "Resetting…"
+  },
+  "confirmReset": {
+    "message": "Reset"
+  },
+  "railEveryday": {
+    "message": "Everyday"
+  },
+  "railChristmas": {
+    "message": "Christmas"
+  },
+  "scarf": {
+    "message": "Scarf"
+  },
+  "defaultLook": {
+    "message": "Natural look"
+  },
+  "wardrobe": {
+    "message": "Wardrobe"
+  },
+  "wardrobeHint": {
+    "message": "Try an outfit with a matching scarf."
+  },
+  "tryingOn": {
+    "message": "Trying it on"
+  },
+  "wearingNow": {
+    "message": "Wearing now"
+  },
+  "outfits": {
+    "message": "Outfits"
+  },
+  "none": {
+    "message": "None"
+  },
+  "lookSaved": {
+    "message": "Outfit saved."
+  },
+  "applyLook": {
+    "message": "Wear this"
+  },
+  "chooseAgain": {
+    "message": "Start over"
+  },
+  "visibilitySaveError": {
+    "message": "Couldn’t save the visibility setting."
+  },
+  "openSettingsError": {
+    "message": "Couldn’t open settings. Reload Browser Pet on the extensions page."
+  },
+  "hiddenOnPages": {
+    "message": "Hidden on web pages"
+  },
+  "changePet": {
+    "message": "Friends and names"
+  },
+  "extensionsHelp": {
+    "message": "Go to chrome://extensions and click Reload (↻) on the Browser Pet card."
+  },
+  "openExtensions": {
+    "message": "Manage extensions"
+  },
+  "fed": {
+    "message": "Your pet had a snack."
+  },
+  "petted": {
+    "message": "You gave your pet a pat."
+  },
+  "feedCooldown": {
+    "message": "Your pet just ate. You can feed it again 10 minutes after its last meal."
+  },
+  "petCooldown": {
+    "message": "Petting feels good! Mood and XP go up once a minute."
+  },
+  "careError": {
+    "message": "Couldn’t save this care action. Try again."
+  },
+  "speciesCare": {
+    "message": "Care log: $value$",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "totalXp": {
+    "message": "Total XP"
+  },
+  "fullness": {
+    "message": "Fullness"
+  },
+  "mood": {
+    "message": "Mood"
+  },
+  "feed": {
+    "message": "Feed"
+  },
+  "feeding": {
+    "message": "Feeding…"
+  },
+  "petting": {
+    "message": "Petting…"
+  },
+  "pingWaiting": {
+    "message": "Waiting for reply"
+  },
+  "pongReceived": {
+    "message": "PONG received"
+  },
+  "noPong": {
+    "message": "No PONG received."
+  },
+  "connection": {
+    "message": "Connection check"
+  },
+  "sendPing": {
+    "message": "Send PING"
+  },
+  "noTab": {
+    "message": "No selected page found."
+  },
+  "noReceiver": {
+    "message": "No reply from this tab. Pets can’t appear on the new tab or extensions page. On a regular site, reload the page and check site access."
+  },
+  "checkingPage": {
+    "message": "Checking this page…"
+  },
+  "visibleHere": {
+    "message": "Visible on this page"
+  },
+  "recheckPage": {
+    "message": "Check visibility again"
+  },
+  "hideEverywhere": {
+    "message": "Hide pet on all tabs"
+  },
+  "showEverywhere": {
+    "message": "Show pet on all tabs"
+  },
+  "showPet": {
+    "message": "Show pet"
+  },
+  "openSettings": {
+    "message": "Open settings"
+  },
+  "timerError": {
+    "message": "Couldn’t change the timer. Try again."
+  },
+  "studyTimer": {
+    "message": "Study timer"
+  },
+  "timerToolTitle": {
+    "message": "Timer"
+  },
+  "timerChoices": {
+    "message": "Focus / Practice"
+  },
+  "setTime": {
+    "message": "Set time"
+  },
+  "timerMode": {
+    "message": "Timer mode"
+  },
+  "timeLimit": {
+    "message": "Time limit"
+  },
+  "minutesUnit": {
+    "message": "min"
+  },
+  "start": {
+    "message": "Start"
+  },
+  "focusHint": {
+    "message": "See your focus time above your pet."
+  },
+  "examHint": {
+    "message": "See your time left for practice above your pet."
+  },
+  "modeTimer": {
+    "message": "Timer: $value$",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "timeLeft": {
+    "message": "Time left"
+  },
+  "timesUp": {
+    "message": "Time’s up."
+  },
+  "paused": {
+    "message": "Paused"
+  },
+  "sessionMinutes": {
+    "message": "In progress · $value$ min",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "resume": {
+    "message": "Resume"
+  },
+  "pause": {
+    "message": "Pause"
+  },
+  "ok": {
+    "message": "OK"
+  },
+  "end": {
+    "message": "End"
+  },
+  "invalidWalkTime": {
+    "message": "Invalid walk time."
+  },
+  "speechNight": {
+    "message": "It’s so quiet tonight."
+  },
+  "speechMorning": {
+    "message": "Good morning!"
+  },
+  "speechWalk": {
+    "message": "Fancy a little walk?"
+  },
+  "speechEvening": {
+    "message": "It’s nice to see you again."
+  },
+  "speechHello": {
+    "message": "Hi there!"
+  },
+  "speechStretch": {
+    "message": "Time for a stretch?"
+  },
+  "speechHere": {
+    "message": "I’m right here!"
+  },
+  "cat": {
+    "message": "Cat"
+  },
+  "dog": {
+    "message": "Dog"
+  },
+  "rabbit": {
+    "message": "Rabbit"
+  },
+  "hamster": {
+    "message": "Hamster"
+  },
+  "fox": {
+    "message": "Fox"
+  },
+  "otter": {
+    "message": "Otter"
+  },
+  "redPanda": {
+    "message": "Red panda"
+  },
+  "hedgehog": {
+    "message": "Hedgehog"
+  },
+  "penguin": {
+    "message": "Penguin"
+  },
+  "duck": {
+    "message": "Duck"
+  },
+  "nabi": {
+    "message": "Nabi"
+  },
+  "invalidFrame": {
+    "message": "Invalid frame number or scale."
+  },
+  "throwBall": {
+    "message": "Throw ball"
+  },
+  "resumeWalk": {
+    "message": "Resume walk"
+  },
+  "hideAllTabs": {
+    "message": "Hide on all tabs"
+  },
+  "modePaused": {
+    "message": "$value$ · paused",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "speechExamOver": {
+    "message": "Practice time’s up!"
+  },
+  "speechFocusOver": {
+    "message": "Focus time’s up! Take a break?"
+  },
+  "pinned": {
+    "message": "Pinned"
+  },
+  "walkMode": {
+    "message": "Walking mode"
+  },
+  "petMenu": {
+    "message": "Menu: $value$",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "shareError": {
+    "message": "Couldn’t share the change. Try again."
+  },
+  "fedReward": {
+    "message": "Snack served. +5 XP!"
+  },
+  "fedWait": {
+    "message": "Just ate! Snacks are available every 10 minutes."
+  },
+  "pattedReward": {
+    "message": "A happy pat. +2 XP!"
+  },
+  "pattedWait": {
+    "message": "Thanks for the pat! XP is earned once a minute."
+  },
+  "careResultError": {
+    "message": "Couldn’t check the care result."
+  },
+  "fetchAnnounce": {
+    "message": "Ball thrown. Your pet will fetch it."
+  },
+  "batAnnounce": {
+    "message": "Ball thrown. Your pet will bat it along."
+  },
+  "openInPopup": {
+    "message": "Couldn’t open settings here. Use the gear in the Browser Pet popup."
+  },
+  "calm": {
+    "message": "Calm"
+  },
+  "lively": {
+    "message": "Lively"
+  },
+  "removeScarf": {
+    "message": "Take off"
+  },
+  "pineGreen": {
+    "message": "Pine green"
+  },
+  "berryRed": {
+    "message": "Berry red"
+  },
+  "skyBlue": {
+    "message": "Sky blue"
+  },
+  "noOutfit": {
+    "message": "No outfit"
+  },
+  "denim": {
+    "message": "Denim overalls"
+  },
+  "santa": {
+    "message": "Santa coat"
+  },
+  "elf": {
+    "message": "Woodland elf outfit"
+  },
+  "reindeer": {
+    "message": "Reindeer vest"
+  },
+  "badFormat": {
+    "message": "Unsupported message format."
+  },
+  "internalOnly": {
+    "message": "Only requests from this extension are allowed."
+  },
+  "badRead": {
+    "message": "Invalid read request."
+  },
+  "badRequest": {
+    "message": "Unsupported request."
+  },
+  "wrongScreen": {
+    "message": "This request isn’t available on this screen."
+  },
+  "badSave": {
+    "message": "Check the values you’re trying to save."
+  },
+  "timerInPopup": {
+    "message": "Use the popup to control the timer."
+  },
+  "cannotHideSite": {
+    "message": "Hiding this site isn’t available on this page."
+  },
+  "chooseValidPet": {
+    "message": "Choose an available pet."
+  },
+  "invalidName": {
+    "message": "Enter 1–20 characters, without line breaks or control characters."
+  },
+  "onlyOptions": {
+    "message": "Change this setting on the settings page."
+  },
+  "pageVisible": {
+    "message": "Your pet is visible on this page."
+  },
+  "wrongWindow": {
+    "message": "This window isn’t showing your pet. Close the popup and select a page in a regular Chrome window."
+  },
+  "displayOff": {
+    "message": "Show pet is off."
+  },
+  "pageLoading": {
+    "message": "This page is still loading your pet. Check again in a moment."
+  },
+  "pageStateError": {
+    "message": "This page couldn’t load your pet. Reopen a regular web page."
+  },
+  "pageDetached": {
+    "message": "Your pet lost its spot on this page. Click a blank area and check again."
+  },
+  "unsupportedMessage": {
+    "message": "Unsupported message."
+  },
+  "newerSchema": {
+    "message": "This data comes from a newer version. Update Browser Pet."
+  },
+  "corruptState": {
+    "message": "Can’t read the saved data. You can reset it in settings."
+  },
+  "focus": {
+    "message": "Focus"
+  },
+  "exam": {
+    "message": "Practice"
+  },
+  "invalidReply": {
+    "message": "Can’t read your pet’s data. Reload Browser Pet."
+  },
+  "transportError": {
+    "message": "Browser Pet didn’t reply. Reopen it to check what was saved."
+  },
+  "reloadExtension": {
+    "message": "Reload (↻) Browser Pet on the extensions page, then reopen the popup."
+  },
+  "conflict": {
+    "message": "The saved data changed. Check the current values and try again."
+  },
+  "requestReused": {
+    "message": "This request was already used for another change."
+  },
+  "hiddenLimit": {
+    "message": "You can hide up to 200 sites. Remove one in settings first."
+  },
+  "revisionLimit": {
+    "message": "The saved data version can’t be increased further."
+  },
+  "storageError": {
+    "message": "Can’t access local storage. Try again."
+  },
+  "uiLanguage": {
+    "message": "en"
+  },
+  "extensionDescription": {
+    "message": "A little pet for your browser. Care for it, play together, or focus with a study timer."
+  },
+  "optionsTitle": {
+    "message": "Pet settings | Browser Pet"
+  },
+  "scarfLook": {
+    "message": "Scarf: $value$",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "normalSpeed": {
+    "message": "Normal"
+  },
+  "speechTime": {
+    "message": "It’s $value$.",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "speechTimeOne": {
+    "message": "It’s $value$.",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "hourSharp": {
+    "message": "$value$ sharp",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "posePetted": {
+    "message": "Getting pets"
+  },
+  "highFive": {
+    "message": "High five"
+  },
+  "fiveTap": {
+    "message": "High five?"
+  },
+  "fivePrompt": {
+    "message": "Tap your pet again for a high five."
+  },
+  "fiveDone": {
+    "message": "High five!"
+  },
+  "fiveFirst": {
+    "message": "High five! Your first one is in the memory album."
+  },
+  "firstHighFive": {
+    "message": "Our first high five"
+  },
+  "toyBox": {
+    "message": "Toy box"
+  },
+  "windupMouse": {
+    "message": "Wind-up mouse"
+  },
+  "toyProgress": {
+    "message": "Locked · $value$ XP",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "toyUnlockAt": {
+    "message": "This pet needs $value$ XP to unlock the toy.",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "toyPlay": {
+    "message": "Play"
+  },
+  "mouseReleased": {
+    "message": "You wound it up. Off goes the mouse!"
+  },
+  "memoryAlbum": {
+    "message": "Memory album"
+  },
+  "albumEmpty": {
+    "message": "No keepsakes yet. Toss your pet a ball on a web page to make the first one."
+  },
+  "firstBall": {
+    "message": "Our first ball game"
+  },
+  "firstMouse": {
+    "message": "Our first wind-up mouse"
+  },
+  "firstSanta": {
+    "message": "The first Santa coat"
+  },
+  "firstFocus": {
+    "message": "Our first 25+ minutes of focus"
+  },
+  "roomOf": {
+    "message": "$value$’s room",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "sculptOpen": {
+    "message": "360° view"
+  },
+  "sculptRoom": {
+    "message": "Back to room"
+  },
+  "sculptFront": {
+    "message": "Front"
+  },
+  "sculptSide": {
+    "message": "Side"
+  },
+  "sculptBack": {
+    "message": "Back"
+  },
+  "sculptHint": {
+    "message": "Drag to rotate"
+  },
+  "sculptAngle": {
+    "message": "Rotation angle"
+  },
+  "sculptModel": {
+    "message": "3D figure of $value$",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "sculptLoading": {
+    "message": "Loading figure…"
+  },
+  "sculptError": {
+    "message": "This browser could not draw the figure."
+  },
+  "roomAttic": {
+    "message": "The sunlit attic"
+  },
+  "roomEdit": {
+    "message": "Decorate"
+  },
+  "roomClose": {
+    "message": "Done decorating"
+  },
+  "roomCushion": {
+    "message": "Cushion"
+  },
+  "roomMoss": {
+    "message": "Leaf stitch"
+  },
+  "roomApricot": {
+    "message": "Apricot gingham"
+  },
+  "roomIndigo": {
+    "message": "Midnight stars"
+  },
+  "roomWall": {
+    "message": "Wall picture"
+  },
+  "roomFlowers": {
+    "message": "Wildflower print"
+  },
+  "roomEmptyWall": {
+    "message": "Your first memory card can hang here."
+  },
+  "roomHang": {
+    "message": "Hang in room"
+  },
+  "roomUnhang": {
+    "message": "Take down"
+  },
+  "photoTitle": {
+    "message": "Photo booth"
+  },
+  "photoHint": {
+    "message": "Four poses in today’s outfit, from hello to a little nap."
+  },
+  "photoPaper": {
+    "message": "Backdrop"
+  },
+  "photoApricot": {
+    "message": "Apricot"
+  },
+  "photoSage": {
+    "message": "Sage"
+  },
+  "photoBlue": {
+    "message": "Sky"
+  },
+  "photoShoot": {
+    "message": "Take four photos"
+  },
+  "photoRetake": {
+    "message": "Retake"
+  },
+  "photoSave": {
+    "message": "Save PNG"
+  },
+  "photoProgress": {
+    "message": "Shooting $value$ / 4",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "photoReady": {
+    "message": "Your four-photo print is ready."
+  },
+  "photoError": {
+    "message": "Couldn’t make the print. Reopen the popup and try again."
+  },
+  "photoDescription": {
+    "message": "Four portraits of $value$: front, profile, high five, and nap.",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "pageMeetPet": {
+    "message": "Open a regular webpage to meet $value$.",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "pageHelp": {
+    "message": "Why isn’t my pet here?"
+  },
+  "habitTitle": {
+    "message": "Signature habit"
+  },
+  "habitWash": {
+    "message": "Paw wash"
+  },
+  "habitChase": {
+    "message": "Chase my tail"
+  },
+  "habitStone": {
+    "message": "Roll a belly pebble"
+  },
+  "habitThump": {
+    "message": "Hind-foot thump"
+  },
+  "habitCheeks": {
+    "message": "Rub both cheeks"
+  },
+  "habitTail": {
+    "message": "Look back at my tail"
+  },
+  "habitStretch": {
+    "message": "Stretch my paws"
+  },
+  "habitSniff": {
+    "message": "Sniff the air"
+  },
+  "habitWaddle": {
+    "message": "Waddle from side to side"
+  },
+  "habitPreen": {
+    "message": "Preen a wing"
+  },
+  "roomBox": {
+    "message": "Cardboard box"
+  },
+  "roomToy": {
+    "message": "Room toy"
+  },
+  "boxReplay": {
+    "message": "Play with the box again"
+  },
+  "boxCat": {
+    "message": "Sinks down until just the ears peek out."
+  },
+  "boxDog": {
+    "message": "Rests a chin on the rim."
+  },
+  "boxRabbit": {
+    "message": "Nibbles the corner with tiny teeth."
+  },
+  "boxHamster": {
+    "message": "Peeks over one side."
+  },
+  "boxFox": {
+    "message": "Curls its tail and glances over a shoulder."
+  },
+  "boxOtter": {
+    "message": "Drums on the rim with alternating paws."
+  },
+  "boxPanda": {
+    "message": "Drapes both paws over the edge and tilts its head."
+  },
+  "boxHedgehog": {
+    "message": "Nestles into a corner and closes its eyes."
+  },
+  "boxPenguin": {
+    "message": "Spreads both flippers to balance."
+  },
+  "boxDuck": {
+    "message": "Taps the rim with its bill."
+  },
+  "habitReplay": {
+    "message": "Replay habit"
+  },
+  "agendaTitle": {
+    "message": "Reminders"
+  },
+  "agendaSubtitle": {
+    "message": "No upcoming reminders"
+  },
+  "agendaMonthDay": {
+    "message": "Day $value$ of each month",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "agendaAlarms": {
+    "message": "My reminders"
+  },
+  "agendaAdd": {
+    "message": "+ Add reminder"
+  },
+  "agendaEmpty": {
+    "message": "No reminders yet."
+  },
+  "agendaDetails": {
+    "message": "New reminder"
+  },
+  "agendaName": {
+    "message": "Reminder name"
+  },
+  "agendaTime": {
+    "message": "Time"
+  },
+  "agendaRepeat": {
+    "message": "Repeat"
+  },
+  "agendaOnce": {
+    "message": "Once"
+  },
+  "agendaDaily": {
+    "message": "Daily"
+  },
+  "agendaWeekdays": {
+    "message": "Weekdays"
+  },
+  "agendaDate": {
+    "message": "Date"
+  },
+  "agendaSave": {
+    "message": "Save and enable"
+  },
+  "agendaEdit": {
+    "message": "Edit"
+  },
+  "agendaDelete": {
+    "message": "Delete"
+  },
+  "agendaToggle": {
+    "message": "Toggle reminder: $value$",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "agendaEditNamed": {
+    "message": "Edit reminder: $value$",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "agendaDeleteNamed": {
+    "message": "Delete reminder: $value$",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "agendaHistory": {
+    "message": "Recent reminders"
+  },
+  "agendaDesktop": {
+    "message": "Also show desktop notifications"
+  },
+  "agendaPending": {
+    "message": "Unacknowledged: $value$",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "agendaAck": {
+    "message": "Dismiss"
+  },
+  "agendaAckNamed": {
+    "message": "Dismiss reminder: $value$",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "agendaAckFailed": {
+    "message": "Couldn’t dismiss this reminder. Please try again."
+  },
+  "agendaMore": {
+    "message": "Show more"
+  },
+  "agendaDeliveryHint": {
+    "message": "Reminders stay above your pet until you dismiss them. Reminders more than 15 minutes overdue when Chrome or your device wakes are saved only in recent history."
+  },
+  "agendaRestore": {
+    "message": "Allow scheduling again"
+  },
+  "agendaClockDenied": {
+    "message": "Allow the Chrome alarms permission to schedule reminders."
+  },
+  "agendaNotifyDenied": {
+    "message": "Allow notifications to receive desktop reminders."
+  },
+  "agendaScheduleError": {
+    "message": "Couldn’t confirm the schedule. Reopen the popup to check."
+  },
+  "agendaFuture": {
+    "message": "Choose a future date and time for a one-time reminder."
+  },
+  "agendaGone": {
+    "message": "That reminder was deleted."
+  },
+  "agendaLimit": {
+    "message": "You can save up to $value$ reminders.",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "agendaNotification": {
+    "message": "Browser Pet reminder"
+  },
+  "agendaSeveral": {
+    "message": "You have $value$ reminders right now.",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "agendaRinging": {
+    "message": "Reminder: $value$",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "agendaManage": {
+    "message": "Manage reminders"
+  },
+  "agendaWindowName": {
+    "message": "Browser Pet planner"
+  },
+  "agendaClose": {
+    "message": "Close"
+  },
+  "agendaWindowFailed": {
+    "message": "Couldn’t open reminders. Open Reminders from the extension icon."
+  },
+  "agendaWeekly": {
+    "message": "Weekly"
+  },
+  "agendaMonthly": {
+    "message": "Monthly"
+  },
+  "agendaOnWeekday": {
+    "message": "Every $value$",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "agendaWeekday": {
+    "message": "Day of the week"
+  },
+  "agendaMonthDate": {
+    "message": "Day of the month"
+  },
+  "agendaShortMonth": {
+    "message": "In shorter months, this rings on the last day."
+  },
+  "agendaDelivery": {
+    "message": "Notification settings"
+  },
+  "agendaNameExample": {
+    "message": "e.g. Stretch break"
+  },
+  "pageChooseTab": {
+    "message": "Choose a regular tab to see your pet"
+  },
+  "photoRowHint": {
+    "message": "Four frames, one photo strip"
+  },
+  "agendaNextRing": {
+    "message": "Next reminder"
+  },
+  "agendaDayNumber": {
+    "message": "$value$",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "kkogit": {
+    "message": "Kkogit"
+  },
+  "nurung": {
+    "message": "Nurung"
+  },
+  "pongdang": {
+    "message": "Pongdang"
+  },
+  "habitKkogit": {
+    "message": "Hide behind a paper fan"
+  },
+  "habitNurung": {
+    "message": "Rest on a floppy ear"
+  },
+  "habitPongdang": {
+    "message": "Wobble in one boot"
+  },
+  "boxKkogit": {
+    "message": "A folded tail peeks over the box."
+  },
+  "boxNurung": {
+    "message": "Long ears spill over the edge of the box."
+  },
+  "boxPongdang": {
+    "message": "Two wings spread over the rim of the box."
+  },
+  "friendsTogether": {
+    "message": "Your companions"
+  },
+  "friendsHint": {
+    "message": "Turn on the friends you want beside you. Select a portrait to change their name and outfit."
+  },
+  "friendSize": {
+    "message": "Size"
+  },
+  "friendMovement": {
+    "message": "Movement"
+  },
+  "moveWalk": {
+    "message": "Walk"
+  },
+  "moveBounce": {
+    "message": "Hop"
+  },
+  "moveFloat": {
+    "message": "Float"
+  },
+  "friendDisplay": {
+    "message": "Show friend"
+  },
+  "friendEditing": {
+    "message": "Editing"
+  },
+  "friendEdit": {
+    "message": "Edit friend"
+  },
+  "friendsMasterOff": {
+    "message": "All pets are hidden. Turn on a friend here or use Pet display in the popup."
+  },
+  "editFriend": {
+    "message": "Edit $value$",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "displayFriend": {
+    "message": "Show $value$",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "imagePetsTitle": {
+    "message": "My image pets"
+  },
+  "imagePetsIntro": {
+    "message": "Bring a favorite drawing or photo along as a little companion."
+  },
+  "imagePetBadge": {
+    "message": "My image"
+  },
+  "imagePetChooseFile": {
+    "message": "Choose image"
+  },
+  "imagePetChangeFile": {
+    "message": "Change image"
+  },
+  "imagePetPreview": {
+    "message": "Preview of your new pet"
+  },
+  "imagePetFileHint": {
+    "message": "PNG, JPG, WebP, GIF · Up to 5 MB"
+  },
+  "imagePetLocalHint": {
+    "message": "Your picture is processed and saved on this device. Turn off both effects to restore its original look."
+  },
+  "imagePetReading": {
+    "message": "Preparing image"
+  },
+  "imagePetRegister": {
+    "message": "Add my pet"
+  },
+  "imagePetAdded": {
+    "message": "Added. Meet your pet on a regular web page."
+  },
+  "imagePetDefault": {
+    "message": "My pet"
+  },
+  "imagePetManage": {
+    "message": "Add and manage image pets"
+  },
+  "imagePetLimit": {
+    "message": "You can add up to 5 image pets."
+  },
+  "imagePetFormat": {
+    "message": "Choose a PNG, JPG, WebP or GIF image."
+  },
+  "imagePetTooLarge": {
+    "message": "Choose an image no larger than 5 MB."
+  },
+  "imagePetUnreadable": {
+    "message": "Could not read this image. Choose another file."
+  },
+  "imagePetDimensions": {
+    "message": "This image has too many pixels. Resize it and try again."
+  },
+  "imagePetEmpty": {
+    "message": "This image is fully transparent. Choose another image."
+  },
+  "imageRemove": {
+    "message": "Delete this image pet"
+  },
+  "imageRemovePrompt": {
+    "message": "Delete the image and care records for $value$? Your original file stays untouched.",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "imageRemoveConfirm": {
+    "message": "Delete pet"
+  },
+  "petName": {
+    "message": "Name"
+  },
+  "imageAppearance": {
+    "message": "Pet appearance"
+  },
+  "imageLookEdit": {
+    "message": "Edit appearance"
+  },
+  "imageLookSave": {
+    "message": "Apply appearance"
+  },
+  "imageCutout": {
+    "message": "Remove solid background"
+  },
+  "imageRelief": {
+    "message": "Raised sticker"
+  },
+  "imageTilt": {
+    "message": "Tilt left or right"
+  },
+  "imageFront": {
+    "message": "Face forward"
+  },
+  "imageBackgroundUncertain": {
+    "message": "The background color was unclear, so we kept it. Try a transparent PNG or a picture with a solid background."
+  },
+  "imagePreviewError": {
+    "message": "The effect preview is unavailable. Showing the original picture."
+  },
+  "atticCount": {
+    "message": "Pets out ($value$)",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "atticEmpty": {
+    "message": "No pets are out right now"
+  },
+  "moveCrawl": {
+    "message": "Wiggle"
+  },
+  "moveSpin": {
+    "message": "Spin and fly"
+  },
+  "imageHeading": {
+    "message": "Direction in the drawing"
+  },
+  "keepFacing": {
+    "message": "Keep original"
+  },
+  "facesLeft": {
+    "message": "Faces left"
+  },
+  "facesRight": {
+    "message": "Faces right"
+  },
+  "customFriends": {
+    "message": "My characters"
+  },
+  "builtInFriends": {
+    "message": "Original characters"
+  },
+  "addCharacter": {
+    "message": "Add character"
+  },
+  "createCharacter": {
+    "message": "Create a character"
+  },
+  "gifUnavailable": {
+    "message": "This browser cannot open GIFs. Choose another image."
+  },
+  "gifFrameLimit": {
+    "message": "Choose a GIF with up to $value$ frames.",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "backupTitle": {
+    "message": "Move to another computer"
+  },
+  "backupHint": {
+    "message": "Save your pets, care records, images, settings and reminders in a JSON file. Import it on your new computer."
+  },
+  "backupExport": {
+    "message": "Export backup"
+  },
+  "backupImport": {
+    "message": "Import backup"
+  },
+  "backupDownloaded": {
+    "message": "Your backup download has started."
+  },
+  "backupInvalid": {
+    "message": "This file could not be read as a Browser Pet backup. Choose an exported JSON file."
+  },
+  "backupVersion": {
+    "message": "This backup version is unsupported. Open it with a compatible version of Browser Pet."
+  },
+  "backupTooLarge": {
+    "message": "Backups must be 16 MB or smaller."
+  },
+  "backupReview": {
+    "message": "Import this backup?"
+  },
+  "backupDate": {
+    "message": "Backed up on"
+  },
+  "backupReplace": {
+    "message": "This replaces all Browser Pet data on this device. To keep your current records too, cancel and export them first."
+  },
+  "backupConfirm": {
+    "message": "Replace and import"
+  },
+  "backupDone": {
+    "message": "Backup imported. Your pets are ready on this device."
+  },
+  "backupDoneAlarms": {
+    "message": "Pets and reminders imported. Check reminder permissions in the popup on your new device."
+  },
+  "meetPet": {
+    "message": "Meet $value$",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "meetOnWeb": {
+    "message": "Meet me on a regular webpage. Open a website and click this icon again."
+  }
+}

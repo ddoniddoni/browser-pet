@@ -1,0 +1,40 @@
+{
+  "name": "browser-pet",
+  "version": "0.1.0",
+  "private": true,
+  "description": "일반 웹페이지에서 꼬깃, 누룽, 퐁당과 함께하는 Chrome 확장 프로그램",
+  "type": "module",
+  "engines": {
+    "node": "^22.13.0 || ^24.0.0 || >=26.0.0"
+  },
+  "scripts": {
+    "dev": "wxt -b chrome --mv3",
+    "build": "wxt build -b chrome --mv3",
+    "zip": "wxt zip -b chrome --mv3",
+    "postinstall": "wxt prepare",
+    "typecheck": "wxt prepare && tsc --noEmit",
+    "lint": "eslint . --max-warnings 0",
+    "test:unit": "vitest run tests/unit",
+    "check": "npm run typecheck && npm run lint && npm run test:unit && npm run build",
+    "test:e2e": "npm run build && playwright test"
+  },
+  "dependencies": {
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "@playwright/test": "1.64.1",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@wxt-dev/module-react": "1.2.2",
+    "eslint": "10.14.0",
+    "eslint-plugin-react-hooks": "7.1.1",
+    "typescript": "5.9.3",
+    "typescript-eslint": "8.72.2",
+    "vite": "8.3.8",
+    "vitest": "5.1.0",
+    "web-ext": "10.8.0",
+    "wxt": "0.21.5"
+  }
+}

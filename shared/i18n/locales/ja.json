@@ -1,0 +1,1532 @@
+{
+  "settingsHeading": {
+    "message": "設定"
+  },
+  "settingsIntro": {
+    "message": "いっしょに過ごす友だちを、自分らしく。"
+  },
+  "settingsFriend": {
+    "message": "私の友だち"
+  },
+  "settingsNavigation": {
+    "message": "設定メニュー"
+  },
+  "nameValidation": {
+    "message": "改行を入れずに1〜20文字で入力してください。"
+  },
+  "nameSaveError": {
+    "message": "名前を保存できませんでした。もう一度お試しください。"
+  },
+  "speciesName": {
+    "message": "$value$の名前",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "saving": {
+    "message": "保存中…"
+  },
+  "saveName": {
+    "message": "名前を保存"
+  },
+  "nameSaved": {
+    "message": "名前を保存しました。"
+  },
+  "mySpecies": {
+    "message": "うちの$value$",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "speciesSaveError": {
+    "message": "保存できませんでした。もう一度選んでください。"
+  },
+  "choosePet": {
+    "message": "一緒に過ごす動物"
+  },
+  "speciesHint": {
+    "message": "名前、お世話、衣装、位置は仲間ごとに保存され、タブを移動しても引き継がれます。"
+  },
+  "unknownPet": {
+    "message": "この姿は未対応のためヌルンを表示します。以前の記録は端末に残ります。"
+  },
+  "speciesSaved": {
+    "message": "$value$を選びました。",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "petGeneric": {
+    "message": "ペット"
+  },
+  "speciesSettings": {
+    "message": "$value$の設定",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "speciesProfile": {
+    "message": "$value$のプロフィール",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "nameHint": {
+    "message": "1〜20文字で名前をつけてください。保存するとすべてのタブに反映されます。"
+  },
+  "loadingPet": {
+    "message": "ペットを読み込み中…"
+  },
+  "updateNeeded": {
+    "message": "拡張機能を更新してください。"
+  },
+  "unreadablePet": {
+    "message": "保存済みのペット情報を読み取れません。"
+  },
+  "settingsLoadError": {
+    "message": "設定を読み込めませんでした。"
+  },
+  "newerDataNotice": {
+    "message": "新しいバージョンで保存されたデータです。元のデータはそのままです。"
+  },
+  "resetHint": {
+    "message": "元のデータは残っています。最初から始めるには、下でデータをリセットしてください。"
+  },
+  "poseStand": {
+    "message": "立つ"
+  },
+  "poseWalk": {
+    "message": "てくてく"
+  },
+  "poseSit": {
+    "message": "おすわり"
+  },
+  "poseNap": {
+    "message": "お昼寝"
+  },
+  "petAction": {
+    "message": "なでる"
+  },
+  "poseLift": {
+    "message": "持ち上げられてじたばた"
+  },
+  "poseReplay": {
+    "message": "ポーズをもう一度見る"
+  },
+  "poseSettle": {
+    "message": "ひと休み"
+  },
+  "poseEat": {
+    "message": "もぐもぐ"
+  },
+  "poseSpotBall": {
+    "message": "ボールを発見"
+  },
+  "poseBall": {
+    "message": "ボール遊び"
+  },
+  "poseFetch": {
+    "message": "取ってくる"
+  },
+  "poseBat": {
+    "message": "ボールを転がす"
+  },
+  "poseBook": {
+    "message": "ポーズ手帳"
+  },
+  "smallPreview": {
+    "message": "小さいサイズ"
+  },
+  "choosePose": {
+    "message": "ポーズを選ぶ"
+  },
+  "poseHint": {
+    "message": "ここで選んでも、ページ上のペットの動きは変わりません。"
+  },
+  "saveError": {
+    "message": "変更を保存できませんでした。もう一度お試しください。"
+  },
+  "sizeSmall": {
+    "message": "小さめ"
+  },
+  "sizeMedium": {
+    "message": "ふつう"
+  },
+  "sizeLarge": {
+    "message": "大きめ"
+  },
+  "speciesSize": {
+    "message": "$value$のサイズ",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "onLabel": {
+    "message": "オン"
+  },
+  "offLabel": {
+    "message": "オフ"
+  },
+  "slow": {
+    "message": "ゆっくり"
+  },
+  "systemMotion": {
+    "message": "端末の設定に合わせる"
+  },
+  "reduceAlways": {
+    "message": "常に減らす"
+  },
+  "saved": {
+    "message": "保存しました。"
+  },
+  "appearance": {
+    "message": "見た目と動き"
+  },
+  "allTabsHint": {
+    "message": "このプロフィールのすべてのタブに反映されます。"
+  },
+  "personality": {
+    "message": "性格"
+  },
+  "livelyHint": {
+    "message": "ボールを見つけるとすぐに飛びつきます。"
+  },
+  "calmHint": {
+    "message": "ボールを少し眺めてから近づきます。"
+  },
+  "speechBubbles": {
+    "message": "吹き出し"
+  },
+  "speechHint": {
+    "message": "ときどき挨拶したり、今の時刻を教えたりします。"
+  },
+  "walkSpeed": {
+    "message": "お散歩の速さ"
+  },
+  "reduceMotion": {
+    "message": "動きを減らす"
+  },
+  "resetError": {
+    "message": "リセットできませんでした。もう一度お試しください。"
+  },
+  "storedData": {
+    "message": "保存データ"
+  },
+  "storageHint": {
+    "message": "ペットの情報、設定、アラームとその履歴はこのChromeプロファイルに保存されます。"
+  },
+  "resetData": {
+    "message": "データをリセット"
+  },
+  "resetDone": {
+    "message": "リセットしました。ヌルンに戻り、ペットの表示がオフになりました。"
+  },
+  "resetQuestion": {
+    "message": "すべての動物のデータをリセットしますか？"
+  },
+  "resetWarning": {
+    "message": "すべてのペットの名前、位置、設定、お世話の記録、経験値、思い出、部屋の飾り、タイマー、アラームとその履歴を消去します。ヌルンに戻り、すべてのタブで非表示になります。保存したPNGは残ります。元に戻せません。"
+  },
+  "cancel": {
+    "message": "キャンセル"
+  },
+  "resetting": {
+    "message": "リセット中…"
+  },
+  "confirmReset": {
+    "message": "リセットする"
+  },
+  "railEveryday": {
+    "message": "ふだん着"
+  },
+  "railChristmas": {
+    "message": "クリスマス"
+  },
+  "scarf": {
+    "message": "スカーフ"
+  },
+  "defaultLook": {
+    "message": "いつもの姿"
+  },
+  "wardrobe": {
+    "message": "クローゼット"
+  },
+  "wardrobeHint": {
+    "message": "服とスカーフを合わせてみましょう。"
+  },
+  "tryingOn": {
+    "message": "試着中"
+  },
+  "wearingNow": {
+    "message": "今の装い"
+  },
+  "outfits": {
+    "message": "衣装"
+  },
+  "none": {
+    "message": "なし"
+  },
+  "lookSaved": {
+    "message": "装いを保存しました。"
+  },
+  "applyLook": {
+    "message": "この装いにする"
+  },
+  "chooseAgain": {
+    "message": "選び直す"
+  },
+  "visibilitySaveError": {
+    "message": "表示設定を保存できませんでした。"
+  },
+  "openSettingsError": {
+    "message": "設定を開けませんでした。拡張機能の管理で Browser Pet を再読み込みしてください。"
+  },
+  "hiddenOnPages": {
+    "message": "ページでは非表示"
+  },
+  "changePet": {
+    "message": "仲間と名前"
+  },
+  "extensionsHelp": {
+    "message": "chrome://extensions を開き、Browser Pet の再読み込み（↻）を押してください。"
+  },
+  "openExtensions": {
+    "message": "拡張機能の管理を開く"
+  },
+  "fed": {
+    "message": "ごはんをあげました。"
+  },
+  "petted": {
+    "message": "なでてあげました。"
+  },
+  "feedCooldown": {
+    "message": "食べたばかりです。前のごはんから10分たつと、またあげられます。"
+  },
+  "petCooldown": {
+    "message": "なでてあげました。ごきげんと経験値が上がるのは1分に1回です。"
+  },
+  "careError": {
+    "message": "お世話を記録できませんでした。もう一度お試しください。"
+  },
+  "speciesCare": {
+    "message": "$value$のお世話記録",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "totalXp": {
+    "message": "累計経験値"
+  },
+  "fullness": {
+    "message": "満腹度"
+  },
+  "mood": {
+    "message": "ごきげん"
+  },
+  "feed": {
+    "message": "ごはん"
+  },
+  "feeding": {
+    "message": "ごはんを準備中…"
+  },
+  "petting": {
+    "message": "なでなで中…"
+  },
+  "pingWaiting": {
+    "message": "応答を待っています"
+  },
+  "pongReceived": {
+    "message": "PONG を受信"
+  },
+  "noPong": {
+    "message": "PONG を受信できませんでした。"
+  },
+  "connection": {
+    "message": "接続の確認"
+  },
+  "sendPing": {
+    "message": "PING を送信"
+  },
+  "noTab": {
+    "message": "選択中のページが見つかりません。"
+  },
+  "noReceiver": {
+    "message": "このタブから応答がありません。新しいタブや拡張機能の管理には表示できません。通常のサイトなら、ページを再読み込みし、サイトへのアクセス権を確認してください。"
+  },
+  "checkingPage": {
+    "message": "このページの状態を確認中…"
+  },
+  "visibleHere": {
+    "message": "このページに表示中"
+  },
+  "recheckPage": {
+    "message": "表示状態を再確認"
+  },
+  "hideEverywhere": {
+    "message": "すべてのタブでペットを隠す"
+  },
+  "showEverywhere": {
+    "message": "すべてのタブでペットを表示"
+  },
+  "showPet": {
+    "message": "ペットを表示"
+  },
+  "openSettings": {
+    "message": "設定を開く"
+  },
+  "timerError": {
+    "message": "タイマーを変更できませんでした。もう一度お試しください。"
+  },
+  "studyTimer": {
+    "message": "勉強タイマー"
+  },
+  "timerToolTitle": {
+    "message": "タイマー"
+  },
+  "timerChoices": {
+    "message": "集中・問題演習"
+  },
+  "setTime": {
+    "message": "時間設定"
+  },
+  "timerMode": {
+    "message": "タイマーモード"
+  },
+  "timeLimit": {
+    "message": "制限時間"
+  },
+  "minutesUnit": {
+    "message": "分"
+  },
+  "start": {
+    "message": "開始"
+  },
+  "focusHint": {
+    "message": "ペットの上に集中モードと残り時間が表示されます。"
+  },
+  "examHint": {
+    "message": "問題演習の残り時間をペットの上で確認できます。"
+  },
+  "modeTimer": {
+    "message": "$value$タイマー",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "timeLeft": {
+    "message": "残り時間"
+  },
+  "timesUp": {
+    "message": "時間になりました。"
+  },
+  "paused": {
+    "message": "一時停止中"
+  },
+  "sessionMinutes": {
+    "message": "$value$分のタイマーを実行中",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "resume": {
+    "message": "再開"
+  },
+  "pause": {
+    "message": "一時停止"
+  },
+  "ok": {
+    "message": "確認"
+  },
+  "end": {
+    "message": "終了"
+  },
+  "invalidWalkTime": {
+    "message": "散歩の時刻が正しくありません。"
+  },
+  "speechNight": {
+    "message": "夜は静かだね。"
+  },
+  "speechMorning": {
+    "message": "おはよう！"
+  },
+  "speechWalk": {
+    "message": "ちょっとお散歩しない？"
+  },
+  "speechEvening": {
+    "message": "今日も会えてうれしいな。"
+  },
+  "speechHello": {
+    "message": "やっほー！"
+  },
+  "speechStretch": {
+    "message": "一緒に伸びをしようか？"
+  },
+  "speechHere": {
+    "message": "ここにいるよ！"
+  },
+  "cat": {
+    "message": "猫"
+  },
+  "dog": {
+    "message": "犬"
+  },
+  "rabbit": {
+    "message": "うさぎ"
+  },
+  "hamster": {
+    "message": "ハムスター"
+  },
+  "fox": {
+    "message": "キツネ"
+  },
+  "otter": {
+    "message": "カワウソ"
+  },
+  "redPanda": {
+    "message": "レッサーパンダ"
+  },
+  "hedgehog": {
+    "message": "ハリネズミ"
+  },
+  "penguin": {
+    "message": "ペンギン"
+  },
+  "duck": {
+    "message": "アヒル"
+  },
+  "nabi": {
+    "message": "ナビ"
+  },
+  "invalidFrame": {
+    "message": "フレーム番号または倍率が正しくありません。"
+  },
+  "throwBall": {
+    "message": "ボール投げ"
+  },
+  "resumeWalk": {
+    "message": "お散歩を再開"
+  },
+  "hideAllTabs": {
+    "message": "すべてのタブで隠す"
+  },
+  "modePaused": {
+    "message": "$value$・一時停止中",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "speechExamOver": {
+    "message": "問題演習はここまで！おつかれさま！"
+  },
+  "speechFocusOver": {
+    "message": "集中タイム終了！ひと休みしようか？"
+  },
+  "pinned": {
+    "message": "位置固定"
+  },
+  "walkMode": {
+    "message": "お散歩モード"
+  },
+  "petMenu": {
+    "message": "$value$のメニュー",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "shareError": {
+    "message": "変更を共有できませんでした。もう一度お試しください。"
+  },
+  "fedReward": {
+    "message": "ごはんをあげました。経験値 +5！"
+  },
+  "fedWait": {
+    "message": "食べたばかりです。ごはんは10分に1回です。"
+  },
+  "pattedReward": {
+    "message": "なでてあげました。経験値 +2！"
+  },
+  "pattedWait": {
+    "message": "なでてあげました。経験値が増えるのは1分に1回です。"
+  },
+  "careResultError": {
+    "message": "お世話の結果を確認できませんでした。"
+  },
+  "fetchAnnounce": {
+    "message": "ボールを投げました。くわえて戻ってきます。"
+  },
+  "batAnnounce": {
+    "message": "ボールを投げました。前足で転がして遊びます。"
+  },
+  "openInPopup": {
+    "message": "設定を開けませんでした。Browser Pet のポップアップにある歯車から開いてください。"
+  },
+  "calm": {
+    "message": "おっとり"
+  },
+  "lively": {
+    "message": "活発"
+  },
+  "removeScarf": {
+    "message": "外す"
+  },
+  "pineGreen": {
+    "message": "松葉色"
+  },
+  "berryRed": {
+    "message": "木いちご色"
+  },
+  "skyBlue": {
+    "message": "空色"
+  },
+  "noOutfit": {
+    "message": "服なし"
+  },
+  "denim": {
+    "message": "デニムのオーバーオール"
+  },
+  "santa": {
+    "message": "サンタコート"
+  },
+  "elf": {
+    "message": "森の妖精服"
+  },
+  "reindeer": {
+    "message": "トナカイベスト"
+  },
+  "badFormat": {
+    "message": "未対応のメッセージ形式です。"
+  },
+  "internalOnly": {
+    "message": "この拡張機能からのリクエストのみ受け付けます。"
+  },
+  "badRead": {
+    "message": "読み取りリクエストが正しくありません。"
+  },
+  "badRequest": {
+    "message": "未対応のリクエストです。"
+  },
+  "wrongScreen": {
+    "message": "この画面では実行できません。"
+  },
+  "badSave": {
+    "message": "保存する値を確認してください。"
+  },
+  "timerInPopup": {
+    "message": "タイマーはポップアップで操作してください。"
+  },
+  "cannotHideSite": {
+    "message": "このページではサイトを非表示にできません。"
+  },
+  "chooseValidPet": {
+    "message": "選択できるペットを選んでください。"
+  },
+  "invalidName": {
+    "message": "改行と制御文字を除き、1〜20文字で入力してください。"
+  },
+  "onlyOptions": {
+    "message": "この項目は設定画面でのみ変更できます。"
+  },
+  "pageVisible": {
+    "message": "このページにペットを表示しています。"
+  },
+  "wrongWindow": {
+    "message": "このウィンドウは表示対象ではありません。ポップアップを閉じ、通常の Chrome ウィンドウでページを選んでください。"
+  },
+  "displayOff": {
+    "message": "ペットの表示はオフです。"
+  },
+  "pageLoading": {
+    "message": "ペットを読み込み中です。少し待ってからもう一度確認してください。"
+  },
+  "pageStateError": {
+    "message": "ペットを読み込めませんでした。通常のウェブページを開き直してください。"
+  },
+  "pageDetached": {
+    "message": "ページのペット表示が途切れました。余白をクリックしてもう一度確認してください。"
+  },
+  "unsupportedMessage": {
+    "message": "未対応のメッセージです。"
+  },
+  "newerSchema": {
+    "message": "新しいバージョンの保存データです。Browser Pet を更新してください。"
+  },
+  "corruptState": {
+    "message": "保存データが読み取れません。設定からリセットできます。"
+  },
+  "focus": {
+    "message": "集中"
+  },
+  "exam": {
+    "message": "問題演習"
+  },
+  "invalidReply": {
+    "message": "ペット情報を読み取れません。拡張機能を再読み込みしてください。"
+  },
+  "transportError": {
+    "message": "拡張機能から応答がありません。開き直して保存内容を確認してください。"
+  },
+  "reloadExtension": {
+    "message": "拡張機能の管理で Browser Pet を再読み込み（↻）してから、ポップアップを開き直してください。"
+  },
+  "conflict": {
+    "message": "保存データが変更されました。現在の値を確認してもう一度お試しください。"
+  },
+  "requestReused": {
+    "message": "このリクエストは別の変更に使用されています。"
+  },
+  "hiddenLimit": {
+    "message": "非表示にできるサイトは200件までです。設定で1件解除してください。"
+  },
+  "revisionLimit": {
+    "message": "保存バージョンをこれ以上更新できません。"
+  },
+  "storageError": {
+    "message": "ローカルストレージにアクセスできません。もう一度お試しください。"
+  },
+  "uiLanguage": {
+    "message": "ja"
+  },
+  "extensionDescription": {
+    "message": "ブラウジングのおともに小さなペットを。お世話や遊びを楽しんだり、タイマーで一緒に集中したりできます。"
+  },
+  "optionsTitle": {
+    "message": "ペットの設定 | Browser Pet"
+  },
+  "scarfLook": {
+    "message": "スカーフ：$value$",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "normalSpeed": {
+    "message": "ふつう"
+  },
+  "speechTime": {
+    "message": "今は$value$だよ。",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "speechTimeOne": {
+    "message": "今は$value$だよ。",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "hourSharp": {
+    "message": "$value$ちょうど",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "posePetted": {
+    "message": "なでられる"
+  },
+  "highFive": {
+    "message": "ハイタッチ"
+  },
+  "fiveTap": {
+    "message": "ハイタッチしよう！"
+  },
+  "fivePrompt": {
+    "message": "もう一度ペットにタッチしてね。"
+  },
+  "fiveDone": {
+    "message": "ハイタッチ！"
+  },
+  "fiveFirst": {
+    "message": "初めてのハイタッチを思い出アルバムに残したよ。"
+  },
+  "firstHighFive": {
+    "message": "初めてハイタッチした日"
+  },
+  "toyBox": {
+    "message": "おもちゃ箱"
+  },
+  "windupMouse": {
+    "message": "ぜんまいネズミ"
+  },
+  "toyProgress": {
+    "message": "ロック中：$value$ XP",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "toyUnlockAt": {
+    "message": "この子の経験値が$value$ XPになると遊べます。",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "toyPlay": {
+    "message": "遊ぶ"
+  },
+  "mouseReleased": {
+    "message": "ぜんまいを巻いたよ。ネズミが走り出した！"
+  },
+  "memoryAlbum": {
+    "message": "思い出アルバム"
+  },
+  "albumEmpty": {
+    "message": "まだ写真はありません。ページ上でこの子にボールを投げて、最初の一枚を残しましょう。"
+  },
+  "firstBall": {
+    "message": "初めてのボール遊び"
+  },
+  "firstMouse": {
+    "message": "初めてのぜんまいネズミ"
+  },
+  "firstSanta": {
+    "message": "初めてのサンタコート"
+  },
+  "firstFocus": {
+    "message": "初めて25分以上集中した日"
+  },
+  "roomOf": {
+    "message": "$value$の部屋",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "sculptOpen": {
+    "message": "360°ビュー"
+  },
+  "sculptRoom": {
+    "message": "部屋に戻る"
+  },
+  "sculptFront": {
+    "message": "正面"
+  },
+  "sculptSide": {
+    "message": "横"
+  },
+  "sculptBack": {
+    "message": "後ろ"
+  },
+  "sculptHint": {
+    "message": "左右にドラッグして回転"
+  },
+  "sculptAngle": {
+    "message": "回転角度"
+  },
+  "sculptModel": {
+    "message": "$value$の立体模型",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "sculptLoading": {
+    "message": "模型を読み込み中…"
+  },
+  "sculptError": {
+    "message": "このブラウザでは模型を表示できません。"
+  },
+  "roomAttic": {
+    "message": "陽だまりの屋根裏部屋"
+  },
+  "roomEdit": {
+    "message": "模様替え"
+  },
+  "roomClose": {
+    "message": "模様替えを閉じる"
+  },
+  "roomCushion": {
+    "message": "クッション"
+  },
+  "roomMoss": {
+    "message": "若葉の刺繍"
+  },
+  "roomApricot": {
+    "message": "あんずチェック"
+  },
+  "roomIndigo": {
+    "message": "藍色の星空"
+  },
+  "roomWall": {
+    "message": "壁に飾る絵"
+  },
+  "roomFlowers": {
+    "message": "野の花の絵"
+  },
+  "roomEmptyWall": {
+    "message": "初めての思い出カードができたら、ここに飾れます。"
+  },
+  "roomHang": {
+    "message": "部屋に飾る"
+  },
+  "roomUnhang": {
+    "message": "壁から外す"
+  },
+  "photoTitle": {
+    "message": "4コマ写真"
+  },
+  "photoHint": {
+    "message": "今日の服で、ごあいさつからお昼寝までを1枚に。"
+  },
+  "photoPaper": {
+    "message": "背景色"
+  },
+  "photoApricot": {
+    "message": "あんず"
+  },
+  "photoSage": {
+    "message": "セージ"
+  },
+  "photoBlue": {
+    "message": "空色"
+  },
+  "photoShoot": {
+    "message": "4コマ撮影"
+  },
+  "photoRetake": {
+    "message": "撮り直す"
+  },
+  "photoSave": {
+    "message": "PNGで保存"
+  },
+  "photoProgress": {
+    "message": "撮影中 $value$ / 4",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "photoReady": {
+    "message": "4コマ写真ができました。"
+  },
+  "photoError": {
+    "message": "写真を作成できませんでした。ポップアップを開き直して、もう一度撮影してください。"
+  },
+  "photoDescription": {
+    "message": "$value$の4コマ写真：正面、横顔、ハイタッチ、お昼寝。",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "pageMeetPet": {
+    "message": "通常のウェブページを開くと、$value$に会えます。",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "pageHelp": {
+    "message": "ここに表示されないのはなぜ？"
+  },
+  "habitTitle": {
+    "message": "この子のしぐさ"
+  },
+  "habitWash": {
+    "message": "前足で顔を洗う"
+  },
+  "habitChase": {
+    "message": "しっぽを追って一回り"
+  },
+  "habitStone": {
+    "message": "おなかで小石ころがし"
+  },
+  "habitThump": {
+    "message": "後ろ足でトントン"
+  },
+  "habitCheeks": {
+    "message": "両ほほをこする"
+  },
+  "habitTail": {
+    "message": "しっぽを振り返る"
+  },
+  "habitStretch": {
+    "message": "前足を伸ばす"
+  },
+  "habitSniff": {
+    "message": "くんくん匂いをかぐ"
+  },
+  "habitWaddle": {
+    "message": "左右によちよち"
+  },
+  "habitPreen": {
+    "message": "羽づくろい"
+  },
+  "roomBox": {
+    "message": "段ボール箱"
+  },
+  "roomToy": {
+    "message": "部屋のおもちゃ"
+  },
+  "boxReplay": {
+    "message": "もう一度箱で遊ぶ"
+  },
+  "boxCat": {
+    "message": "すっぽり入って、耳先だけのぞかせます。"
+  },
+  "boxDog": {
+    "message": "箱の縁にあごをのせて休みます。"
+  },
+  "boxRabbit": {
+    "message": "小さな前歯で角をかじります。"
+  },
+  "boxHamster": {
+    "message": "片側からひょっこり顔を出します。"
+  },
+  "boxFox": {
+    "message": "しっぽを巻いて肩越しに振り返ります。"
+  },
+  "boxOtter": {
+    "message": "前足で交互に縁をトントンたたきます。"
+  },
+  "boxPanda": {
+    "message": "両足を縁にかけて首をかしげます。"
+  },
+  "boxHedgehog": {
+    "message": "隅に潜り込んで目を閉じます。"
+  },
+  "boxPenguin": {
+    "message": "両方の翼を広げてバランスを取ります。"
+  },
+  "boxDuck": {
+    "message": "くちばしで縁をつつきます。"
+  },
+  "habitReplay": {
+    "message": "しぐさをもう一度見る"
+  },
+  "agendaTitle": {
+    "message": "アラーム"
+  },
+  "agendaSubtitle": {
+    "message": "次のアラームはありません"
+  },
+  "agendaMonthDay": {
+    "message": "毎月$value$日",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "agendaAlarms": {
+    "message": "マイアラーム"
+  },
+  "agendaAdd": {
+    "message": "＋ アラームを追加"
+  },
+  "agendaEmpty": {
+    "message": "アラームはまだありません。"
+  },
+  "agendaDetails": {
+    "message": "新しいアラーム"
+  },
+  "agendaName": {
+    "message": "アラーム名"
+  },
+  "agendaTime": {
+    "message": "時刻"
+  },
+  "agendaRepeat": {
+    "message": "繰り返し"
+  },
+  "agendaOnce": {
+    "message": "一度だけ"
+  },
+  "agendaDaily": {
+    "message": "毎日"
+  },
+  "agendaWeekdays": {
+    "message": "平日（月～金）"
+  },
+  "agendaDate": {
+    "message": "日付"
+  },
+  "agendaSave": {
+    "message": "保存してオンにする"
+  },
+  "agendaEdit": {
+    "message": "編集"
+  },
+  "agendaDelete": {
+    "message": "削除"
+  },
+  "agendaToggle": {
+    "message": "$value$のオン・オフ",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "agendaEditNamed": {
+    "message": "$value$を編集",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "agendaDeleteNamed": {
+    "message": "$value$を削除",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "agendaHistory": {
+    "message": "最近のアラーム"
+  },
+  "agendaDesktop": {
+    "message": "デスクトップ通知も受け取る"
+  },
+  "agendaPending": {
+    "message": "未確認のアラーム $value$件",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "agendaAck": {
+    "message": "確認"
+  },
+  "agendaAckNamed": {
+    "message": "$value$のアラームを確認",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "agendaAckFailed": {
+    "message": "確認を保存できませんでした。もう一度押してください。"
+  },
+  "agendaMore": {
+    "message": "もっと見る"
+  },
+  "agendaDeliveryHint": {
+    "message": "ペットの上のアラームは確認するまで残ります。Chromeの終了中やスリープ中に15分以上遅れたアラームは履歴にのみ残ります。"
+  },
+  "agendaRestore": {
+    "message": "アラームの予約を再び許可"
+  },
+  "agendaClockDenied": {
+    "message": "予約にはChromeのアラーム権限を許可してください。"
+  },
+  "agendaNotifyDenied": {
+    "message": "デスクトップ通知には通知権限が必要です。"
+  },
+  "agendaScheduleError": {
+    "message": "予約を確認できませんでした。ポップアップを開き直してください。"
+  },
+  "agendaFuture": {
+    "message": "一度だけのアラームには未来の日時を指定してください。"
+  },
+  "agendaGone": {
+    "message": "このアラームは削除されています。"
+  },
+  "agendaLimit": {
+    "message": "アラームは$value$件まで保存できます。",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "agendaNotification": {
+    "message": "Browser Pet アラーム"
+  },
+  "agendaSeveral": {
+    "message": "今、$value$件のアラームがあります。",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "agendaRinging": {
+    "message": "アラーム：$value$",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "agendaManage": {
+    "message": "アラームを管理"
+  },
+  "agendaWindowName": {
+    "message": "Browser Pet の予定"
+  },
+  "agendaClose": {
+    "message": "閉じる"
+  },
+  "agendaWindowFailed": {
+    "message": "アラームを開けません。拡張機能アイコンから開いてください。"
+  },
+  "agendaWeekly": {
+    "message": "毎週"
+  },
+  "agendaMonthly": {
+    "message": "毎月"
+  },
+  "agendaOnWeekday": {
+    "message": "毎週$value$",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "agendaWeekday": {
+    "message": "曜日"
+  },
+  "agendaMonthDate": {
+    "message": "毎月の日付"
+  },
+  "agendaShortMonth": {
+    "message": "この日付がない月は、月の最終日に鳴ります。"
+  },
+  "agendaDelivery": {
+    "message": "通知方法"
+  },
+  "agendaNameExample": {
+    "message": "例：ストレッチ"
+  },
+  "pageChooseTab": {
+    "message": "通常のタブでペットに会えます"
+  },
+  "photoRowHint": {
+    "message": "4枚を1本のフォトストリップに"
+  },
+  "agendaNextRing": {
+    "message": "次のアラーム"
+  },
+  "agendaDayNumber": {
+    "message": "$value$日",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "kkogit": {
+    "message": "コギッ"
+  },
+  "nurung": {
+    "message": "ヌルン"
+  },
+  "pongdang": {
+    "message": "ポンダン"
+  },
+  "habitKkogit": {
+    "message": "折りたたんだしっぽでかくれんぼ"
+  },
+  "habitNurung": {
+    "message": "長い耳を枕にうとうと"
+  },
+  "habitPongdang": {
+    "message": "片方の長靴でよちよち"
+  },
+  "boxKkogit": {
+    "message": "折りたたんだしっぽが箱からのぞきます。"
+  },
+  "boxNurung": {
+    "message": "長い耳を箱のふちにのせて休みます。"
+  },
+  "boxPongdang": {
+    "message": "箱のふちで両方の翼を広げます。"
+  },
+  "friendsTogether": {
+    "message": "いっしょに過ごす仲間"
+  },
+  "friendsHint": {
+    "message": "表示したい仲間をオンに。イラストを選ぶと名前や衣装を変えられます。"
+  },
+  "friendSize": {
+    "message": "サイズ"
+  },
+  "friendMovement": {
+    "message": "動き"
+  },
+  "moveWalk": {
+    "message": "歩く"
+  },
+  "moveBounce": {
+    "message": "ぴょんぴょん"
+  },
+  "moveFloat": {
+    "message": "ふわふわ"
+  },
+  "friendDisplay": {
+    "message": "いっしょに表示"
+  },
+  "friendEditing": {
+    "message": "設定中"
+  },
+  "friendEdit": {
+    "message": "この子を設定"
+  },
+  "friendsMasterOff": {
+    "message": "全体の表示がオフです。仲間をオンにするか、ポップアップのペット表示をオンにしてください。"
+  },
+  "editFriend": {
+    "message": "$value$を設定",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "displayFriend": {
+    "message": "$value$を表示",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "imagePetsTitle": {
+    "message": "画像から作ったペット"
+  },
+  "imagePetsIntro": {
+    "message": "お気に入りの絵や写真を、小さな仲間に。"
+  },
+  "imagePetBadge": {
+    "message": "自分の画像"
+  },
+  "imagePetChooseFile": {
+    "message": "画像を選ぶ"
+  },
+  "imagePetChangeFile": {
+    "message": "別の画像を選ぶ"
+  },
+  "imagePetPreview": {
+    "message": "登録する画像のプレビュー"
+  },
+  "imagePetFileHint": {
+    "message": "PNG・JPG・WebP・GIF（最大5 MB）"
+  },
+  "imagePetLocalHint": {
+    "message": "画像の処理と保存はこの端末内で行います。両方の効果をオフにすると元の見た目に戻ります。"
+  },
+  "imagePetReading": {
+    "message": "画像を準備中"
+  },
+  "imagePetRegister": {
+    "message": "ペットとして登録"
+  },
+  "imagePetAdded": {
+    "message": "登録しました。通常のウェブページで会えます。"
+  },
+  "imagePetDefault": {
+    "message": "私のペット"
+  },
+  "imagePetManage": {
+    "message": "画像ペットの追加と設定"
+  },
+  "imagePetLimit": {
+    "message": "画像ペットは5匹まで登録できます。"
+  },
+  "imagePetFormat": {
+    "message": "PNG・JPG・WebP・GIFの画像を選んでください。"
+  },
+  "imagePetTooLarge": {
+    "message": "5MB以下の画像を選んでください。"
+  },
+  "imagePetUnreadable": {
+    "message": "画像を読み込めませんでした。別のファイルを選んでください。"
+  },
+  "imagePetDimensions": {
+    "message": "画像の解像度が高すぎます。小さくして再度選んでください。"
+  },
+  "imagePetEmpty": {
+    "message": "画像が完全に透明です。別の画像を選んでください。"
+  },
+  "imageRemove": {
+    "message": "この画像ペットを削除"
+  },
+  "imageRemovePrompt": {
+    "message": "$value$の画像とお世話の記録を削除しますか？元のファイルは残ります。",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "imageRemoveConfirm": {
+    "message": "削除する"
+  },
+  "petName": {
+    "message": "名前"
+  },
+  "imageAppearance": {
+    "message": "ペットの見た目"
+  },
+  "imageLookEdit": {
+    "message": "見た目を編集"
+  },
+  "imageLookSave": {
+    "message": "見た目を適用"
+  },
+  "imageCutout": {
+    "message": "単色の背景を取り除く"
+  },
+  "imageRelief": {
+    "message": "立体ステッカー"
+  },
+  "imageTilt": {
+    "message": "左右に傾ける"
+  },
+  "imageFront": {
+    "message": "正面に戻す"
+  },
+  "imageBackgroundUncertain": {
+    "message": "背景色を判別できなかったため、そのまま表示しています。透過PNGか単色背景の画像を使ってみてください。"
+  },
+  "imagePreviewError": {
+    "message": "効果をプレビューできないため、元の画像を表示しています。"
+  },
+  "atticCount": {
+    "message": "おでかけ中の仲間（$value$匹）",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "atticEmpty": {
+    "message": "今はおでかけ中の仲間がいません"
+  },
+  "moveCrawl": {
+    "message": "くねくね進む"
+  },
+  "moveSpin": {
+    "message": "くるくる飛ぶ"
+  },
+  "imageHeading": {
+    "message": "絵が向いている方向"
+  },
+  "keepFacing": {
+    "message": "そのまま"
+  },
+  "facesLeft": {
+    "message": "左向き"
+  },
+  "facesRight": {
+    "message": "右向き"
+  },
+  "customFriends": {
+    "message": "うちのキャラクター"
+  },
+  "builtInFriends": {
+    "message": "おなじみの仲間"
+  },
+  "addCharacter": {
+    "message": "キャラを追加"
+  },
+  "createCharacter": {
+    "message": "新しいキャラを作る"
+  },
+  "gifUnavailable": {
+    "message": "このブラウザではGIFを開けません。別の画像を選んでください。"
+  },
+  "gifFrameLimit": {
+    "message": "GIFは$value$フレームまで登録できます。",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "backupTitle": {
+    "message": "別のパソコンに引っ越す"
+  },
+  "backupHint": {
+    "message": "ペットやお世話の記録、画像、設定、アラームを1つのJSONファイルに保存します。新しいパソコンで読み込んでください。"
+  },
+  "backupExport": {
+    "message": "バックアップを書き出す"
+  },
+  "backupImport": {
+    "message": "バックアップを読み込む"
+  },
+  "backupDownloaded": {
+    "message": "バックアップのダウンロードを開始しました。"
+  },
+  "backupInvalid": {
+    "message": "Browser Petのバックアップを読み込めません。書き出したJSONファイルを選んでください。"
+  },
+  "backupVersion": {
+    "message": "このバックアップには対応していません。互換性のあるバージョンのBrowser Petで開いてください。"
+  },
+  "backupTooLarge": {
+    "message": "読み込めるバックアップは16 MBまでです。"
+  },
+  "backupReview": {
+    "message": "このバックアップを読み込みますか？"
+  },
+  "backupDate": {
+    "message": "作成日時"
+  },
+  "backupReplace": {
+    "message": "この端末のBrowser Petの記録をすべて置き換えます。今の記録も残すには、キャンセルして先に書き出してください。"
+  },
+  "backupConfirm": {
+    "message": "置き換えて読み込む"
+  },
+  "backupDone": {
+    "message": "読み込みました。この端末でお世話を続けられます。"
+  },
+  "backupDoneAlarms": {
+    "message": "ペットとアラームを読み込みました。新しい端末ではポップアップのアラーム設定で権限を確認してください。"
+  },
+  "meetPet": {
+    "message": "$value$に会う",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "meetOnWeb": {
+    "message": "ふつうのウェブページで会いましょう。サイトを開いて、このアイコンをもう一度押してください。"
+  }
+}

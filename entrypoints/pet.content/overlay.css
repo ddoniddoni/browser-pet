@@ -1,0 +1,224 @@
+@import '../../components/pet-motion.css';
+@import '../../components/companion-tokens.css';
+
+:host {
+  all: initial !important;
+  display: block !important;
+  position: fixed !important;
+  inset: 0 !important;
+  overflow: hidden !important;
+  z-index: 2147483647 !important;
+  pointer-events: none !important;
+  user-select: none !important;
+}
+:host([popover]) { margin: 0 !important; border: 0 !important; padding: 0 !important; width: auto !important; height: auto !important; background: transparent !important; }
+:host::backdrop { background: transparent !important; pointer-events: none !important; }
+:host > div { position: absolute; top: 0; left: 0; pointer-events: none; }
+.pet-grip, .pet-facing { display: block; width: 100%; height: 100%; }
+.pet-grip { pointer-events:none; }
+[data-paused] *, [data-paused] *::after { animation-play-state: paused !important; }
+.pet-trigger {
+  display: block; width: 100%; height: 100%; padding: 0; border: 0; border-radius: 18%;
+  background: transparent; pointer-events: auto; touch-action: none; cursor: grab;
+  -webkit-tap-highlight-color: transparent;
+}
+/* 커서 아래의 그림만 흔들어 포인터 캡처와 놓는 위치를 유지한다. */
+[data-action="DRAG"] .pet-grip { transition:rotate 65ms ease-out; }
+[data-action="DRAG"]:not([data-clay]) .pet-avatar { transform-origin:50% 22%; transform:rotate(-5deg); }
+@media (prefers-reduced-motion: no-preference) {
+  [data-action="DRAG"]:not([data-clay]):not([data-paused]) .pet-avatar { animation:pet-dangle-print .9s ease-in-out infinite alternate; }
+}
+@keyframes pet-dangle-print {
+  from { transform:rotate(-8deg) scale(.98,1.02); }
+  to { transform:rotate(8deg) scale(1.01,.98); }
+}
+[data-paused] .pet-grip { transition:none; }
+.pet-trigger:focus-visible {
+  outline: 2px solid #287259; outline-offset: -2px; box-shadow: 0 0 0 2px white;
+}
+[data-action="DRAG"] .pet-trigger { cursor: grabbing; }
+[data-action="PETTED"] .pet-facing::after {
+  content: '♥'; color: #a83d48; font: bold 15px/1 system-ui, sans-serif;
+  text-shadow: 0 1px white; position: absolute; right: 0; top: 0; pointer-events: none;
+}
+[data-paused] .pet-facing::after { content: none; }
+/* 웹페이지에는 번지지 않는 Shadow DOM 전용 메뉴. */
+.pet-menu {
+  box-sizing: border-box; position: absolute; pointer-events: auto;
+  width: 320px; max-width: calc(100vw - 12px); max-height: calc(100vh - 12px);
+  overflow: auto; overscroll-behavior: contain; scrollbar-width: thin;
+  padding: 8px; border: 1px solid var(--pet-ui-edge); border-radius: 16px;
+  color-scheme: light; background: var(--pet-ui-surface); color: var(--pet-ui-ink);
+  box-shadow: 0 2px 4px #27342d08, 0 12px 32px #27342d1c;
+  font: 400 16px/1.5 var(--pet-ui-font); text-align: start; word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+.pet-menu [hidden], .pet-menu[hidden] { display: none; }
+.pet-menu-heading { display: flex; align-items: center; gap: 8px; padding: 8px 8px 16px; }
+.pet-menu .pet-icon {
+  display: block; flex: none; width: 18px; height: 18px;
+  fill: none; stroke: currentColor; stroke-width: 1.65; stroke-linejoin: round; stroke-linecap: round;
+  pointer-events: none;
+}
+.pet-menu-heading .icon-tag { color: var(--pet-ui-accent); }
+.pet-menu .pet-name { flex: auto; min-width: 0; font-size: 18px; font-weight: 600; line-height: 1.4; }
+.pet-location-mode { flex: none; max-width: 40%; font-size: 14px; color: var(--pet-ui-secondary); }
+.pet-menu button, .pet-rotation summary {
+  box-sizing: border-box; min-width: 0; margin: 0; padding: 0; border: 0; border-radius: var(--pet-ui-radius);
+  background: transparent; color: inherit; font: inherit; cursor: pointer; touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  transition: background 140ms var(--pet-ui-ease), color 140ms var(--pet-ui-ease);
+}
+.pet-care-tools { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 4px; padding: 4px; background: var(--pet-ui-raised); border-radius: 12px; }
+.pet-care-tools button {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;
+  min-height: 72px; padding: 8px 4px; font-size: 16px; font-weight: 500; line-height: 1.4;
+}
+.pet-care-tools .pet-icon { width: 20px; height: 20px; color: var(--pet-ui-accent); }
+.pet-care-tools button span { max-width: 100%; overflow-wrap: anywhere; }
+.pet-menu .pet-resume { display: flex; align-items: center; gap: 8px; width: 100%; min-height: 44px; margin-top: 8px; padding: 8px; color: var(--pet-ui-accent); text-align: start; background: var(--pet-ui-selected); }
+.pet-menu .pet-resume[hidden] { display: none; }
+.pet-menu-footer { display: flex; align-items: center; gap: 4px; margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--pet-ui-edge); color: var(--pet-ui-secondary); }
+.pet-menu-footer button { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; }
+.pet-menu-footer button:first-child { flex: 1; justify-content: start; gap: 8px; padding: 8px; text-align: start; font-size: 16px; }
+.pet-menu-footer button:last-child { flex: none; width: 44px; }
+.pet-notice:not([hidden]) { display: block; margin: 12px 8px 8px; padding-inline-start: 8px; border-inline-start: 2px solid var(--pet-ui-line); font-size: 16px; line-height: 1.6; color: var(--pet-ui-secondary); }
+@media (hover: hover) {
+  .pet-menu button:enabled:hover, .pet-rotation summary:hover { background: var(--pet-ui-raised); }
+  .pet-care-tools button:enabled:hover { background: var(--pet-ui-surface); }
+}
+.pet-menu button:enabled:active { background: var(--pet-ui-selected); }
+.pet-menu button:focus-visible, .pet-rotation summary:focus-visible, .pet-rotation input:focus-visible { outline: 2px solid var(--pet-ui-accent); outline-offset: -2px; box-shadow: none; }
+@media (max-width: 240px) {
+  .pet-menu-heading { flex-wrap: wrap; }
+  .pet-location-mode { max-width: 100%; }
+  .pet-care-tools button { padding-inline: 2px; }
+}
+@media (prefers-reduced-motion: reduce) { .pet-menu button, .pet-rotation summary { transition: none; } }
+@media (forced-colors: active) {
+  .pet-menu { border-color: CanvasText; }
+  .pet-menu button:focus-visible, .pet-rotation summary:focus-visible { outline-color: Highlight; }
+}
+
+.pet-ball:not([hidden]) { position: absolute; top: 0; left: 0; box-sizing: border-box;
+  display: block; border-radius: 50%; pointer-events: none; box-shadow: inset 0 0 0 1px #663c36;
+  background: radial-gradient(circle at 34% 24%, #ffdda6 0 12%, transparent 14%),
+    linear-gradient(48deg, #ce694a 0 42%, #ffde93 43% 57%, #c25540 58%); }
+.pet-announcement { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); pointer-events: none; }
+
+.pet-callout:not([hidden]) {
+  position: absolute; display: block; box-sizing: border-box;
+  width: max-content; max-width: min(200px, calc(100vw - 12px)); padding: 6px 11px;
+  border: 1px solid #b6beb2; border-radius: 13px;
+  background: #fffdf6; color: #2c4034; box-shadow: 0 2px 5px #253a301a;
+  font: 500 13px/1.45 system-ui, sans-serif; text-align: center; word-break: keep-all;
+  overflow-wrap: anywhere; pointer-events: none;
+}
+.pet-callout::after {
+  content: ""; position: absolute; box-sizing: border-box; width: 7px; height: 7px;
+  left: var(--tip-x); bottom: -4px; transform: translateX(-50%) rotate(45deg);
+  background: inherit; border-style: solid; border-color: inherit; border-width: 0 1px 1px 0; pointer-events: none;
+}
+.pet-callout[data-below]::after { top: -4px; bottom: auto; transform: translateX(-50%) rotate(225deg); }
+
+/* 포즈의 좌우 반전과 무관하게 앞발 아래 펼쳐진 두 쪽 책. */
+[data-reading] .pet-trigger { position: relative; }
+[data-reading]:not([data-clay]) .pet-trigger::after {
+  content: ""; position: absolute; left: 26%; bottom: 6%; width: 49%; height: 23%;
+  background: linear-gradient(90deg, #476e5a 0 6%, #e5cda4 6% 47%, #86674d 48% 52%, #fff0cd 53% 94%, #476e5a 94%);
+  border-bottom: 2px solid #476e5a; clip-path: polygon(0 6%, 22% 0, 50% 18%, 78% 0, 100% 6%, 98% 92%, 74% 88%, 50% 100%, 25% 88%, 2% 92%);
+  pointer-events: none;
+}
+
+.pet-timer:not([hidden]) {
+  position: absolute; display: inline-flex; align-items: baseline; gap: 6px;
+  box-sizing: border-box; width: max-content; max-width: calc(100vw - 8px);
+  padding: 3px 8px; border: 1px solid #b6c5b8; border-radius: 7px;
+  background: #f6faf2; color: #294d39; box-shadow: 0 1px 3px #253a301f;
+  font: 600 11px/16px system-ui, sans-serif; white-space: nowrap; pointer-events: none;
+}
+.pet-timer b { font: 600 12px/16px ui-monospace, SFMono-Regular, Consolas, monospace; font-variant-numeric: tabular-nums; }
+.pet-timer[data-paused-timer] { background: #faf7f0; border-color: #c8c0af; color: #584e3d; }
+
+.pet-toy-box { min-width: 0; margin: 12px 0 0; padding: 0; border: 0; }
+.pet-toy-box legend { padding: 0 8px 4px; font: 400 14px/1.5 var(--pet-ui-font); color: var(--pet-ui-secondary); }
+.pet-toy-box button { width: 100%; padding: 8px; min-height: 44px; display: flex; align-items: center; gap: 8px; text-align: start; }
+.pet-toy-box button:disabled { color: var(--pet-ui-secondary); cursor: default; background: transparent; }
+.pet-toy-box small { margin-left: auto; max-width: 44%; text-align: end; line-height: 1.5; font-size: 14px; color: var(--pet-ui-secondary); font-variant-numeric: tabular-nums; }
+.pet-toy-box .icon-mouse { color: inherit; }
+.pet-menu .pet-toy-box .icon-mouse path { fill: none; }
+.pet-mouse:not([hidden]) { display: block; position: absolute; top: 0; left: 0; pointer-events: none; }
+.pet-ball.pet-clay-toy { background: none; box-shadow: none; }
+.pet-clay-toy canvas { display: block; width: 100%; height: 100%; }
+.pet-mouse svg { width: 100%; height: 100%; }
+.icon-mouse { fill: none; color: #65493e; stroke: currentColor; stroke-width: 1.55; stroke-linecap: round; stroke-linejoin: round; }
+.icon-mouse path:nth-child(2) { fill: #ebbd71; }
+.icon-mouse path:nth-child(3) { fill: #91b3ab; }
+.icon-mouse path:nth-child(4) { fill: #efb99c; }
+.icon-mouse path:nth-child(5) { fill: #776355; }
+
+.pet-five-touch:not([hidden]) {
+  display: inline-flex; align-items: center; justify-content: center; gap: 4px;
+  min-height: 30px; color: #503d2e; background: #fff4d7; border-color: #927451;
+  cursor: pointer; pointer-events: auto;
+}
+.pet-five-touch:hover { background: #ffedbf; }
+.pet-five-note:not([hidden]) { color: #324b3d; border-color: #a4b399; background: #f0f4df; }
+.pet-five-touch .pet-icon { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 1.65; stroke-linecap: round; stroke-linejoin: round; }
+.pet-five-touch:focus-visible { outline: 2px solid #287259; outline-offset: 1px; }
+[data-action="FIVE_READY"] .pet-trigger { cursor: pointer; }
+
+.pet-clay canvas { display:block; width:100%; height:100%; pointer-events:none; }
+.pet-clay { filter:drop-shadow(0 1px 1px rgba(57,39,28,.25)); }
+.pet-facing[data-side=left] .pet-bowl { right:auto; left:1%; }
+.pet-rotation { min-width: 0; border: 0; margin: 8px 0 0; padding: 0; }
+.pet-rotation summary { display: flex; align-items: center; gap: 8px; list-style: none; min-height: 44px; padding: 8px; color: var(--pet-ui-secondary); font-size: 16px; }
+.pet-rotation summary::-webkit-details-marker { display: none; }
+.pet-rotation summary .icon-down { margin-inline-start: auto; width: 16px; height: 16px; }
+.pet-rotation[open] summary .icon-down { transform: rotate(180deg); }
+.pet-rotation > div { display: flex; align-items: center; gap: 12px; padding: 4px 8px 8px; }
+.pet-rotation input { appearance: none; flex: 1; min-width: 0; height: 44px; margin: 0; background: transparent; cursor: pointer; border-radius: 8px; }
+.pet-rotation input::-webkit-slider-runnable-track { height: 4px; border-radius: 2px; background: var(--pet-ui-edge); }
+.pet-rotation input::-webkit-slider-thumb { appearance: none; width: 16px; height: 16px; margin-top: -6px; border-radius: 50%; border: 3px solid var(--pet-ui-surface); background: var(--pet-ui-accent); box-shadow: 0 0 0 1px var(--pet-ui-line); }
+.pet-rotation button { padding: 4px 12px; min-height: 44px; background: var(--pet-ui-raised); font-size: 16px; }
+.pet-agenda-tools { margin: 0 0 8px; }
+.pet-menu .pet-agenda-tools button { display: flex; align-items: center; gap: 8px; width: 100%; min-height: 44px; padding: 8px; text-align: start; }
+.pet-agenda-tools .icon-forward { margin-inline-start: auto; width: 16px; height: 16px; color: var(--pet-ui-secondary); }
+@media (forced-colors: active) {
+  .pet-rotation input { appearance: auto; }
+  .pet-rotation input::-webkit-slider-thumb { appearance: auto; }
+}
+
+.pet-alarm:not([hidden]) {
+  display:grid; grid-template-columns:auto minmax(0,1fr) auto; align-items:center; gap:0 8px;
+  max-width:min(264px,calc(100vw - 12px)); padding:6px 6px 6px 10px; text-align:start;
+  background:#fff9e9; border-color:#b59b6a; color:#443a2c; pointer-events:auto;
+}
+.pet-alarm .pet-icon { width:16px; height:16px; fill:none; stroke:#886536; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
+.pet-alarm-label { display:grid; min-width:0; gap:2px; }
+.pet-alarm-label small { font:500 10px/1.4 system-ui,sans-serif; color:#705d40; font-variant-numeric:tabular-nums; }
+.pet-alarm-label strong { font:650 13px/1.4 system-ui,sans-serif; overflow-wrap:anywhere; }
+.pet-alarm button { min-height:32px; padding:3px 9px; border:1px solid #c7b78e; border-radius:8px; color:#453c2c; background:#fffdf5; font:600 12px/1.3 system-ui,sans-serif; cursor:pointer; }
+.pet-alarm button:hover,.pet-alarm button:focus-visible { background:#f3e6c6; }
+.pet-alarm button:focus-visible { outline:2px solid #30654f; outline-offset:1px; }
+.pet-alarm button[aria-disabled=true] { cursor:wait; }
+.pet-alarm-error:not([hidden]) { grid-column:1/-1; margin-top:4px; font-size:11px; color:#8b3b2e; }
+
+.pet-companion { position: absolute; top: 0; left: 0; pointer-events: none; }
+.pet-companion:has(.pet-menu:not([hidden])), .pet-companion:focus-within { z-index: 2; }
+
+[data-image] .pet-care-tools { grid-template-columns: repeat(2,minmax(0,1fr)); }
+[data-image] .pet-care-tools [hidden] { display: none; }
+/* 펫을 누른 순간의 모습을 작은 우표로 찍은 돌봄 수첩. */
+.pet-menu { padding: 8px; border-color: var(--pet-ui-line); border-radius: 16px 16px 16px 6px; }
+.pet-menu-heading { margin: 0 0 4px; padding: 8px 8px 12px; gap: 12px; border-bottom: 1px dashed var(--pet-ui-line); }
+.pet-menu-stamp { display: grid; flex: none; width: 48px; height: 48px; place-items: center; background: #f6e8ca; border: 1px dashed #a89575; border-radius: 5px; transform: rotate(-3deg); }
+.pet-menu-stamp > * { grid-area: 1 / 1; }
+.pet-menu-stamp canvas { width: 46px; height: 46px; }
+.pet-menu-stamp:has(canvas:not([hidden])) .icon-tag { display: none; }
+.pet-menu .pet-name { font-size: 20px; }
+.pet-care-tools { gap: 8px; padding: 0; background: transparent; }
+.pet-care-tools button { border: 1px solid var(--pet-ui-edge); border-radius: 10px; background: #f6f0e2; }
+.pet-care-tools button:first-child { background: var(--pet-ui-selected); }
+.pet-care-tools button .pet-icon { height: 24px; width: 24px; }
+.pet-menu-footer { border-top-style: dashed; }

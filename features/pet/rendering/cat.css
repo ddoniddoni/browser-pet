@@ -1,0 +1,10 @@
+.pet-cat { --ink-meal: translate(9px, 20px) rotate(20deg); --ink-bite: translate(9px, 23px) rotate(25deg); }
+[data-action="SIT"] .pet-cat .ink-head { transform: translateY(3px) rotate(-6deg); }
+:is([data-action="SIT"], [data-action="PINNED"]) .pet-cat .ink-tail { transform: rotate(-27deg); }
+[data-action="PLAY_LOOK"] .pet-cat .ink-head { transform: translate(1px, 4px) rotate(9deg); }
+[data-action="PLAY_LOOK"] .pet-cat .ink-tail { transform: rotate(19deg); }
+[data-action="BAT"] .pet-cat .ink-awake { transform: translateY(1px) rotate(5deg); }
+[data-action="BAT"] .pet-cat .ink-forepaw { transform: translate(5px, -2px) rotate(-52deg); animation: ink-swat .32s ease-out infinite alternate; }
+[data-action="BAT"] .pet-cat .ink-head { transform: translate(0, 3px) rotate(9deg); }
+[data-action="PETTED"] .pet-cat .ink-tail { transform: rotate(17deg); }
+@keyframes ink-swat { from { transform: translate(3px, -5px) rotate(-56deg); } to { transform: translate(9px, 0) rotate(-43deg); } }

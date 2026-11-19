@@ -1,0 +1,80 @@
+@import './companion-tokens.css';
+
+:root {
+  color-scheme: light;
+  --paper: var(--pet-ui-page);
+  --surface: var(--pet-ui-surface);
+  --wash: var(--pet-ui-raised);
+  --ink: var(--pet-ui-ink);
+  --muted: var(--pet-ui-secondary);
+  --leaf: var(--pet-ui-accent);
+  --leaf-dark: var(--pet-ui-accent-hover);
+  --pale-leaf: var(--pet-ui-selected);
+  --edge: var(--pet-ui-edge);
+  --pencil: var(--pet-ui-line);
+  --error: #853f29;
+  --control-radius: 6px;
+  --figures: ui-monospace, SFMono-Regular, Consolas, monospace;
+  color: var(--ink);
+  background: var(--paper);
+  font: 14px/1.5 var(--pet-ui-font);
+}
+* { box-sizing: border-box; }
+body, h1, h2, p, fieldset { margin: 0; }
+fieldset { min-width: 0; border: 0; padding: 0; }
+legend { padding: 0; }
+h1, h2, strong, b { font-weight: 600; }
+button, input, select { font: inherit; color: inherit; }
+button, select, summary { cursor: pointer; }
+.chevron { display: block; flex: none; pointer-events: none; }
+button:disabled, fieldset:disabled label { cursor: default; }
+button:disabled { color: var(--muted); background: var(--wash); border-color: var(--edge); }
+:where(button, a, input, select, summary):focus-visible { outline: 2px solid var(--leaf); outline-offset: 3px; }
+.primary, .secondary, .danger, .confirm-reset, select, .input-row input {
+  min-height: 36px; padding: 6px 12px; border: 1px solid var(--pencil); border-radius: var(--control-radius);
+  background: var(--surface);
+}
+.primary, .secondary, .danger, .confirm-reset { font-weight: 600; }
+.primary { background: var(--leaf); border-color: var(--leaf); color: white; }
+.primary:enabled:hover { background: var(--leaf-dark); }
+.secondary { border-color: var(--edge); }
+.secondary:enabled:hover { border-color: var(--pencil); background: var(--wash); }
+.danger { background: transparent; border-color: var(--pencil); color: var(--error); }
+.danger:enabled:hover { border-color: var(--error); }
+.link { background: transparent; border: 0; min-height: 32px; padding: 4px; color: var(--leaf); }
+.link:hover { text-decoration: underline; text-underline-offset: 3px; }
+.pet-profile { display: flex; align-items: center; gap: 20px; }
+.portrait { position: relative; width: 88px; height: 88px; flex: none; }
+.pet-miniature { display: block; position: relative; width: 100%; height: 100%; pointer-events: none; }
+.pet-profile .portrait::before, .pose-stage::before, .mirror-stage::before {
+  content: ""; position: absolute; inset: auto 10% 3%; height: 11%;
+  border-radius: 50%; background: radial-gradient(ellipse, #6a594529, transparent 70%);
+}
+.pet-caption { min-width: 0; }
+.pet-caption span, .hint { font-size: 12px; color: var(--muted); }
+.pet-caption h2 { font-size: 28px; line-height: 1.2; margin-top: 4px; overflow-wrap: anywhere; }
+.name-editor label, .species-picker legend { display: block; font-size: 13px; font-weight: 600; margin-bottom: 4px; }
+.input-row { display: flex; gap: 8px; }
+.input-row input { width: 100%; min-width: 0; }
+.input-row button { flex: none; }
+.species-picker { margin-bottom: 12px; }
+.species-choices {
+  display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 6px;
+}
+.species-choices label {
+  position: relative; display: flex; flex-direction: column; justify-content: end; align-items: center;
+  gap: 2px; padding: 4px 0; min-width: 0; font-size: 12px; line-height: 1.5;
+  border: 1px solid transparent; border-radius: var(--control-radius); cursor: pointer;
+}
+.species-choices label > span:last-child { max-width: 100%; text-align: center; overflow-wrap: anywhere; }
+.species-choices label:hover { background: var(--wash); }
+.species-choices label:has(:checked) { border-color: var(--leaf); background: var(--pale-leaf); color: var(--leaf); font-weight: 600; }
+.species-choices label:has(:checked)::after { content: ""; position: absolute; right: 4px; top: 4px; width: 6px; height: 3px;
+  border: solid currentColor; border-width: 0 0 1.5px 1.5px; transform: rotate(-45deg); }
+.species-choices input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: inherit; }
+.species-choices label:has(:focus-visible) { outline: 2px solid var(--leaf); outline-offset: 1px; }
+.choice-portrait { display: block; width: 100%; height: clamp(62px,15vw,84px); pointer-events: none; }
+input[type=radio] { accent-color: var(--leaf); }
+.species-picker .hint, .notice, .species-status:not(:empty) { margin-top: 4px; }
+.notice, .species-status { color: var(--leaf); font-size: 13px; }
+[role=alert] { margin-top: 8px; color: var(--error); }

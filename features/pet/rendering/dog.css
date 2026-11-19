@@ -1,0 +1,13 @@
+.pet-dog { --ink-meal: translate(4px, 17px) rotate(24deg); --ink-bite: translate(4px, 20px) rotate(30deg); }
+.pet-dog .ink-ear { transform-origin: 48px 24px; }
+[data-action="WALK"] .pet-dog .ink-ear { animation: ink-ear-hop 360ms ease-in-out infinite alternate; animation-delay: var(--pet-step-offset, 0ms); }
+[data-action="SIT"] .pet-dog .ink-head { transform: translate(-2px, 2px) rotate(-11deg); }
+:is([data-action="SIT"], [data-action="PINNED"]) .pet-dog .ink-tail { transform: rotate(-18deg); }
+[data-action="PLAY_LOOK"] .pet-dog .ink-head { transform: translate(-2px, -1px) rotate(-15deg); }
+[data-action="PLAY_LOOK"] .pet-dog .ink-ear { transform: rotate(13deg); }
+[data-action="FETCH"] .pet-dog .ink-head { transform: rotate(3deg); }
+[data-action="FETCH"] .pet-dog .ink-forepaw { transform: translateY(-3px) rotate(-21deg); }
+:is([data-action="PETTED"], [data-action="FETCH"]) .pet-dog .ink-tail { transform: rotate(17deg); animation: ink-wag .18s ease-in-out infinite alternate; }
+[data-action="DRAG"] .pet-dog .ink-ear { transform: rotate(-12deg); }
+@keyframes ink-ear-hop { from { transform: rotate(-3deg); } to { transform: rotate(9deg); } }
+@keyframes ink-wag { from { transform: rotate(-10deg); } to { transform: rotate(19deg); } }

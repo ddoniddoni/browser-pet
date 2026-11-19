@@ -1,0 +1,18 @@
+/* 펫 메뉴와 환경설정에서 공유하는 색, 글자와 컨트롤 기준. */
+:root, :host {
+  --pet-ui-page: #f5f0e5;
+  --pet-ui-surface: #fffdf6;
+  --pet-ui-raised: #f4edde;
+  --pet-ui-ink: #342f29;
+  --pet-ui-secondary: #685f54;
+  --pet-ui-edge: #ddd2bc;
+  --pet-ui-line: #ac9e86;
+  --pet-ui-accent: #365945;
+  --pet-ui-accent-hover: #284334;
+  --pet-ui-selected: #e7eee2;
+  --pet-ui-error: #9a413d;
+  --pet-ui-seal: #9d5545;
+  --pet-ui-font: -apple-system, BlinkMacSystemFont, "Hiragino Maru Gothic ProN", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
+  --pet-ui-radius: 8px;
+  --pet-ui-ease: cubic-bezier(.22, 1, .36, 1);
+}
