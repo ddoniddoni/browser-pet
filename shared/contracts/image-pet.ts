@@ -2,6 +2,8 @@ import { isCareState, type CareState } from './care';
 import { validCompanion, type Companion, type Movement } from './companions';
 import { isCounter, isRecord, normalizePetName } from './state';
 
+import { validLegacyHat, validPhotoOutfit, type OutfitPatch, type PhotoOutfit, type Placement } from './photo-accessories';
+
 export const maxImagePets = 5;
 export const maxPetImageLength = 400_000;
 export type ImagePetId = `image-${string}`;
@@ -11,7 +13,7 @@ export function sameAnimation(a?: PetAnimation, b?: PetAnimation) {
   return a === b || (!!a && !!b && a.firstMs === b.firstMs && a.frames.length === b.frames.length &&
     a.frames.every((frame, i) => frame.ms === b.frames[i]!.ms && frame.image === b.frames[i]!.image));
 }
-export interface ImagePetEdit { look?: ImageLook; movement?: Movement; name?: string; sizePx?: 32 | 64 | 96 }
+export interface ImagePetEdit { look?: ImageLook; movement?: Movement; name?: string; sizePx?: 32 | 64 | 96; accessories?: OutfitPatch }
 export interface PetPicture { image: string; animation?: PetAnimation }
 export interface NewImagePet extends PetPicture { id: ImagePetId; name: string; look?: ImageLook; movement?: Movement }
 export const maxGifFrames = 120;
@@ -23,7 +25,7 @@ export function validImageLook(value: unknown): value is ImageLook {
   return isRecord(value) && Object.keys(value).length === 2 + Number(Object.hasOwn(value, 'faces')) &&
     (!Object.hasOwn(value, 'faces') || value.faces === 'left' || value.faces === 'right') && typeof value.cutout === 'boolean' && typeof value.relief === 'boolean';
 }
-export interface ImagePet extends PetPicture { look?: ImageLook; name: string; care: CareState; createdAt: number; companion: Companion }
+export interface ImagePet extends PetPicture { look?: ImageLook; hat?: Placement; accessories?: PhotoOutfit; name: string; care: CareState; createdAt: number; companion: Companion }
 export type ImagePets = Partial<Record<ImagePetId, ImagePet>>;
 export function isImagePetId(value: unknown): value is ImagePetId {
   return typeof value === 'string' && /^image-[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/.test(value);
@@ -56,7 +58,9 @@ export function validAnimation(value: unknown, poster: string): value is PetAnim
 }
 export function validImagePets(value: unknown): value is ImagePets {
   return isRecord(value) && Object.keys(value).length <= maxImagePets && Object.entries(value).every(([id, pet]) =>
-    isImagePetId(id) && isRecord(pet) && Object.keys(pet).length === 5 + Number(Object.hasOwn(pet, 'look')) + Number(Object.hasOwn(pet, 'animation')) &&
+    isImagePetId(id) && isRecord(pet) && Object.keys(pet).length === 5 + Number(Object.hasOwn(pet, 'look')) + Number(Object.hasOwn(pet, 'animation')) + Number(Object.hasOwn(pet, 'hat')) + Number(Object.hasOwn(pet, 'accessories')) &&
+    (!Object.hasOwn(pet, 'hat') || (!pet.animation && !pet.accessories && validLegacyHat(pet.hat))) &&
+    (!Object.hasOwn(pet, 'accessories') || (!pet.animation && validPhotoOutfit(pet.accessories))) &&
     (!Object.hasOwn(pet, 'look') || validImageLook(pet.look)) && normalizePetName(pet.name) === pet.name &&
     typeof pet.name === 'string' && validPetImage(pet.image) && (!Object.hasOwn(pet, 'animation') || validAnimation(pet.animation, pet.image)) && isCareState(pet.care) && isCounter(pet.createdAt) &&
     validCompanion(pet.companion) && !pet.companion.scene.five && !pet.companion.scene.play);

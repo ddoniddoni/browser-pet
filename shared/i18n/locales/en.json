@@ -1528,5 +1528,56 @@
   },
   "meetOnWeb": {
     "message": "Meet me on a regular webpage. Open a website and click this icon again."
+  },
+  "wardrobeFriend": {
+    "message": "Choose a pet"
+  },
+  "santaHat": {
+    "message": "Santa hat"
+  },
+  "hatStillOnly": {
+    "message": "Still images only"
+  },
+  "hatAngle": {
+    "message": "Tilt"
+  },
+  "hatWalkPreview": {
+    "message": "Preview walk"
+  },
+  "hatPlaceAgain": {
+    "message": "Back to fitting"
+  },
+  "photoAccessories": {
+    "message": "Photo pet accessories"
+  },
+  "headAccessories": {
+    "message": "Headwear"
+  },
+  "neckAccessories": {
+    "message": "Neckwear"
+  },
+  "apricotBow": {
+    "message": "Apricot bow"
+  },
+  "sproutClip": {
+    "message": "Sprout clip"
+  },
+  "starBandana": {
+    "message": "Starlight bandana"
+  },
+  "bellCollar": {
+    "message": "Honeybell collar"
+  },
+  "removeAccessory": {
+    "message": "Remove this accessory"
+  },
+  "accessoryPosition": {
+    "message": "Adjust position"
+  },
+  "accessoryMoveHint": {
+    "message": "Drag the outlined accessory into place, or focus it and use the arrow keys."
+  },
+  "accessorySize": {
+    "message": "Accessory size"
   }
 }

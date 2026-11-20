@@ -1,3 +1,4 @@
+import { photoOutfit, sameOutfit } from '../../../shared/contracts/photo-accessories';
 import { isImagePetId, originalLook } from '../../../shared/contracts/image-pet';
 import { createPageImage } from '../rendering/page-image';
 import { type CompanionId, movementLabel, companionFor, companionRoute, projectCompanion, announcementCompanion } from '../../../shared/contracts/companions';
@@ -354,7 +355,7 @@ export function mountPagePet(container: HTMLElement, initialRoot: PetState, spec
     if (imageFigure && isImagePetId(speciesId)) {
       const pet = state.imagePets?.[speciesId];
       if (pet) {
-        imageFigure.dress(pet.image, pet.look ?? originalLook, pet.animation);
+        imageFigure.dress(pet.image, pet.look ?? originalLook, pet.animation, photoOutfit(pet));
         controls.rotation.hidden = !pet.look?.relief;
       }
     }
@@ -372,6 +373,7 @@ export function mountPagePet(container: HTMLElement, initialRoot: PetState, spec
     const currentImage = uploaded ? state.imagePets?.[speciesId] : undefined;
     const nextImage = uploaded ? next.imagePets?.[speciesId] : undefined;
     const appearanceChanged = currentImage?.image !== nextImage?.image ||
+      !sameOutfit(photoOutfit(currentImage), photoOutfit(nextImage)) ||
       currentImage?.look?.cutout !== nextImage?.look?.cutout || currentImage?.look?.relief !== nextImage?.look?.relief ||
       next.pet.name !== state.pet.name || next.pet.speciesId !== state.pet.speciesId ||
       next.settings.scarf !== state.settings.scarf || next.settings.outfit !== state.settings.outfit;

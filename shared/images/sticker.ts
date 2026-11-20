@@ -1,4 +1,6 @@
 import { decodePetImage, type ImageLook } from '../contracts/image-pet';
+import { drawAccessory } from './photo-accessory-art';
+import type { PhotoOutfit } from '../contracts/photo-accessories';
 
 type Background = 'original' | 'transparent' | 'removed' | 'uncertain';
 export interface Sticker {
@@ -167,16 +169,21 @@ export async function makeSticker(image: string, look: ImageLook): Promise<Stick
   return { face, rim, background };
 }
 
-export function drawSticker(ctx: CanvasRenderingContext2D, {face, rim}: Sticker, size: number, angle: number) {
+export function drawSticker(ctx: CanvasRenderingContext2D, {face, rim}: Sticker, size: number, angle: number, outfit?: PhotoOutfit) {
   ctx.clearRect(0, 0, size, size);
-  const scale = 0.88 * size / Math.max(face.width, face.height);
+  // 세로로 꽉 찬 사진에도 모자를 씌울 여백을 남긴다.
+  const dressed = !!(outfit?.head || outfit?.neck);
+  const scale = (dressed ? 0.74 : 0.88) * size / Math.max(face.width, face.height);
   const radians = rim ? angle * Math.PI / 180 : 0;
   const width = face.width * scale * Math.cos(radians), height = face.height * scale;
   const dx = rim ? size * 0.12 * Math.sin(radians) : 0, dy = rim ? size * 0.021 : 0;
-  const x = (size - width - dx) / 2, y = (size - height - dy) / 2;
+  const x = (size - width - dx) / 2;
+  const y = (size - height - dy) / 2 + (dressed ? size * 0.08 : 0);
   if (rim) {
     const layers = Math.ceil(Math.max(Math.abs(dx), dy));
     for (let i = layers; i >= 1; i--) ctx.drawImage(rim, x + dx * i / layers, y + dy * i / layers, width, height);
   }
   ctx.drawImage(face, x, y, width, height);
+  if (outfit?.neck) drawAccessory(ctx, outfit.neck, size, Math.cos(radians), -dx / 2);
+  if (outfit?.head) drawAccessory(ctx, outfit.head, size, Math.cos(radians), -dx / 2);
 }

@@ -1,3 +1,4 @@
+import { photoOutfit } from '../../shared/contracts/photo-accessories';
 import { useId, useRef, useState } from 'react';
 import { Chevron } from '../../components/Chevron';
 import { ImagePetPreview } from '../../components/ImageLookEditor';
@@ -43,7 +44,7 @@ export function AtticRoster({ state, attic, enabled }: { state: PetState; attic:
         return <li key={friend}><button type="button" className="attic-pick" aria-pressed={friend === attic.center}
           disabled={pending} onClick={() => void choose(friend)}>
           <span className="attic-thumb" aria-hidden="true">{isImagePetId(friend)
-            ? custom && <ImagePetPreview image={custom.image} look={custom.look ?? originalLook} size={80} />
+            ? custom && <ImagePetPreview image={custom.image} accessories={photoOutfit(custom)} look={custom.look ?? originalLook} size={80} />
             : <PetAvatar speciesId={friend} name="" />}</span>
           <bdi>{name}</bdi>{friend === attic.center && <span className="attic-check" aria-hidden="true" />}
         </button></li>;

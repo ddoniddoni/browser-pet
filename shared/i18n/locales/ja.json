@@ -1528,5 +1528,56 @@
   },
   "meetOnWeb": {
     "message": "ふつうのウェブページで会いましょう。サイトを開いて、このアイコンをもう一度押してください。"
+  },
+  "wardrobeFriend": {
+    "message": "着替える子"
+  },
+  "santaHat": {
+    "message": "サンタ帽"
+  },
+  "hatStillOnly": {
+    "message": "静止画のみ"
+  },
+  "hatAngle": {
+    "message": "傾き"
+  },
+  "hatWalkPreview": {
+    "message": "お散歩プレビュー"
+  },
+  "hatPlaceAgain": {
+    "message": "位置合わせに戻る"
+  },
+  "photoAccessories": {
+    "message": "写真ペットのアクセサリー"
+  },
+  "headAccessories": {
+    "message": "頭の飾り"
+  },
+  "neckAccessories": {
+    "message": "首の飾り"
+  },
+  "apricotBow": {
+    "message": "あんずリボン"
+  },
+  "sproutClip": {
+    "message": "ふたばのヘアピン"
+  },
+  "starBandana": {
+    "message": "星空バンダナ"
+  },
+  "bellCollar": {
+    "message": "はちみつ色の鈴"
+  },
+  "removeAccessory": {
+    "message": "この飾りを外す"
+  },
+  "accessoryPosition": {
+    "message": "位置を調整"
+  },
+  "accessoryMoveHint": {
+    "message": "点線の中の飾りをドラッグして動かせます。キーボードでは飾りを選び、矢印キーで調整します。"
+  },
+  "accessorySize": {
+    "message": "飾りの大きさ"
   }
 }

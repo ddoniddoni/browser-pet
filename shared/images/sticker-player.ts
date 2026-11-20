@@ -1,3 +1,4 @@
+import { sameOutfit, type PhotoOutfit } from '../contracts/photo-accessories';
 import type { ImageLook, PetAnimation } from '../contracts/image-pet';
 import { drawSticker, makeSticker, type Sticker } from './sticker';
 
@@ -10,6 +11,7 @@ export function createStickerPlayer(canvas: HTMLCanvasElement, report?: (status:
   let frames: Sticker[] = [], ends: number[] = [], total = 0;
   let size = canvas.width, angle = 0, drawn = -1, still = false, visible = false;
   let generation = 0, timer: number | undefined;
+  let outfit: PhotoOutfit | undefined;
   function paint() {
     window.clearTimeout(timer);
     if (!ctx || !frames.length || document.hidden) return;
@@ -18,7 +20,7 @@ export function createStickerPlayer(canvas: HTMLCanvasElement, report?: (status:
     const index = playing ? ends.findIndex(end => end > phase) : 0;
     if (index !== drawn) {
       if (canvas.width !== size || canvas.height !== size) canvas.width = canvas.height = size;
-      drawSticker(ctx, frames[index]!, size, angle);
+      drawSticker(ctx, frames[index]!, size, angle, outfit);
       drawn = index;
     }
     if (playing) timer = window.setTimeout(paint, Math.max(1, ends[index]! - phase));
@@ -28,6 +30,10 @@ export function createStickerPlayer(canvas: HTMLCanvasElement, report?: (status:
   motion.addEventListener('change', paint);
   document.addEventListener('visibilitychange', paint);
   return {
+    setOutfit(next?: PhotoOutfit) {
+      if (sameOutfit(outfit, next)) return;
+      outfit = next; drawn = -1; paint();
+    },
     load(image: string, look: ImageLook, animation?: PetAnimation) {
       const ticket = ++generation;
       window.clearTimeout(timer); frames = []; ends = []; drawn = -1;
