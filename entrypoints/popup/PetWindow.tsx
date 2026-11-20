@@ -1,3 +1,4 @@
+import { photoOutfit } from '../../shared/contracts/photo-accessories';
 import { useCallback, useSyncExternalStore } from 'react';
 import { type CompanionId, projectCompanion } from '../../shared/contracts/companions';
 import { originalLook, isImagePetId } from '../../shared/contracts/image-pet';
@@ -31,7 +32,7 @@ function Resident({ state, action = 'SIT', yaw, still = true, startedAt }: {
   const species = state.pet.speciesId;
   if (isImagePetId(species)) {
     const pet = state.imagePets?.[species];
-    return pet && <ImagePetPreview image={pet.image} animation={pet.animation} still={state.settings.reduceMotion === 'always'} look={pet.look ?? originalLook} size={192} angle={yaw < 0 ? -18 : 18} />;
+    return pet && <ImagePetPreview image={pet.image} accessories={photoOutfit(pet)} animation={pet.animation} still={state.settings.reduceMotion === 'always'} look={pet.look ?? originalLook} size={192} angle={yaw < 0 ? -18 : 18} />;
   }
   return <PetMiniature {...state.pet} action={action} yaw={yaw} still={still} startedAt={startedAt}
     mode={action === 'EAT' ? 'meal' : action === 'SLEEP' ? 'bedtime' : 'pose'}

@@ -5,10 +5,35 @@ import { outfits, scarves, wornScarf, type Outfit, type Scarf } from '../../shar
 import type { PetState } from '../../shared/contracts/state';
 import { patchSettings } from '../../shared/messaging/state';
 import { SaveNotice, useSaveFeedback } from './Preferences';
+import { atticFor } from '../../shared/contracts/attic';
+import { isImagePetId } from '../../shared/contracts/image-pet';
+import { Chevron } from '../../components/Chevron';
+import { PhotoFittingRoom } from './PhotoFittingRoom';
 
 const rails = ['everyday', 'christmas'] as const;
 
 export function Wardrobe({ state }: { state: PetState }) {
+  const heading = useId();
+  const [choice, setChoice] = useState<string>();
+  const pictures = state.imagePets ?? {};
+  const selected = choice ?? atticFor(state).center;
+  const id = isImagePetId(selected) && pictures[selected] && !pictures[selected]?.animation ? selected : null;
+  const photo = id && pictures[id];
+  return <section className="preferences wardrobe" id="wardrobe" aria-labelledby={heading}>
+    <h2 id={heading}>{t('wardrobe')}</h2>
+    {Object.keys(pictures).length > 0 && <label className="wardrobe-picker">{t('wardrobeFriend')}
+      <span className="image-select"><select value={id ?? ''} onChange={e => setChoice(e.target.value)}>
+        <option value="">{state.pet.name}</option>
+        {Object.entries(pictures).map(([key, pet]) => pet && <option key={key} value={key} disabled={!!pet.animation}>
+          {pet.name}{pet.animation ? ' — ' + t('hatStillOnly') : ''}
+        </option>)}
+      </select><Chevron /></span>
+    </label>}
+    {id && photo ? <PhotoFittingRoom key={id} state={state} id={id} pet={photo} /> : <SignatureWardrobe state={state} />}
+  </section>;
+}
+
+function SignatureWardrobe({ state }: { state: PetState }) {
   const group = useId();
   const [angle, setAngle] = useState(24);
   const { feedback, save } = useSaveFeedback();
@@ -23,8 +48,7 @@ export function Wardrobe({ state }: { state: PetState }) {
   const changed = outfit !== worn || scarf !== neck;
   const busy = feedback.kind === 'pending';
 
-  return <section className="preferences wardrobe" id="wardrobe" aria-labelledby={group + '-title'}>
-    <h2 id={group + '-title'}>{t('wardrobe')}</h2>
+  return <>
     <p className="section-note">{t('wardrobeHint')}</p>
     <div className="fitting-room">
       <figure className="fitting-mirror">
@@ -71,5 +95,5 @@ export function Wardrobe({ state }: { state: PetState }) {
       {changed && <button type="button" className="link" disabled={busy} onClick={() => setDraft({})}>{t('chooseAgain')}</button>}
     </div>
     <SaveNotice feedback={feedback} />
-  </section>;
+  </>;
 }

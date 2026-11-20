@@ -1528,5 +1528,56 @@
   },
   "meetOnWeb": {
     "message": "일반 웹페이지에서 만나요. 웹사이트를 열고 이 아이콘을 다시 눌러 주세요."
+  },
+  "wardrobeFriend": {
+    "message": "옷 입힐 친구"
+  },
+  "santaHat": {
+    "message": "산타 모자"
+  },
+  "hatStillOnly": {
+    "message": "정지 이미지 전용"
+  },
+  "hatAngle": {
+    "message": "기울기"
+  },
+  "hatWalkPreview": {
+    "message": "산책 미리보기"
+  },
+  "hatPlaceAgain": {
+    "message": "위치 조절로 돌아가기"
+  },
+  "photoAccessories": {
+    "message": "사진 펫 장식"
+  },
+  "headAccessories": {
+    "message": "머리 장식"
+  },
+  "neckAccessories": {
+    "message": "목 장식"
+  },
+  "apricotBow": {
+    "message": "살구 리본"
+  },
+  "sproutClip": {
+    "message": "새싹 머리핀"
+  },
+  "starBandana": {
+    "message": "별밤 반다나"
+  },
+  "bellCollar": {
+    "message": "꿀빛 방울 목걸이"
+  },
+  "removeAccessory": {
+    "message": "이 장식 빼기"
+  },
+  "accessoryPosition": {
+    "message": "위치 조절"
+  },
+  "accessoryMoveHint": {
+    "message": "점선 안의 장식을 끌어 옮기세요. 키보드로는 장식을 선택하고 방향키를 눌러요."
+  },
+  "accessorySize": {
+    "message": "장식 크기"
   }
 }

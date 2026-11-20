@@ -1,3 +1,4 @@
+import { validLegacyHat, validOutfitPatch } from './photo-accessories';
 import { maxBackupBytes } from './backup';
 import { isMovement, isCompanionId, validCompanionPatch, type CompanionId, type CompanionPatch } from './companions';
 import { isImagePetId, validPetImage, validAnimation, type NewImagePet, type ImagePetEdit, validImageLook, type ImagePetId } from './image-pet';
@@ -121,10 +122,17 @@ export function parseCommand(message: Record<string, unknown>, source: ReturnTyp
   }
   if (!isId(expectedPetId)) return invalid();
   if (type === 'IMAGE_PET_LOOK') {
-    const { id, look, movement, name, sizePx } = payload;
+    const { id, look, movement, name, sizePx, hat, accessories } = payload;
     if (!isImagePetId(id) || Object.keys(payload).length < 2 ||
-        Object.keys(payload).some(k => !['id','look','movement','name','sizePx'].includes(k))) return invalid();
+        Object.keys(payload).some(k => !['id','look','movement','name','sizePx','hat','accessories'].includes(k))) return invalid();
     const edit: ImagePetEdit = {};
+    if ('accessories' in payload) {
+      if ('hat' in payload || !validOutfitPatch(accessories)) return invalid();
+      edit.accessories = accessories;
+    } else if ('hat' in payload) {
+      if (hat !== null && !validLegacyHat(hat)) return invalid();
+      edit.accessories = { head: hat && { ...hat, kind: 'santaHat' } };
+    }
     if ('look' in payload) { if (!validImageLook(look)) return invalid(); edit.look = look; }
     if ('movement' in payload) { if (!isMovement(movement)) return invalid(); edit.movement = movement; }
     if ('name' in payload) { const valid = normalizePetName(name); if (!valid) return invalid(); edit.name = valid; }

@@ -1,3 +1,4 @@
+import { applyOutfitPatch, photoOutfit } from '../contracts/photo-accessories';
 import { prepareRestoredState } from './restore-backup';
 import { atticFor } from '../contracts/attic';
 import { verifyPetPicture, isImagePetId, maxImagePets } from '../contracts/image-pet';
@@ -229,13 +230,21 @@ export function createStateWriter(storage: LocalState) {
           break;
         }
         case 'IMAGE_PET_LOOK': {
-          const { id, look, movement, name, sizePx } = command.payload, pet = stored.imagePets?.[id];
+          const { id, look, movement, name, sizePx, accessories } = command.payload, pet = stored.imagePets?.[id];
           if (!pet) return conflict();
-          base = { ...stored, imagePets: { ...stored.imagePets, [id]: {
+          if (accessories && pet.animation) return failure('VALIDATION_ERROR', t('hatStillOnly'));
+          const updated = {
             ...pet, name: name ?? pet.name, ...(look && { look }),
             companion: { ...pet.companion, movement: movement ?? pet.companion.movement,
               settings: { ...pet.companion.settings, ...(sizePx && { sizePx }) } },
-          } } };
+          };
+          if (accessories) {
+            const next = applyOutfitPatch(photoOutfit(pet), accessories);
+            delete updated.hat;
+            if (next.head || next.neck) updated.accessories = next;
+            else delete updated.accessories;
+          }
+          base = { ...stored, imagePets: { ...stored.imagePets, [id]: updated } };
           break;
         }
         case 'IMAGE_PET_RENAME': {

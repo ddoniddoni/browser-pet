@@ -120,8 +120,8 @@ h2 { font-size: 22px; font-weight: 500; line-height: 1.5; }
 .scarf-option [data-tone=sky] { background: #5f8eb2; }
 .scarf-option [data-tone=none] { display: grid; place-items: center; border-color: var(--pencil); }
 .scarf-option [data-tone=none]::before { content: ''; width: 10px; height: 1px; background: var(--pencil); transform: rotate(-45deg); }
-.wardrobe label:has(:enabled):hover { border-color: var(--pencil); }
-.wardrobe label:has(:focus-visible) { outline: 2px solid var(--leaf); outline-offset: 2px; }
+.wardrobe :is(.garment-option, .scarf-option):has(:enabled):hover { border-color: var(--pencil); }
+.wardrobe :is(.garment-option, .scarf-option):has(input:focus-visible) { outline: 2px solid var(--leaf); outline-offset: 2px; }
 .fitting-actions { display: flex; gap: 12px; align-items: center; margin-top: 24px; }
 .reset-panel { border-top: 1px solid var(--edge); margin-top: 32px; padding-top: 12px; }
 .reset-panel > summary { color: var(--muted); font-size: 16px; }
@@ -178,7 +178,7 @@ dialog::backdrop { background: #17291f66; }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; } }
 @media (forced-colors: active) {
   .settings-tabs button[aria-selected=true], .size-sample:has(:checked), .choice-option:has(:checked) span,
-  .wardrobe label:has(:checked), .species-choices label:has(:checked) { outline: 2px solid Highlight; outline-offset: -3px; }
+  .wardrobe :is(.garment-option, .scarf-option):has(:checked), .species-choices label:has(:checked) { outline: 2px solid Highlight; outline-offset: -3px; }
 }
 
 .notice, .species-status, .save-notice [role=status], .pet-caption span { font-size: 14px; }

@@ -1,3 +1,4 @@
+import type { PhotoOutfit } from '../shared/contracts/photo-accessories';
 import { useEffect, useId, useRef, useState } from 'react';
 import { movements, movementLabel, type Movement } from '../shared/contracts/companions';
 import { sameAnimation, type ImageLook, type PetPicture } from '../shared/contracts/image-pet';
@@ -8,12 +9,13 @@ import './pet-motion.css';
 
 interface PreviewProps extends PetPicture {
   look: ImageLook;
+  accessories?: PhotoOutfit;
   angle?: number;
   size?: number;
   still?: boolean;
   onStatus?: (status: PreviewStatus) => void;
 }
-export function ImagePetPreview({ image, animation, look, angle = 18, size = 128, still = false, onStatus }: PreviewProps) {
+export function ImagePetPreview({ image, animation, look, accessories, angle = 18, size = 128, still = false, onStatus }: PreviewProps) {
   const canvas = useRef<HTMLCanvasElement>(null);
   const player = useRef<ReturnType<typeof createStickerPlayer> | null>(null);
   const last = useRef<Pick<PreviewProps, 'image' | 'look' | 'animation'> | null>(null);
@@ -36,6 +38,7 @@ export function ImagePetPreview({ image, animation, look, angle = 18, size = 128
     canvas.current.hidden = true;
     player.current.load(image, look, animation);
   }, [image, look, animation, onStatus]);
+  useEffect(() => { player.current?.setOutfit(accessories); }, [accessories, onStatus]);
   useEffect(() => { player.current?.configure(size, angle, still); }, [size, angle, still, onStatus]);
   return <span className="image-pet-preview">
     <canvas ref={canvas} width={size} height={size} aria-hidden="true" />
@@ -43,7 +46,8 @@ export function ImagePetPreview({ image, animation, look, angle = 18, size = 128
   </span>;
 }
 
-export function ImageLookEditor({image, animation, look, movement, onChange, onMove, disabled, still}: PetPicture & {
+export function ImageLookEditor({image, animation, accessories, look, movement, onChange, onMove, disabled, still}: PetPicture & {
+  accessories?: PhotoOutfit;
   look: ImageLook; movement: Movement; onChange: (next: ImageLook) => void; onMove: (value: Movement) => void;
   disabled: boolean; still: boolean;
 }) {
@@ -56,7 +60,7 @@ export function ImageLookEditor({image, animation, look, movement, onChange, onM
       <div className="image-look-stage motion-stage" role="img" aria-label={t('imagePetPreview')} data-still={still || undefined}>
         <div className="motion-journey" data-faces={look.faces} data-movement={movement}>
           <div className="preview-heading"><div className="preview-sprite">
-            <ImagePetPreview {...{image, animation, look, angle, still}} size={256} onStatus={setStatus} />
+            <ImagePetPreview {...{image, animation, accessories, look, angle, still}} size={256} onStatus={setStatus} />
           </div></div>
         </div>
       </div>

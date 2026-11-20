@@ -1,3 +1,4 @@
+import { photoOutfit } from '../shared/contracts/photo-accessories';
 import { useEffect, useId, useRef, useState, type FormEvent } from 'react';
 import { browser } from 'wxt/browser';
 import { t } from '../shared/i18n';
@@ -72,7 +73,7 @@ function PetEditor({ editor, state, close }: { editor: Editor; state: PetState; 
         <button type="button" className="editor-close" aria-label={t('cancel')} disabled={pending} onClick={close}>×</button></header>
       <fieldset className="pet-editor-fields" disabled={pending}>
         <label className="pet-editor-name">{t('petName')}<input type="text" value={name} onChange={e => setName(e.target.value)} autoComplete="off" /></label>
-        <ImageLookEditor {...picture} look={look} movement={movement} onChange={setLook} onMove={setMovement}
+        <ImageLookEditor {...picture} accessories={photoOutfit(pet)} look={look} movement={movement} onChange={setLook} onMove={setMovement}
           disabled={reading || pending} still={state.settings.reduceMotion === 'always'} />
         {pet ? <label className="image-orientation">{t('friendSize')}<span className="image-select">
           <select value={size} onChange={e => setSize(Number(e.target.value) as typeof size)}>
@@ -129,7 +130,7 @@ export function ImagePets({ state, compact = false }: { state: PetState; compact
           <input type="file" accept={formats} disabled={full || reading} onChange={e => { void pick(e.target.files?.[0]); e.target.value = ''; }} /></label>}
       {pets.map(([id, pet]) => <PetTile key={id} name={pet.name} enabled={pet.companion.enabled}
         disabled={!!saving} toggle={enabled => void toggle(id, enabled)} edit={() => setEditor({ id, pet })}
-        portrait={<ImagePetPreview image={pet.image} look={pet.look ?? originalLook} size={128} />} />)}
+        portrait={<ImagePetPreview image={pet.image} accessories={photoOutfit(pet)} look={pet.look ?? originalLook} size={128} />} />)}
     </div>
     {!compact && <p className="image-pets-note">{t(full ? 'imagePetLimit' : 'imagePetFileHint')}</p>}
     {error && <p role="alert">{error}</p>}

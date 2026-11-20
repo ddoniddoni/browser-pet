@@ -1528,5 +1528,56 @@
   },
   "meetOnWeb": {
     "message": "Nos vemos en una página web. Abre un sitio y vuelve a pulsar este icono."
+  },
+  "wardrobeFriend": {
+    "message": "Elige una mascota"
+  },
+  "santaHat": {
+    "message": "Gorro de Navidad"
+  },
+  "hatStillOnly": {
+    "message": "Solo imágenes fijas"
+  },
+  "hatAngle": {
+    "message": "Inclinación"
+  },
+  "hatWalkPreview": {
+    "message": "Ver el paseo"
+  },
+  "hatPlaceAgain": {
+    "message": "Volver al ajuste"
+  },
+  "photoAccessories": {
+    "message": "Accesorios para tu mascota"
+  },
+  "headAccessories": {
+    "message": "Para la cabeza"
+  },
+  "neckAccessories": {
+    "message": "Para el cuello"
+  },
+  "apricotBow": {
+    "message": "Lazo de albaricoque"
+  },
+  "sproutClip": {
+    "message": "Pasador de brotes"
+  },
+  "starBandana": {
+    "message": "Pañuelo estrellado"
+  },
+  "bellCollar": {
+    "message": "Collar de cascabel dorado"
+  },
+  "removeAccessory": {
+    "message": "Quitar este accesorio"
+  },
+  "accessoryPosition": {
+    "message": "Ajustar posición"
+  },
+  "accessoryMoveHint": {
+    "message": "Arrastra el accesorio marcado o selecciónalo y muévelo con las flechas del teclado."
+  },
+  "accessorySize": {
+    "message": "Tamaño del accesorio"
   }
 }

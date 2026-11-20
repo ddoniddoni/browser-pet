@@ -1,3 +1,4 @@
+import type { PhotoOutfit } from '../../../shared/contracts/photo-accessories';
 import { sameAnimation, type ImageLook, type PetAnimation } from '../../../shared/contracts/image-pet';
 import { createStickerPlayer } from '../../../shared/images/sticker-player';
 
@@ -10,7 +11,8 @@ export function createPageImage(parent: HTMLElement) {
   const player = createStickerPlayer(canvas);
   let source = '', look: ImageLook | undefined, sequence: PetAnimation | undefined;
   return {
-    dress(image: string, nextLook: ImageLook, animation?: PetAnimation) {
+    dress(image: string, nextLook: ImageLook, animation?: PetAnimation, outfit?: PhotoOutfit) {
+      player.setOutfit(outfit);
       if (source === image && look?.cutout === nextLook.cutout && look.relief === nextLook.relief && sameAnimation(sequence, animation)) return;
       source = image; look = nextLook; sequence = animation;
       player.load(image, nextLook, animation);
