@@ -110,7 +110,13 @@ export function createStateWriter(storage: LocalState) {
       const fromPet = (command.type === 'CARE_FEED' || command.type === 'CARE_PET') && command.fromPage;
       if ((command.type === 'COMPANION_SCENE' || isSceneActionType(command.type) || command.type === 'HOST_HIDE_CURRENT' || fromPet) && !stored.settings.enabled)
         return conflict();
-      if (command.type === 'COMPANION_SCENE' || command.type === 'CARE_FEED' || command.type === 'CARE_PET') {
+      if (command.type === 'START_DRAWN_WALK') {
+        const timer = stored.timer;
+        if (!stored.settings.enabled || atticFor(stored).center !== command.payload.speciesId ||
+            stored.settings.reduceMotion === 'always' || (timer && (timer.phase === 'paused' || timer.endsAt > Date.now())))
+          return conflict();
+      }
+      if (command.type === 'COMPANION_SCENE' || command.type === 'START_DRAWN_WALK' || command.type === 'CARE_FEED' || command.type === 'CARE_PET') {
         const id = command.payload.speciesId;
         if (!hasCompanion(stored, id) || ((command.type === 'COMPANION_SCENE' || fromPet) && !companionFor(stored, id).enabled)) return conflict();
         routedRoot = stored;
@@ -125,6 +131,13 @@ export function createStateWriter(storage: LocalState) {
         (command.type === 'SETTINGS_PATCH' && command.payload.enabled !== undefined);
       const previousAttic = changesRoster ? atticFor(stored) : undefined;
       switch (command.type) {
+        case 'START_DRAWN_WALK': {
+          const path = command.payload.points;
+          base = { ...stored, scene: {
+            anchor: { kind: 'placed-patrol', ...path[0]!, at: Date.now(), path }, pettedAt: 0,
+          } };
+          break;
+        }
         case 'CARE_FEED':
         case 'CARE_PET': {
           if (command.payload.speciesId !== stored.pet.speciesId) return conflict();

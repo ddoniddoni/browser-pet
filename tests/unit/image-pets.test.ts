@@ -67,6 +67,17 @@ describe('로컬 이미지 펫 등록', () => {
     await p.send({...p.target(),type:'IMAGE_PET_REMOVE',payload:{id}});
     expect(p.read().settings.enabled).toBe(false);
   });
+  it('사진 친구가 그린 길을 걸어도 원본 그림과 기본 친구의 위치는 그대로 보존한다', async () => {
+    decoder();
+    const p = profile();
+    await p.send(p.add);
+    await p.send({ ...p.target(), type: 'ATTIC_FOCUS', payload: { id } });
+    const original = p.read().companions;
+    const points = [{ x: .2, y: .8 }, { x: .5, y: .3 }];
+    await p.send({ ...p.target(), type: 'START_DRAWN_WALK', payload: { speciesId: id, points } });
+    expect(p.read().imagePets![id]).toMatchObject({ image, companion: { scene: { anchor: { path: points } } } });
+    expect(p.read().companions).toEqual(original);
+  });
   it('페이지 등록과 이미지에 없는 입체 기능을 명령 경계에서 거부한다', () => {
     const p=profile();
     expect(parseCommand({...envelope,...p.add},'content')).toMatchObject({code:'FORBIDDEN'});

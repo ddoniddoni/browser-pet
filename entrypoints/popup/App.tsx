@@ -1,4 +1,5 @@
 import { AtticRoster } from './AtticRoster';
+import { WalkPathPanel } from './WalkPathPanel';
 import { atticFor } from '../../shared/contracts/attic';
 import { announcementCompanion, projectCompanion } from '../../shared/contracts/companions';
 import { t } from '../../shared/i18n';
@@ -83,6 +84,8 @@ export default function App() {
             {enabled && pending === null && <CurrentPageStatus settings={base.settings} name={friend.pet.name} />}
           </PetRoom>
           <AtticRoster key={base.pet.id} state={base} attic={attic} enabled={enabled} />
+          {center && pending === null &&
+            <WalkPathPanel key={base.pet.id + ':' + center} state={friend} friend={center} />}
         </div>
         <div className="tool-shelf">
           <AgendaPanel key={'agenda:' + state.pet.id} state={state}/>

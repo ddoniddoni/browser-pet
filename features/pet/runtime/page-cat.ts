@@ -84,6 +84,7 @@ export function mountPagePet(container: HTMLElement, initialRoot: PetState, spec
   let clockRequest: 'SCENE_HOLD'|'SCENE_UNHOLD'|undefined;
   let retryClockAt=0;
   let lastPatrolFrame: number|undefined;
+  let systemHoldAt: number | undefined;
   let windowBlurred=false;
   let heldPoint: Point | null = null;
   let localDrag: Point | null = null;
@@ -135,11 +136,11 @@ export function mountPagePet(container: HTMLElement, initialRoot: PetState, spec
   }
 
   // 메뉴는 이 탭만 소유한다. 산책 정지는 공유하고, 해당 메뉴가 없는 다음 활성 탭도 이어갈 수 있다.
-  function syncPatrolClock(wantsHold:boolean, now:number) {
+  function syncPatrolClock(wantsHold:boolean, now:number, holdAt:number) {
     const {anchor}=scene, token=anchor.clock?.hold;
     if (anchor.kind==='pin' || wantsHold===!!token || clockRequest || windowBlurred || !document.hasFocus()) return;
     const action:SceneAction|undefined = wantsHold && !token
-      ? {type:'SCENE_HOLD',payload:{anchorAt:anchor.at,at:lastPatrolFrame ?? now}}
+      ? {type:'SCENE_HOLD',payload:{anchorAt:anchor.at,at:holdAt}}
       : !wantsHold && token ? {type:'SCENE_UNHOLD',payload:{token}} : undefined;
     if (!action) return;
     if (now<retryClockAt) return retryClockAt;
@@ -174,9 +175,15 @@ export function mountPagePet(container: HTMLElement, initialRoot: PetState, spec
     const five = menu.hidden && !displayedDrag ? activeFive(scene.five, state.pet.speciesId, now) : undefined;
     // 메뉴에서 놀이로 넘어가도 손을 거둘 때까지 같은 산책 지점을 유지한다.
     const interacting = focused || pressed || !menu.hidden || !!five || (!!alarm && overAlarm);
-    const retryAt=syncPatrolClock(interacting && !reduced,now);
-    const held = interacting || !!scene.anchor.clock?.hold || clockRequest==='SCENE_HOLD';
+    const systemPausesPath = !!scene.anchor.path && motion.matches && state.settings.reduceMotion === 'system';
+    // OS 설정은 저장소 변경을 일으키지 않는다. 응답을 기다리는 동안에도 같은 프레임을 보인다.
+    if (systemPausesPath && !scene.anchor.clock?.hold) systemHoldAt ??= lastPatrolFrame ?? now;
+    else systemHoldAt = undefined;
+    const retryAt = syncPatrolClock(systemPausesPath || (interacting && !reduced), now, systemHoldAt ?? lastPatrolFrame ?? now);
+    // 동작 줄이기로 멈춘 친구도 타이머의 독서 자세와 돌봄 반응을 표시한다.
+    const held = interacting || (!systemPausesPath && (!!scene.anchor.clock?.hold || clockRequest==='SCENE_HOLD'));
     let walkYaw: number | undefined;
+    let walkingDrawnPath = false;
     let next: number | undefined;
     let habitAt: number | undefined;
     let action: string;
@@ -187,12 +194,13 @@ export function mountPagePet(container: HTMLElement, initialRoot: PetState, spec
       action = localDrag || (remoteDrag && !pendingPin) ? 'DRAG' : 'PINNED';
       if (pinned) habitAt = pinnedHabitAt(scene.anchor.at, now);
     } else {
-      const sampleAt = eating ? fedAt : petted ? scene.pettedAt : now;
-      const sample = reduced ? samplePatrol(companionRoute(state),scene.anchor,scene.anchor.at,state.settings.speed) :
-        sampleScenePatrol(companionRoute(state),scene.anchor,sampleAt,state.settings.speed,session);
+      const sampleAt = systemHoldAt ?? (eating ? fedAt : petted ? scene.pettedAt : now);
+      const sample = reduced && !systemPausesPath ? samplePatrol(companionRoute(state),scene.anchor,scene.anchor.at,state.settings.speed) :
+        sampleScenePatrol(companionRoute(state),scene.anchor,sampleAt,state.settings.speed,session,state.pet.speciesId);
+      walkingDrawnPath = !!sample.drawnWalk;
       if (!held) {
         heldPoint=null;
-        lastPatrolFrame=sampleAt!==now || sample.action==='WALK' ? sampleAt : undefined;
+        if (!systemPausesPath) lastPatrolFrame=sampleAt!==now || sample.action==='WALK' ? sampleAt : undefined;
       }
       const ratio = heldPoint ?? sample;
       point = { x: area.x + ratio.x * area.width, y: area.y + ratio.y * area.height };
@@ -289,7 +297,8 @@ export function mountPagePet(container: HTMLElement, initialRoot: PetState, spec
         action==='PETTED' ? {at:scene.pettedAt,ms:pettingMs} :
         action==='HABIT' && habitAt!==undefined ? {at:habitAt,ms:habitMs} : undefined;
       const movement = speciesId ? companionFor(state, speciesId).movement : 'walk';
-      const pose = action === 'WALK' && movement === 'bounce' ? 'HOP' : action === 'WALK' && movement === 'float' ? 'FLOAT' : action;
+      const gliding = walkingDrawnPath && speciesId === 'kkogit' && movement === 'walk';
+      const pose = action === 'WALK' && movement === 'bounce' ? 'HOP' : action === 'WALK' && (movement === 'float' || gliding) ? 'FLOAT' : action;
       const repaintAt=figure.paint(showBook?'READ':pose,direction,reduced,now,viewport.size,inspectYaw,span,game ? undefined : walkYaw);
       if(repaintAt!==undefined)next=Math.min(next??Infinity,repaintAt);
       if(!painted||oldDirection!==direction) facing.dataset.side=direction===1?'right':'left';
@@ -302,6 +311,7 @@ export function mountPagePet(container: HTMLElement, initialRoot: PetState, spec
       imageFigure.paint(viewport.size, inspectYaw ?? (direction === 1 ? 18 : -18), reduced);
     }
     painted = true;
+    if (container.hasAttribute('data-drawn-walk') !== walkingDrawnPath) container.toggleAttribute('data-drawn-walk', walkingDrawnPath);
     if (container.dataset.action !== action) {
       if (action === 'WALK') container.style.setProperty('--pet-step-offset', -(now % 720) + 'ms');
       container.dataset.action = action;
@@ -384,6 +394,7 @@ export function mountPagePet(container: HTMLElement, initialRoot: PetState, spec
       // 정지 응답은 기준 시각만 바꾼다. 누르고 있는 동안의 표시 좌표는 유지한다.
       if (!anchor.clock?.hold || anchor.kind!==old.kind || anchor.x!==old.x || anchor.y!==old.y) heldPoint=null;
       lastPatrolFrame=undefined;
+      systemHoldAt=undefined;
       remoteDrag = null;
     }
     if (!next.agenda?.pending?.length) overAlarm=false;

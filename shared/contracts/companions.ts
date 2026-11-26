@@ -1,6 +1,7 @@
 import { isImagePetId, type ImagePetId } from './image-pet';
 import { petDefinitions, isPetSpeciesId, defaultPetName, getPetDefinition, type PetSpeciesId } from '../../features/pet/definitions/species';
-import { sampleScenePatrol } from '../../features/pet/core/shared-patrol';
+import { patrolElapsed, sampleScenePatrol } from '../../features/pet/core/shared-patrol';
+import { remainingDrawnPath } from '../../features/pet/core/drawn-path';
 import { createCare } from './care';
 import { getSharedScene, isRecord, isSettingsPatch, isSharedScene, type PetState, type SharedScene } from './state';
 
@@ -42,9 +43,14 @@ export const companionRoute = (state: PetState) => state.companions ? state.pet.
 export function rebaseScene(state: PetState, now: number): SharedScene {
   const scene = getSharedScene(state), a = scene.anchor;
   if (a.kind === 'pin') return scene;
-  const { x, y } = state.settings.reduceMotion === 'always' ? a :
-    sampleScenePatrol(companionRoute(state), a, now, state.settings.speed, state.timer);
-  return { ...scene, anchor: { ...a, x, y, at: now, ...(a.clock && { clock: { ...a.clock, elapsed: 0 } }) } };
+  const { path, ...anchor } = a;
+  const { speed, reduceMotion } = state.settings;
+  const remaining = path && (reduceMotion === 'always' ? path :
+    remainingDrawnPath(path, patrolElapsed(a, now, state.timer), speed, state.pet.speciesId));
+  const { x, y } = remaining?.[0] ?? (reduceMotion === 'always' ? a :
+    sampleScenePatrol(companionRoute(state), a, now, speed, state.timer, state.pet.speciesId));
+  return { ...scene, anchor: { ...anchor, x, y, at: now, ...(remaining && { path: remaining }),
+    ...(a.clock && { clock: { ...a.clock, elapsed: 0 } }) } };
 }
 export function adoptCompanions(state: PetState, now = Date.now()): PetState {
   if (state.companions) return state;

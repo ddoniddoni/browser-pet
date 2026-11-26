@@ -1,4 +1,5 @@
 import type { NewImagePet, ImagePetEdit, ImagePetId } from '../contracts/image-pet';
+import type { Point } from '../../features/pet/core/interaction';
 import { localSettingsPatch, type CompanionId, type CompanionPatch } from '../contracts/companions';
 import { t } from '../i18n';
 import type { AgendaChange, Occurrence } from '../contracts/agenda';
@@ -78,6 +79,11 @@ export async function careForPet(state: PetState, action: CareAction): Promise<{
 export function focusInAttic(state: PetState, id: CompanionId) {
   return requestState({ ...envelope, type: 'ATTIC_FOCUS', expectedPetId: state.pet.id,
     requestId: newRequestId(), payload: { id } }, true);
+}
+
+export function startDrawnWalk(state: PetState, speciesId: CompanionId, points: Point[]) {
+  return requestState({ ...envelope, type: 'START_DRAWN_WALK', expectedPetId: state.pet.id,
+    requestId: newRequestId(), payload: { speciesId, points } }, true);
 }
 
 export function decorateRoom(state: PetState, speciesId: PetSpeciesId, change: RoomChange) {
