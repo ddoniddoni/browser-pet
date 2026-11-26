@@ -1577,6 +1577,52 @@
   "accessoryMoveHint": {
     "message": "Arrastra el accesorio marcado o selecciónalo y muévelo con las flechas del teclado."
   },
+  "walkPathTitle": {
+    "message": "Dibujar un paseo"
+  },
+  "walkPathHint": {
+    "message": "Dibuja una línea para que la siga $value$. Con el teclado, selecciona el lienzo y usa las flechas para trazar el camino.",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "walkPathPad": {
+    "message": "Lienzo del paseo"
+  },
+  "walkPathOrigin": {
+    "message": "En un lienzo vacío empiezas en el centro. Cada flecha alarga el camino un paso en esa dirección."
+  },
+  "walkPathPosition": {
+    "message": "El punto final se encuentra a $value$ desde la izquierda y desde arriba, respectivamente.",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "walkPathHeart": {
+    "message": "Corazón"
+  },
+  "walkPathClear": {
+    "message": "Borrar"
+  },
+  "walkPathStart": {
+    "message": "Iniciar paseo"
+  },
+  "walkPathReduced": {
+    "message": "La reducción de movimiento está activada. Desactívala en los ajustes de la mascota y del dispositivo para iniciar el paseo."
+  },
+  "walkPathTimer": {
+    "message": "Termina el temporizador de estudio antes de iniciar el paseo."
+  },
+  "walkPathPage": {
+    "message": "Inicia el paseo en una página web normal donde puedas ver a tu mascota."
+  },
+  "walkPathStarted": {
+    "message": "El paseo ha comenzado. Puedes ver a tu mascota en una página web."
+  },
   "accessorySize": {
     "message": "Tamaño del accesorio"
   }

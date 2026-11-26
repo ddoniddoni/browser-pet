@@ -1,4 +1,5 @@
 import { createRoamRoute } from './roam-route';
+import { drawnWalk, sampleDrawnWalk } from './drawn-path';
 import type { Point } from './interaction';
 import type { SharedScene } from '../../../shared/contracts/state';
 import { patrolDelay, type StudyTimer } from '../../../shared/contracts/timer';
@@ -45,7 +46,7 @@ function cycleFor(petId: string): PatrolCycle {
   return cycle;
 }
 
-export interface PatrolSample extends Point { dx: number; dy: number; facing: Facing; action: Action; nextAt: number; habitAt?: number }
+export interface PatrolSample extends Point { dx: number; dy: number; facing: Facing; action: Action; nextAt: number; habitAt?: number; drawnWalk?: boolean }
 
 // nextAt은 다음 행동이 시작되는 절대 시각이다. 숨겨진 탭은 아무것도 예약하지 않아도 된다.
 export function samplePatrol(petId: string, anchor: Point & { at: number }, now: number,
@@ -79,8 +80,18 @@ export function patrolElapsed(anchor:Anchor, now:number, timer?:StudyTimer) {
     Math.max(0,now-anchor.at-patrolDelay(timer,anchor.at,now)));
 }
 
-export function sampleScenePatrol(petId:string, anchor:Anchor, now:number, speed:'slow'|'normal', timer?:StudyTimer) {
+export function sampleScenePatrol(petId:string, anchor:Anchor, now:number, speed:'slow'|'normal', timer?:StudyTimer,
+  speciesId?: string): PatrolSample {
   const elapsed=patrolElapsed(anchor,now,timer);
+  if (anchor.path) {
+    const track = drawnWalk(anchor.path, speed, speciesId);
+    const sample = sampleDrawnWalk(track, elapsed);
+    if (sample) return { x: sample.x, y: sample.y, dx: sample.dx, dy: sample.dy, facing: sample.facing,
+      action: sample.action, nextAt: now + sample.nextElapsed - elapsed, drawnWalk: true };
+    // 닫힌 탭이나 잠든 워커가 완료를 기록하지 않아도 같은 끝점에서 자유 산책을 이어간다.
+    const end = anchor.path[anchor.path.length - 1]!;
+    return samplePatrol(petId, { ...end, at: now - elapsed + track.duration }, now, speed);
+  }
   // 샘플의 종료/버릇 시각도 현재 페이지에서 예약할 실제 시각으로 돌려놓는다.
   return samplePatrol(petId,{x:anchor.x,y:anchor.y,at:now-elapsed},now,speed);
 }

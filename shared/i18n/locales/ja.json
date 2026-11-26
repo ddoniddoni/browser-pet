@@ -1577,6 +1577,52 @@
   "accessoryMoveHint": {
     "message": "点線の中の飾りをドラッグして動かせます。キーボードでは飾りを選び、矢印キーで調整します。"
   },
+  "walkPathTitle": {
+    "message": "おさんぽ道を描く"
+  },
+  "walkPathHint": {
+    "message": "$value$のおさんぽ道を一本の線で描いてください。キーボードでは用紙を選び、矢印キーで道を伸ばせます。",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "walkPathPad": {
+    "message": "おさんぽ道の用紙"
+  },
+  "walkPathOrigin": {
+    "message": "白紙では中央から始まります。矢印キーを押すたびにその方向へ一マス進みます。"
+  },
+  "walkPathPosition": {
+    "message": "終点は左端と上端から順に $value$ の位置です。",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "walkPathHeart": {
+    "message": "ハートの道"
+  },
+  "walkPathClear": {
+    "message": "消す"
+  },
+  "walkPathStart": {
+    "message": "おさんぽ開始"
+  },
+  "walkPathReduced": {
+    "message": "動きを減らす設定がオンです。道を歩くには、ペットと端末の設定でオフにしてください。"
+  },
+  "walkPathTimer": {
+    "message": "勉強タイマーを終了してから、おさんぽを始めてください。"
+  },
+  "walkPathPage": {
+    "message": "友だちが表示されている通常のウェブページでおさんぽを始めてください。"
+  },
+  "walkPathStarted": {
+    "message": "おさんぽが始まりました。ウェブページで友だちに会えます。"
+  },
   "accessorySize": {
     "message": "飾りの大きさ"
   }

@@ -12,6 +12,8 @@ import { outfits, personalities, scarves, type Outfit, type Personality, type Sc
 import { maxHiddenHosts, normalizeHostname } from './hostname';
 
 import { isStudyTimer, type StudyTimer } from './timer';
+import { isWalkPath } from './walk-path';
+import type { Point } from '../../features/pet/core/interaction';
 
 export const stateKey = 'browserPet.state';
 
@@ -21,7 +23,12 @@ export function isRecord(value: unknown): value is Record<string, unknown> {
 
 export interface SharedScene {
   // patrol은 화면 여백 안에서, placed-patrol은 끌어 놓은 위치에서 화면 전체를 산책한다.
-  anchor: { clock?: { elapsed: number; hold?: string }; kind: 'pin' | 'patrol' | 'placed-patrol'; x: number; y: number; at: number };
+  anchor: Point & {
+    kind: 'pin' | 'patrol' | 'placed-patrol';
+    at: number;
+    clock?: { elapsed: number; hold?: string };
+    path?: Point[];
+  };
   pettedAt: number;
   five?: HighFive;
   play?: { at: number; x: number; y: number; toy?: 'mouse' };
@@ -142,7 +149,10 @@ export function isSharedScene(value: unknown, version: 1 | 2 | 3 | 4): value is 
     if (version!==4 || anchor.kind==='pin' || !isRecord(c) || !isCounter(c.elapsed) ||
       (Object.hasOwn(c,'hold') ? Object.keys(c).length!==2 || !isId(c.hold) : Object.keys(c).length!==1)) return false;
   }
-  return Object.keys(anchor).length === 4+Number(hasClock) &&
+  const hasPath = Object.hasOwn(anchor, 'path');
+  if (hasPath && (version !== 4 || anchor.kind !== 'placed-patrol' || !isWalkPath(anchor.path) ||
+      anchor.x !== anchor.path[0]!.x || anchor.y !== anchor.path[0]!.y)) return false;
+  return Object.keys(anchor).length === 4 + Number(hasClock) + Number(hasPath) &&
     (anchor.kind === 'pin' || anchor.kind === 'patrol' || (version !== 1 && anchor.kind === 'placed-patrol')) &&
     isUnitCoordinate(anchor.x) && isUnitCoordinate(anchor.y) && isCounter(anchor.at);
 }

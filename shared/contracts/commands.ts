@@ -1,4 +1,6 @@
 import { validLegacyHat, validOutfitPatch } from './photo-accessories';
+import { isWalkPath } from './walk-path';
+import type { Point } from '../../features/pet/core/interaction';
 import { maxBackupBytes } from './backup';
 import { isMovement, isCompanionId, validCompanionPatch, type CompanionId, type CompanionPatch } from './companions';
 import { isImagePetId, validPetImage, validAnimation, type NewImagePet, type ImagePetEdit, validImageLook, type ImagePetId } from './image-pet';
@@ -37,6 +39,7 @@ type CareMutation = Target & { type: 'CARE_FEED' | 'CARE_PET'; payload: { specie
 type AgendaMutation = Target & { type: 'AGENDA_CHANGE'; payload: AgendaChange };
 
 export type Mutation =
+  | (Target & { type: 'START_DRAWN_WALK'; payload: { speciesId: CompanionId; points: Point[] } })
   | (Target & { type: 'IMAGE_PET_ADD'; payload: NewImagePet })
   | (Target & { type: 'IMAGE_PET_LOOK'; payload: { id: ImagePetId } & ImagePetEdit })
   | (Target & { type: 'IMAGE_PET_RENAME'; payload: { id: ImagePetId; name: string } })
@@ -99,7 +102,7 @@ export function parseCommand(message: Record<string, unknown>, source: ReturnTyp
   const { type } = message;
   const isCare = type === 'CARE_FEED' || type === 'CARE_PET';
   if (type !== 'IMAGE_PET_LOOK' && type !== 'IMAGE_PET_ADD' && type !== 'IMAGE_PET_RENAME' && type !== 'IMAGE_PET_REMOVE' && type !== 'COMPANION_PATCH' && type !== 'COMPANION_SCENE' && type !== 'AGENDA_DISMISS' && type !== 'AGENDA_CHANGE' && type !== 'ATTIC_FOCUS' && type !== 'ROOM_DECORATE' && type !== 'STUDY_TIMER' && !isCare && !isSceneActionType(type) && type !== 'PET_RENAME' && type !== 'SETTINGS_PATCH' && type !== 'RESET_ALL' && type !== 'RESTORE_BACKUP' &&
-    type !== 'HOST_HIDE_CURRENT' && type !== 'HOST_UNHIDE' && type !== 'PET_SELECT_SPECIES')
+    type !== 'HOST_HIDE_CURRENT' && type !== 'HOST_UNHIDE' && type !== 'PET_SELECT_SPECIES' && type !== 'START_DRAWN_WALK')
     return failure('INVALID_MESSAGE', t('badRequest'));
   const contentOnly = type === 'COMPANION_SCENE' || isSceneActionType(type) || type === 'HOST_HIDE_CURRENT';
   if (((isCare || type === 'AGENDA_DISMISS') ? source === 'options' : contentOnly !== (source === 'content')) ||
@@ -121,6 +124,12 @@ export function parseCommand(message: Record<string, unknown>, source: ReturnTyp
     return { type, expectedPetId, requestId, payload: { confirmed, expectedRevision } };
   }
   if (!isId(expectedPetId)) return invalid();
+  if (type === 'START_DRAWN_WALK') {
+    if (source !== 'popup') return failure('FORBIDDEN', t('wrongScreen'));
+    const { speciesId, points } = payload;
+    if (Object.keys(payload).length !== 2 || !isCompanionId(speciesId) || !isWalkPath(points)) return invalid();
+    return { type, requestId, expectedPetId, payload: { speciesId, points } };
+  }
   if (type === 'IMAGE_PET_LOOK') {
     const { id, look, movement, name, sizePx, hat, accessories } = payload;
     if (!isImagePetId(id) || Object.keys(payload).length < 2 ||

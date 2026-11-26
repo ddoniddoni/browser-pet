@@ -2,7 +2,7 @@ import type { Point } from './interaction';
 import type { Facing } from './patrol';
 
 // 창 크기가 달라도 같은 경로다. 속도와 구간 길이는 900 × 600 기준 화면의 px로 계산한다.
-const referenceView = { width: 900, height: 600 } as const;
+export const referenceView = { width: 900, height: 600 } as const;
 const bearings = [-142, -94, 154, -43, -116, 173, -66, -161, 106, -130, -32, -103];
 
 export function createRoamRoute(random: () => number) {

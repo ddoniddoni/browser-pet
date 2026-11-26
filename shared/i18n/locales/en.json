@@ -1577,6 +1577,52 @@
   "accessoryMoveHint": {
     "message": "Drag the outlined accessory into place, or focus it and use the arrow keys."
   },
+  "walkPathTitle": {
+    "message": "Draw a walking path"
+  },
+  "walkPathHint": {
+    "message": "Draw a line for $value$ to follow. To draw with the keyboard, focus the sketchpad and use the arrow keys.",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "walkPathPad": {
+    "message": "Walking path sketchpad"
+  },
+  "walkPathOrigin": {
+    "message": "On a blank sketchpad, start in the center. Each arrow key extends the path one step in that direction."
+  },
+  "walkPathPosition": {
+    "message": "The endpoint is $value$ from the left and top, respectively.",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "walkPathHeart": {
+    "message": "Heart path"
+  },
+  "walkPathClear": {
+    "message": "Clear"
+  },
+  "walkPathStart": {
+    "message": "Start walk"
+  },
+  "walkPathReduced": {
+    "message": "Reduced motion is on. To walk the path, turn it off in the pet and device settings."
+  },
+  "walkPathTimer": {
+    "message": "Finish the study timer, then start the walk."
+  },
+  "walkPathPage": {
+    "message": "Start the walk on a regular webpage where your friend is visible."
+  },
+  "walkPathStarted": {
+    "message": "Walk started. See your friend on a webpage."
+  },
   "accessorySize": {
     "message": "Accessory size"
   }

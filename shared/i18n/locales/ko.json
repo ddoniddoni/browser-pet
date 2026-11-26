@@ -1577,6 +1577,52 @@
   "accessoryMoveHint": {
     "message": "점선 안의 장식을 끌어 옮기세요. 키보드로는 장식을 선택하고 방향키를 눌러요."
   },
+  "walkPathTitle": {
+    "message": "산책길 긋기"
+  },
+  "walkPathHint": {
+    "message": "$value$의 산책길을 한 줄로 그려 주세요. 키보드로는 도화지를 선택하고 방향키로 길을 이어요.",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "walkPathPad": {
+    "message": "산책길 도화지"
+  },
+  "walkPathOrigin": {
+    "message": "빈 도화지에서는 가운데에서 시작해요. 방향키를 누를 때마다 그쪽으로 한 칸씩 길을 이어요."
+  },
+  "walkPathPosition": {
+    "message": "끝점은 왼쪽과 위에서 각각 $value$ 지점이에요.",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "walkPathHeart": {
+    "message": "하트 길"
+  },
+  "walkPathClear": {
+    "message": "지우기"
+  },
+  "walkPathStart": {
+    "message": "산책 시작"
+  },
+  "walkPathReduced": {
+    "message": "동작 줄이기가 켜져 있어요. 산책길을 걸으려면 펫 설정과 기기의 동작 줄이기를 꺼 주세요."
+  },
+  "walkPathTimer": {
+    "message": "공부 타이머가 끝나면 길을 걸을 수 있어요. 타이머를 종료하고 다시 시작해 주세요."
+  },
+  "walkPathPage": {
+    "message": "친구가 보이는 일반 웹페이지에서 산책을 시작해 주세요."
+  },
+  "walkPathStarted": {
+    "message": "산책을 시작했어요. 웹페이지에서 친구를 만나 보세요."
+  },
   "accessorySize": {
     "message": "장식 크기"
   }
