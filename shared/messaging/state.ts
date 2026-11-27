@@ -81,8 +81,13 @@ export function focusInAttic(state: PetState, id: CompanionId) {
     requestId: newRequestId(), payload: { id } }, true);
 }
 
-export function startDrawnWalk(state: PetState, speciesId: CompanionId, points: Point[]) {
+export function startDrawnWalk(state: PetState, speciesId: CompanionId, points: Point[], together = false) {
   return requestState({ ...envelope, type: 'START_DRAWN_WALK', expectedPetId: state.pet.id,
+    requestId: newRequestId(), payload: { speciesId, points, ...(together && { together: true as const }) } }, true);
+}
+
+export function saveWalkPath(state: PetState, speciesId: CompanionId, points: Point[] | null) {
+  return requestState({ ...envelope, type: 'SAVE_WALK_PATH', expectedPetId: state.pet.id,
     requestId: newRequestId(), payload: { speciesId, points } }, true);
 }
 

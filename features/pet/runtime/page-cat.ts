@@ -194,8 +194,9 @@ export function mountPagePet(container: HTMLElement, initialRoot: PetState, spec
       action = localDrag || (remoteDrag && !pendingPin) ? 'DRAG' : 'PINNED';
       if (pinned) habitAt = pinnedHabitAt(scene.anchor.at, now);
     } else {
-      const sampleAt = systemHoldAt ?? (eating ? fedAt : petted ? scene.pettedAt : now);
-      const sample = reduced && !systemPausesPath ? samplePatrol(companionRoute(state),scene.anchor,scene.anchor.at,state.settings.speed) :
+      const fixed = reduced && !systemPausesPath;
+      const sampleAt = fixed ? scene.anchor.at : systemHoldAt ?? (eating ? fedAt : petted ? scene.pettedAt : now);
+      const sample = fixed && !scene.anchor.parade ? samplePatrol(companionRoute(state),scene.anchor,scene.anchor.at,state.settings.speed) :
         sampleScenePatrol(companionRoute(state),scene.anchor,sampleAt,state.settings.speed,session,state.pet.speciesId);
       walkingDrawnPath = !!sample.drawnWalk;
       if (!held) {

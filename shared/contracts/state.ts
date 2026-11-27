@@ -1,18 +1,18 @@
 import { validAttic, type Attic } from './attic';
-import { validImagePets, type ImagePets } from './image-pet';
+import { maxImagePets, validImagePets, type ImagePets } from './image-pet';
 import { adoptCompanions, validCompanions, type Companions } from './companions';
 import { validAgenda, type Agenda } from './agenda';
 import type { HighFive } from './high-five';
 import { validRooms, type PetRooms } from './room';
 import { validAlbum, validPortrait, type MemoryCard, type Portrait } from './keepsakes';
 import { t } from '../i18n';
-import { defaultPetName, defaultSpeciesId, getPetDefinition, isLegacySpeciesId, legacyStartingCare } from '../../features/pet/definitions/species';
+import { defaultPetName, defaultSpeciesId, getPetDefinition, isLegacySpeciesId, legacyStartingCare, petDefinitions } from '../../features/pet/definitions/species';
 import { createCare, isCareState, type CareReward, type CareState } from './care';
 import { outfits, personalities, scarves, type Outfit, type Personality, type Scarf } from './character';
 import { maxHiddenHosts, normalizeHostname } from './hostname';
 
 import { isStudyTimer, type StudyTimer } from './timer';
-import { isWalkPath } from './walk-path';
+import { isWalkPath, paradeIntervalMs, type WalkParade } from './walk-path';
 import type { Point } from '../../features/pet/core/interaction';
 
 export const stateKey = 'browserPet.state';
@@ -28,6 +28,7 @@ export interface SharedScene {
     at: number;
     clock?: { elapsed: number; hold?: string };
     path?: Point[];
+    parade?: WalkParade;
   };
   pettedAt: number;
   five?: HighFive;
@@ -152,7 +153,14 @@ export function isSharedScene(value: unknown, version: 1 | 2 | 3 | 4): value is 
   const hasPath = Object.hasOwn(anchor, 'path');
   if (hasPath && (version !== 4 || anchor.kind !== 'placed-patrol' || !isWalkPath(anchor.path) ||
       anchor.x !== anchor.path[0]!.x || anchor.y !== anchor.path[0]!.y)) return false;
-  return Object.keys(anchor).length === 4 + Number(hasClock) + Number(hasPath) &&
+  const hasParade = Object.hasOwn(anchor, 'parade');
+  if (hasParade) {
+    const parade = anchor.parade;
+    const maxDelay = (petDefinitions.length + maxImagePets - 1) * paradeIntervalMs;
+    if (!hasPath || !isRecord(parade) || Object.keys(parade).length !== 3 || !isCounter(parade.delayMs) || parade.delayMs > maxDelay ||
+        (parade.speed !== 'normal' && parade.speed !== 'slow') || typeof parade.glide !== 'boolean') return false;
+  }
+  return Object.keys(anchor).length === 4 + Number(hasClock) + Number(hasPath) + Number(hasParade) &&
     (anchor.kind === 'pin' || anchor.kind === 'patrol' || (version !== 1 && anchor.kind === 'placed-patrol')) &&
     isUnitCoordinate(anchor.x) && isUnitCoordinate(anchor.y) && isCounter(anchor.at);
 }

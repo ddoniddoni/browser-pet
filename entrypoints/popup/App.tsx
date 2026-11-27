@@ -85,7 +85,7 @@ export default function App() {
           </PetRoom>
           <AtticRoster key={base.pet.id} state={base} attic={attic} enabled={enabled} />
           {center && pending === null &&
-            <WalkPathPanel key={base.pet.id + ':' + center} state={friend} friend={center} />}
+            <WalkPathPanel key={base.pet.id} state={friend} friend={center} order={attic.order} />}
         </div>
         <div className="tool-shelf">
           <AgendaPanel key={'agenda:' + state.pet.id} state={state}/>

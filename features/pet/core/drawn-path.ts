@@ -27,8 +27,7 @@ function measurePath(points: Point[], speed: Speed, glide: boolean) {
 // 저장 상태가 바뀔 때만 구간을 측정한다. 이전 경로는 참조가 사라지면 함께 회수된다.
 const measured = new WeakMap<Point[], ReturnType<typeof measurePath>>();
 
-export function drawnWalk(points: Point[], speed: Speed, speciesId?: string) {
-  const glide = speciesId === 'kkogit';
+export function drawnWalk(points: Point[], speed: Speed, glide: boolean) {
   let track = measured.get(points);
   if (!track || track.speed !== speed || track.glide !== glide) {
     track = measurePath(points, speed, glide);
@@ -44,7 +43,7 @@ export function sampleDrawnWalk(track: ReturnType<typeof drawnWalk>, elapsed: nu
   const { from, dx, dy, start, end } = track.legs[index]!;
   const progress = Math.max(0, (elapsed - start) / (end - start));
   const resting = elapsed < start;
-  const action: Action = resting ? 'IDLE' : 'WALK';
+  const action: Action = elapsed < 0 ? 'SIT' : resting ? 'IDLE' : 'WALK';
   const facing: Facing = dx < 0 ? -1 : 1;
   return {
     x: from.x + dx * progress, y: from.y + dy * progress, dx, dy, facing, index,
@@ -54,7 +53,7 @@ export function sampleDrawnWalk(track: ReturnType<typeof drawnWalk>, elapsed: nu
 
 // 속도 또는 동작 줄이기를 변경하면 현재 지점부터 아직 걷지 않은 부분만 다시 시작한다.
 export function remainingDrawnPath(points: Point[], elapsed: number, speed: Speed, speciesId?: string) {
-  const sample = sampleDrawnWalk(drawnWalk(points, speed, speciesId), elapsed);
+  const sample = sampleDrawnWalk(drawnWalk(points, speed, speciesId === 'kkogit'), elapsed);
   if (!sample) return;
   const next = points[sample.index + 1]!;
   const remaining = points.slice(sample.index + 1);

@@ -84,13 +84,16 @@ export function sampleScenePatrol(petId:string, anchor:Anchor, now:number, speed
   speciesId?: string): PatrolSample {
   const elapsed=patrolElapsed(anchor,now,timer);
   if (anchor.path) {
-    const track = drawnWalk(anchor.path, speed, speciesId);
-    const sample = sampleDrawnWalk(track, elapsed);
+    // 쪼르르 산책은 같은 출발 시각과 선두의 걸음으로 계산한다. 각자의 차례 전에는 첫 점에서 앉아 기다린다.
+    const parade = anchor.parade;
+    const pathElapsed = elapsed - (parade?.delayMs ?? 0);
+    const track = drawnWalk(anchor.path, parade?.speed ?? speed, parade?.glide ?? (speciesId === 'kkogit'));
+    const sample = sampleDrawnWalk(track, pathElapsed);
     if (sample) return { x: sample.x, y: sample.y, dx: sample.dx, dy: sample.dy, facing: sample.facing,
-      action: sample.action, nextAt: now + sample.nextElapsed - elapsed, drawnWalk: true };
+      action: sample.action, nextAt: now + sample.nextElapsed - pathElapsed, drawnWalk: true };
     // 닫힌 탭이나 잠든 워커가 완료를 기록하지 않아도 같은 끝점에서 자유 산책을 이어간다.
     const end = anchor.path[anchor.path.length - 1]!;
-    return samplePatrol(petId, { ...end, at: now - elapsed + track.duration }, now, speed);
+    return samplePatrol(petId, { ...end, at: now - pathElapsed + track.duration }, now, speed);
   }
   // 샘플의 종료/버릇 시각도 현재 페이지에서 예약할 실제 시각으로 돌려놓는다.
   return samplePatrol(petId,{x:anchor.x,y:anchor.y,at:now-elapsed},now,speed);

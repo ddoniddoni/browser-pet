@@ -14,9 +14,10 @@ import { patrolElapsed } from '../../features/pet/core/shared-patrol';
 import { isPetSpeciesId, getPetDefinition } from '../../features/pet/definitions/species';
 import { createCare, rewardCare, type CareReward } from '../contracts/care';
 import { maxHiddenHosts } from '../contracts/hostname';
+import { paradeIntervalMs } from '../contracts/walk-path';
 import { failure, isSceneActionType, type Mutation, type StateCommand, type StateReply } from '../contracts/commands';
 import { createPetState, getSharedScene, inspectStoredState, isLegacyPetState, migrateLegacyPetState,
-  type PetState } from '../contracts/state';
+  type PetState, type SharedScene } from '../contracts/state';
 
 interface LocalState {
   read(): Promise<unknown>;
@@ -110,13 +111,7 @@ export function createStateWriter(storage: LocalState) {
       const fromPet = (command.type === 'CARE_FEED' || command.type === 'CARE_PET') && command.fromPage;
       if ((command.type === 'COMPANION_SCENE' || isSceneActionType(command.type) || command.type === 'HOST_HIDE_CURRENT' || fromPet) && !stored.settings.enabled)
         return conflict();
-      if (command.type === 'START_DRAWN_WALK') {
-        const timer = stored.timer;
-        if (!stored.settings.enabled || atticFor(stored).center !== command.payload.speciesId ||
-            stored.settings.reduceMotion === 'always' || (timer && (timer.phase === 'paused' || timer.endsAt > Date.now())))
-          return conflict();
-      }
-      if (command.type === 'COMPANION_SCENE' || command.type === 'START_DRAWN_WALK' || command.type === 'CARE_FEED' || command.type === 'CARE_PET') {
+      if (command.type === 'COMPANION_SCENE' || command.type === 'CARE_FEED' || command.type === 'CARE_PET') {
         const id = command.payload.speciesId;
         if (!hasCompanion(stored, id) || ((command.type === 'COMPANION_SCENE' || fromPet) && !companionFor(stored, id).enabled)) return conflict();
         routedRoot = stored;
@@ -131,11 +126,35 @@ export function createStateWriter(storage: LocalState) {
         (command.type === 'SETTINGS_PATCH' && command.payload.enabled !== undefined);
       const previousAttic = changesRoster ? atticFor(stored) : undefined;
       switch (command.type) {
+        case 'SAVE_WALK_PATH': {
+          const { speciesId, points } = command.payload;
+          if (atticFor(stored).center !== speciesId) return conflict();
+          const companion = { ...companionFor(stored, speciesId) };
+          if (points === null) delete companion.savedPath;
+          else companion.savedPath = points;
+          base = withCompanion(stored, speciesId, companion);
+          break;
+        }
         case 'START_DRAWN_WALK': {
-          const path = command.payload.points;
-          base = { ...stored, scene: {
-            anchor: { kind: 'placed-patrol', ...path[0]!, at: Date.now(), path }, pettedAt: 0,
-          } };
+          const { speciesId, points: path, together } = command.payload;
+          const attic = atticFor(stored);
+          const at = Date.now();
+          const timer = stored.timer;
+          if (!stored.settings.enabled || attic.center !== speciesId || stored.settings.reduceMotion === 'always' ||
+              (timer && (timer.phase === 'paused' || timer.endsAt > at)) || (together && attic.order.length < 2))
+            return conflict();
+          const order = together ? [speciesId, ...attic.order.filter(id => id !== speciesId)] : [speciesId];
+          const speed = companionFor(stored, speciesId).settings.speed;
+          base = stored;
+          for (const [rank, id] of order.entries()) {
+            const scene: SharedScene = {
+              anchor: { kind: 'placed-patrol', ...path[0]!, at, path,
+                ...(together && { parade: { delayMs: rank * paradeIntervalMs, speed, glide: speciesId === 'kkogit' } }) },
+              pettedAt: 0,
+            };
+            base = withCompanion(base, id, { ...companionFor(base, id), scene });
+            if (id === stored.pet.speciesId) base = { ...base, scene };
+          }
           break;
         }
         case 'CARE_FEED':

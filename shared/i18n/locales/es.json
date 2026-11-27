@@ -1608,6 +1608,40 @@
   "walkPathClear": {
     "message": "Borrar"
   },
+  "walkPathSave": {
+    "message": "Guardar camino"
+  },
+  "walkPathLoad": {
+    "message": "Cargar camino guardado"
+  },
+  "walkPathRemove": {
+    "message": "Borrar camino guardado"
+  },
+  "walkPathSaved": {
+    "message": "Se ha guardado el camino de $value$.",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "walkPathRemoved": {
+    "message": "Se ha borrado el camino guardado de $value$.",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "walkPathTogether": {
+    "message": "Pasear en fila"
+  },
+  "walkPathOrder": {
+    "message": "Orden del paseo"
+  },
+  "walkPathTogetherStarted": {
+    "message": "Tus mascotas han empezado a pasear en fila."
+  },
   "walkPathStart": {
     "message": "Iniciar paseo"
   },
