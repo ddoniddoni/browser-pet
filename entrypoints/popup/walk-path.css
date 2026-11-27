@@ -18,6 +18,15 @@
 .walk-path-panel > summary:hover { background: var(--wash); }
 .walk-path-panel > summary:focus-visible { outline-offset: -2px; }
 .walk-path-panel > summary > svg:first-child { color: var(--leaf); }
+.walk-path-panel > summary > svg { flex-shrink: 0; }
+.walk-path-owner {
+  min-width: 0;
+  overflow: hidden;
+  color: var(--muted);
+  font-weight: 400;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 .walk-path-panel > summary .chevron { margin-inline-start: auto; }
 .walk-path-panel[open] > summary .chevron { transform: rotate(180deg); }
 .walk-path-editor {
@@ -49,10 +58,15 @@
   overflow: hidden;
   white-space: nowrap;
 }
-.walk-path-actions { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
-.walk-path-actions button { min-height: 36px; font-size: 13px; }
-.walk-path-actions .primary { margin-inline-start: auto; }
-.walk-path-actions .primary[aria-disabled=true] { opacity: .65; cursor: wait; }
+.walk-path-actions, .walk-path-library, .walk-path-launch { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+.walk-path-editor button { min-height: 36px; font-size: 13px; }
+.walk-path-save, .walk-path-library button:last-child { margin-inline-start: auto; }
+.walk-path-library { border-top: 1px dashed var(--edge); }
+.walk-path-launch { border-top: 1px solid var(--edge); padding-top: 9px; gap: 7px; }
+.walk-path-launch button { flex: 1 1 auto; }
+.walk-path-launch button[aria-disabled=true] { opacity: .65; cursor: wait; }
+.walk-path-order { color: var(--muted); font-size: 12px; overflow-wrap: anywhere; }
+.walk-path-order bdi { color: var(--ink); }
 @media (forced-colors: active) {
   .walk-path-pad { outline: 1px solid CanvasText; color: CanvasText; }
   .walk-path-pad:focus-visible { outline: 2px solid Highlight; }

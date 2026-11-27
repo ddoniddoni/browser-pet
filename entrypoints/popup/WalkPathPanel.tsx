@@ -2,11 +2,11 @@ import { useId, useRef, useState, type KeyboardEvent, type PointerEvent } from '
 import { browser } from 'wxt/browser';
 import { Chevron } from '../../components/Chevron';
 import type { Point } from '../../features/pet/core/interaction';
-import type { CompanionId } from '../../shared/contracts/companions';
+import { companionFor, projectCompanion, type CompanionId } from '../../shared/contracts/companions';
 import type { PetState } from '../../shared/contracts/state';
 import { isWalkPath, maxWalkPathPoints } from '../../shared/contracts/walk-path';
 import { t } from '../../shared/i18n';
-import { startDrawnWalk } from '../../shared/messaging/state';
+import { saveWalkPath, startDrawnWalk } from '../../shared/messaging/state';
 import { readPage } from './CurrentPageStatus';
 import './walk-path.css';
 
@@ -44,21 +44,47 @@ const steps: Record<string, Point> = {
   ArrowUp: { x: 0, y: -0.1 }, ArrowDown: { x: 0, y: 0.1 },
 };
 
-export function WalkPathPanel({ state, friend }: { state: PetState; friend: CompanionId }) {
-  const [points, setPoints] = useState<Point[]>([]);
+interface WalkPathProps {
+  state: PetState;
+  friend: CompanionId;
+  order: CompanionId[];
+}
+
+export function WalkPathPanel(props: WalkPathProps) {
+  return <details className="walk-path-panel">
+    <summary>
+      <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round">
+        <circle cx="4" cy="18" r="1.8" /><path d="M7 18c5 0 7-5 3-7s-5-6-1-7c5-2 6 7 11 5" strokeDasharray="2 3" />
+        <circle cx="20" cy="9" r="1.9" fill="currentColor" />
+      </svg>
+      <span>{t('walkPathTitle')}</span><bdi className="walk-path-owner">{props.state.pet.name}</bdi><Chevron />
+    </summary>
+    <WalkPathEditor key={props.friend} {...props} />
+  </details>;
+}
+
+function WalkPathEditor({ state, friend, order }: WalkPathProps) {
+  const [draft, setDraft] = useState<Point[] | null>(null);
+  const [confirmed, setConfirmed] = useState<{ revision: number; path: Point[] | null } | null>(null);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState('');
-  const [sent, setSent] = useState(false);
+  const [notice, setNotice] = useState('');
   const pending = useRef(false);
   const stroke = useRef<{ pointer: number; points: Point[]; bounds: DOMRect } | null>(null);
+  const pad = useRef<SVGSVGElement>(null);
   const trace = useRef<SVGPolylineElement>(null);
   const id = useId();
+  const saved = confirmed && confirmed.revision > state.revision ? confirmed.path : companionFor(state, friend).savedPath;
+  const points = draft ?? saved ?? [];
+  const hasPath = isWalkPath(points);
+  const changed = saved ? points.length !== saved.length || points.some((p, i) => p.x !== saved[i]!.x || p.y !== saved[i]!.y)
+    : points.length > 0;
   const endpoint = points.at(-1);
 
-  function edit(path: Point[]) {
+  function edit(path: Point[] | null) {
     setError('');
-    setSent(false);
-    setPoints(path);
+    setNotice('');
+    setDraft(path);
   }
 
   function sample(event: PointerEvent<SVGSVGElement>, final = false) {
@@ -91,26 +117,14 @@ export function WalkPathPanel({ state, friend }: { state: PetState; friend: Comp
     edit(path);
   }
 
-  async function start() {
-    if (pending.current || stroke.current || !isWalkPath(points)) return;
-    setSent(false);
-    setError('');
-    if (state.settings.reduceMotion === 'always' || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      setError(t('walkPathReduced'));
-      return;
-    }
-    if (state.timer && (state.timer.phase === 'paused' || state.timer.endsAt > Date.now())) {
-      setError(t('walkPathTimer'));
-      return;
-    }
+  async function submit(action: () => Promise<void>) {
+    if (pending.current || stroke.current) return;
     pending.current = true;
     setBusy(true);
+    setError('');
+    setNotice('');
     try {
-      const toolbar = !await browser.tabs.getCurrent();
-      if (toolbar && await readPage() !== 'visible') throw new Error(t('walkPathPage'));
-      await startDrawnWalk(state, friend, points);
-      setSent(true);
-      if (toolbar) window.close();
+      await action();
     } catch (reason) {
       setError(reason instanceof Error ? reason.message : t('saveError'));
     } finally {
@@ -119,17 +133,34 @@ export function WalkPathPanel({ state, friend }: { state: PetState; friend: Comp
     }
   }
 
-  return <details className="walk-path-panel">
-    <summary>
-      <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round">
-        <circle cx="4" cy="18" r="1.8" /><path d="M7 18c5 0 7-5 3-7s-5-6-1-7c5-2 6 7 11 5" strokeDasharray="2 3" />
-        <circle cx="20" cy="9" r="1.9" fill="currentColor" />
-      </svg>
-      {t('walkPathTitle')}<Chevron />
-    </summary>
-    <div className="walk-path-editor" aria-busy={busy}>
+  function save(path: Point[] | null) {
+    void submit(async () => {
+      const result = await saveWalkPath(state, friend, path);
+      setConfirmed({ revision: result.revision, path: companionFor(result, friend).savedPath ?? null });
+      if (path || !changed) setDraft(null);
+      setNotice(t(path ? 'walkPathSaved' : 'walkPathRemoved', state.pet.name));
+      pad.current?.focus({ preventScroll: true });
+    });
+  }
+
+  function start(together: boolean) {
+    if (!hasPath) return;
+    void submit(async () => {
+      if (state.settings.reduceMotion === 'always' || window.matchMedia('(prefers-reduced-motion: reduce)').matches)
+        throw new Error(t('walkPathReduced'));
+      if (state.timer && (state.timer.phase === 'paused' || state.timer.endsAt > Date.now()))
+        throw new Error(t('walkPathTimer'));
+      const toolbar = !await browser.tabs.getCurrent();
+      if (toolbar && await readPage() !== 'visible') throw new Error(t('walkPathPage'));
+      await startDrawnWalk(state, friend, points, together);
+      setNotice(t(together ? 'walkPathTogetherStarted' : 'walkPathStarted'));
+      if (toolbar) window.close();
+    });
+  }
+
+  return <div className="walk-path-editor" aria-busy={busy}>
       <p id={id + '-hint'}>{t('walkPathHint', state.pet.name)}</p>
-      <svg className="walk-path-pad" role="application" tabIndex={0} aria-label={t('walkPathPad')}
+      <svg ref={pad} className="walk-path-pad" role="application" tabIndex={0} aria-label={t('walkPathPad')}
         aria-describedby={id + '-hint ' + id + '-position'} viewBox={`0 0 ${padWidth} ${padHeight}`} preserveAspectRatio="none"
         onKeyDown={keyboardDraw}
         onPointerDown={event => {
@@ -137,7 +168,7 @@ export function WalkPathPanel({ state, friend }: { state: PetState; friend: Comp
           event.currentTarget.setPointerCapture(event.pointerId);
           event.currentTarget.dataset.drawing = '';
           stroke.current = { pointer: event.pointerId, points: [], bounds: event.currentTarget.getBoundingClientRect() };
-          setSent(false); setError('');
+          setNotice(''); setError('');
           sample(event);
         }}
         onPointerMove={event => sample(event)}
@@ -165,11 +196,25 @@ export function WalkPathPanel({ state, friend }: { state: PetState; friend: Comp
       <div className="walk-path-actions">
         <button type="button" className="secondary" disabled={busy} onClick={() => edit(heart)}>{t('walkPathHeart')}</button>
         <button type="button" className="link" disabled={busy || !points.length} onClick={() => edit([])}>{t('walkPathClear')}</button>
-        <button type="button" className="primary" disabled={!isWalkPath(points)} aria-disabled={busy || undefined}
-          onClick={() => void start()}>{t('walkPathStart')}</button>
+        <button type="button" className="secondary walk-path-save" disabled={busy || !hasPath || !changed}
+          onClick={() => save(points)}>{t('walkPathSave')}</button>
       </div>
+      {saved && <div className="walk-path-library">
+        <button type="button" className="link" disabled={busy || !changed}
+          onClick={() => { edit(null); pad.current?.focus({ preventScroll: true }); }}>{t('walkPathLoad')}</button>
+        <button type="button" className="link" disabled={busy} onClick={() => save(null)}>{t('walkPathRemove')}</button>
+      </div>}
+      <div className="walk-path-launch">
+        <button type="button" className="primary" disabled={!hasPath} aria-disabled={busy || undefined}
+          onClick={() => start(false)}>{t('walkPathStart')}</button>
+        {order.length >= 2 && <button type="button" className="secondary" disabled={!hasPath} aria-disabled={busy || undefined}
+          aria-describedby={id + '-order'} onClick={() => start(true)}>{t('walkPathTogether')}</button>}
+      </div>
+      {order.length >= 2 && <p className="walk-path-order" id={id + '-order'}>
+        {t('walkPathOrder')} <bdi>{[friend, ...order.filter(id => id !== friend)]
+          .map(id => projectCompanion(state, id).pet.name).join(' → ')}</bdi>
+      </p>}
       {error && <p role="alert">{error}</p>}
-      {sent && <p role="status">{t('walkPathStarted')}</p>}
-    </div>
-  </details>;
+      {notice && <p role="status">{notice}</p>}
+    </div>;
 }

@@ -1,4 +1,6 @@
 import { isImagePetId, type ImagePetId } from './image-pet';
+import type { Point } from '../../features/pet/core/interaction';
+import { isWalkPath } from './walk-path';
 import { petDefinitions, isPetSpeciesId, defaultPetName, getPetDefinition, type PetSpeciesId } from '../../features/pet/definitions/species';
 import { patrolElapsed, sampleScenePatrol } from '../../features/pet/core/shared-patrol';
 import { remainingDrawnPath } from '../../features/pet/core/drawn-path';
@@ -9,7 +11,13 @@ export const movements = ['walk', 'bounce', 'crawl', 'float', 'spin'] as const;
 export type Movement = typeof movements[number];
 export const movementLabel = { walk: 'moveWalk', bounce: 'moveBounce', crawl: 'moveCrawl', float: 'moveFloat', spin: 'moveSpin' } as const satisfies Record<Movement, string>;
 type Appearance = Pick<PetState['settings'], 'sizePx' | 'speed' | 'personality' | 'scarf' | 'outfit'>;
-export interface Companion { enabled: boolean; movement: Movement; settings: Appearance; scene: SharedScene }
+export interface Companion {
+  enabled: boolean;
+  movement: Movement;
+  settings: Appearance;
+  scene: SharedScene;
+  savedPath?: Point[];
+}
 export type CompanionId = PetSpeciesId | ImagePetId;
 export const isCompanionId = (id: unknown): id is CompanionId => isPetSpeciesId(id) || isImagePetId(id);
 export const companionIds = (state: PetState): CompanionId[] => [...petDefinitions.map(p => p.id), ...Object.keys(state.imagePets ?? {}).filter(isImagePetId)];
@@ -27,7 +35,10 @@ export function localSettingsPatch(value: unknown): value is Partial<Appearance>
   return isSettingsPatch(value) && Object.keys(value).every(key => localKeys.some(k => k === key));
 }
 export function validCompanion(c: unknown): c is Companion {
-  return isRecord(c) && Object.keys(c).length === 4 && typeof c.enabled === 'boolean' && isMovement(c.movement) &&
+  if (!isRecord(c)) return false;
+  const hasPath = Object.hasOwn(c, 'savedPath');
+  return Object.keys(c).length === 4 + Number(hasPath) && (!hasPath || isWalkPath(c.savedPath)) &&
+    typeof c.enabled === 'boolean' && isMovement(c.movement) &&
     isRecord(c.settings) && isSettingsPatch(c.settings) && Object.hasOwn(c.settings, 'sizePx') && Object.hasOwn(c.settings, 'speed') &&
     Object.keys(c.settings).every(k => localKeys.some(key => key === k)) && isSharedScene(c.scene, 4);
 }
@@ -43,12 +54,19 @@ export const companionRoute = (state: PetState) => state.companions ? state.pet.
 export function rebaseScene(state: PetState, now: number): SharedScene {
   const scene = getSharedScene(state), a = scene.anchor;
   if (a.kind === 'pin') return scene;
-  const { path, ...anchor } = a;
+  const { path, parade, ...anchor } = a;
   const { speed, reduceMotion } = state.settings;
-  const remaining = path && (reduceMotion === 'always' ? path :
-    remainingDrawnPath(path, patrolElapsed(a, now, state.timer), speed, state.pet.speciesId));
-  const { x, y } = remaining?.[0] ?? (reduceMotion === 'always' ? a :
-    sampleScenePatrol(companionRoute(state), a, now, speed, state.timer, state.pet.speciesId));
+  const sampleAt = reduceMotion === 'always' ? a.at : now;
+  const elapsed = patrolElapsed(a, sampleAt, state.timer);
+  const sample = sampleScenePatrol(companionRoute(state), a, sampleAt, speed, state.timer, state.pet.speciesId);
+  // 대기 순번과 모서리의 휴식까지 보존하도록 단체 산책의 공통 경로와 누적 시각을 함께 유지한다.
+  if (parade && sample.drawnWalk) {
+    return { ...scene, anchor: { ...a, at: now, clock: { ...a.clock, elapsed } } };
+  }
+  const remaining = path && !parade
+    ? (reduceMotion === 'always' ? path : remainingDrawnPath(path, elapsed, speed, state.pet.speciesId))
+    : undefined;
+  const { x, y } = remaining?.[0] ?? (reduceMotion === 'always' && !parade ? a : sample);
   return { ...scene, anchor: { ...anchor, x, y, at: now, ...(remaining && { path: remaining }),
     ...(a.clock && { clock: { ...a.clock, elapsed: 0 } }) } };
 }

@@ -1608,6 +1608,40 @@
   "walkPathClear": {
     "message": "消す"
   },
+  "walkPathSave": {
+    "message": "道を保存"
+  },
+  "walkPathLoad": {
+    "message": "保存した道を開く"
+  },
+  "walkPathRemove": {
+    "message": "保存した道を削除"
+  },
+  "walkPathSaved": {
+    "message": "$value$のおさんぽ道を保存しました。",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "walkPathRemoved": {
+    "message": "$value$の保存した道を削除しました。",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "walkPathTogether": {
+    "message": "みんなでおさんぽ"
+  },
+  "walkPathOrder": {
+    "message": "歩く順番"
+  },
+  "walkPathTogetherStarted": {
+    "message": "友だちが一列に並んでおさんぽを始めました。"
+  },
   "walkPathStart": {
     "message": "おさんぽ開始"
   },

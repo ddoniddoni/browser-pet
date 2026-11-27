@@ -1608,6 +1608,40 @@
   "walkPathClear": {
     "message": "지우기"
   },
+  "walkPathSave": {
+    "message": "길 저장"
+  },
+  "walkPathLoad": {
+    "message": "저장한 길 불러오기"
+  },
+  "walkPathRemove": {
+    "message": "저장한 길 삭제"
+  },
+  "walkPathSaved": {
+    "message": "$value$의 길을 저장했어요.",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "walkPathRemoved": {
+    "message": "$value$의 산책길을 삭제했어요.",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "walkPathTogether": {
+    "message": "쪼르르 산책"
+  },
+  "walkPathOrder": {
+    "message": "쪼르르 산책 순서"
+  },
+  "walkPathTogetherStarted": {
+    "message": "친구들이 줄지어 산책을 시작했어요."
+  },
   "walkPathStart": {
     "message": "산책 시작"
   },

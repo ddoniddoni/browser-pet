@@ -1608,6 +1608,40 @@
   "walkPathClear": {
     "message": "Clear"
   },
+  "walkPathSave": {
+    "message": "Save path"
+  },
+  "walkPathLoad": {
+    "message": "Load saved path"
+  },
+  "walkPathRemove": {
+    "message": "Delete saved path"
+  },
+  "walkPathSaved": {
+    "message": "Path saved for $value$.",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "walkPathRemoved": {
+    "message": "Saved path deleted for $value$.",
+    "placeholders": {
+      "value": {
+        "content": "$1"
+      }
+    }
+  },
+  "walkPathTogether": {
+    "message": "Walk together"
+  },
+  "walkPathOrder": {
+    "message": "Walking order"
+  },
+  "walkPathTogetherStarted": {
+    "message": "Your friends have started walking together."
+  },
   "walkPathStart": {
     "message": "Start walk"
   },
