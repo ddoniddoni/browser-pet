@@ -86,6 +86,11 @@ export function startDrawnWalk(state: PetState, speciesId: CompanionId, points: 
     requestId: newRequestId(), payload: { speciesId, points, ...(together && { together: true as const }) } }, true);
 }
 
+export function startSavedWalks(state: PetState) {
+  return requestState({ ...envelope, type: 'START_SAVED_WALKS', expectedPetId: state.pet.id,
+    requestId: newRequestId(), payload: {} }, true);
+}
+
 export function saveWalkPath(state: PetState, speciesId: CompanionId, points: Point[] | null) {
   return requestState({ ...envelope, type: 'SAVE_WALK_PATH', expectedPetId: state.pet.id,
     requestId: newRequestId(), payload: { speciesId, points } }, true);

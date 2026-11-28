@@ -1642,6 +1642,15 @@
   "walkPathTogetherStarted": {
     "message": "Tus mascotas han empezado a pasear en fila."
   },
+  "walkPathSavedStart": {
+    "message": "Pasear por separado"
+  },
+  "walkPathSavedMinimum": {
+    "message": "Para pasear por separado, guarda un camino para al menos dos mascotas que estén fuera."
+  },
+  "walkPathSavedStarted": {
+    "message": "Tus mascotas han empezado a recorrer sus propios caminos guardados."
+  },
   "walkPathStart": {
     "message": "Iniciar paseo"
   },

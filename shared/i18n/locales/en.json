@@ -1642,6 +1642,15 @@
   "walkPathTogetherStarted": {
     "message": "Your friends have started walking together."
   },
+  "walkPathSavedStart": {
+    "message": "Walk separate paths"
+  },
+  "walkPathSavedMinimum": {
+    "message": "To walk separate paths, save a path for at least two friends who are out."
+  },
+  "walkPathSavedStarted": {
+    "message": "Your friends have started walking their own saved paths."
+  },
   "walkPathStart": {
     "message": "Start walk"
   },

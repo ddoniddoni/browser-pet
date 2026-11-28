@@ -1642,6 +1642,15 @@
   "walkPathTogetherStarted": {
     "message": "친구들이 줄지어 산책을 시작했어요."
   },
+  "walkPathSavedStart": {
+    "message": "각자 길로 산책"
+  },
+  "walkPathSavedMinimum": {
+    "message": "각자 길로 걸으려면 나와 있는 친구 중 두 마리 이상에게 길을 저장해 주세요."
+  },
+  "walkPathSavedStarted": {
+    "message": "친구들이 각자 저장한 길로 산책을 시작했어요."
+  },
   "walkPathStart": {
     "message": "산책 시작"
   },

@@ -1642,6 +1642,15 @@
   "walkPathTogetherStarted": {
     "message": "友だちが一列に並んでおさんぽを始めました。"
   },
+  "walkPathSavedStart": {
+    "message": "それぞれの道を歩く"
+  },
+  "walkPathSavedMinimum": {
+    "message": "それぞれの道を歩くには、外にいる友だちのうち2匹以上に道を保存してください。"
+  },
+  "walkPathSavedStarted": {
+    "message": "友だちがそれぞれの道を歩き始めました。"
+  },
   "walkPathStart": {
     "message": "おさんぽ開始"
   },

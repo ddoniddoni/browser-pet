@@ -6,7 +6,7 @@ import { companionFor, projectCompanion, type CompanionId } from '../../shared/c
 import type { PetState } from '../../shared/contracts/state';
 import { isWalkPath, maxWalkPathPoints } from '../../shared/contracts/walk-path';
 import { t } from '../../shared/i18n';
-import { saveWalkPath, startDrawnWalk } from '../../shared/messaging/state';
+import { saveWalkPath, startDrawnWalk, startSavedWalks } from '../../shared/messaging/state';
 import { readPage } from './CurrentPageStatus';
 import './walk-path.css';
 
@@ -75,6 +75,7 @@ function WalkPathEditor({ state, friend, order }: WalkPathProps) {
   const trace = useRef<SVGPolylineElement>(null);
   const id = useId();
   const saved = confirmed && confirmed.revision > state.revision ? confirmed.path : companionFor(state, friend).savedPath;
+  const canWalkSavedPaths = order.filter(id => id === friend ? saved : companionFor(state, id).savedPath).length >= 2;
   const points = draft ?? saved ?? [];
   const hasPath = isWalkPath(points);
   const changed = saved ? points.length !== saved.length || points.some((p, i) => p.x !== saved[i]!.x || p.y !== saved[i]!.y)
@@ -143,8 +144,8 @@ function WalkPathEditor({ state, friend, order }: WalkPathProps) {
     });
   }
 
-  function start(together: boolean) {
-    if (!hasPath) return;
+  function start(mode: 'solo' | 'together' | 'saved') {
+    if (mode === 'saved' ? !canWalkSavedPaths : !hasPath) return;
     void submit(async () => {
       if (state.settings.reduceMotion === 'always' || window.matchMedia('(prefers-reduced-motion: reduce)').matches)
         throw new Error(t('walkPathReduced'));
@@ -152,8 +153,13 @@ function WalkPathEditor({ state, friend, order }: WalkPathProps) {
         throw new Error(t('walkPathTimer'));
       const toolbar = !await browser.tabs.getCurrent();
       if (toolbar && await readPage() !== 'visible') throw new Error(t('walkPathPage'));
-      await startDrawnWalk(state, friend, points, together);
-      setNotice(t(together ? 'walkPathTogetherStarted' : 'walkPathStarted'));
+      if (mode === 'saved') {
+        await startSavedWalks(state);
+        setNotice(t('walkPathSavedStarted'));
+      } else {
+        await startDrawnWalk(state, friend, points, mode === 'together');
+        setNotice(t(mode === 'together' ? 'walkPathTogetherStarted' : 'walkPathStarted'));
+      }
       if (toolbar) window.close();
     });
   }
@@ -206,14 +212,20 @@ function WalkPathEditor({ state, friend, order }: WalkPathProps) {
       </div>}
       <div className="walk-path-launch">
         <button type="button" className="primary" disabled={!hasPath} aria-disabled={busy || undefined}
-          onClick={() => start(false)}>{t('walkPathStart')}</button>
-        {order.length >= 2 && <button type="button" className="secondary" disabled={!hasPath} aria-disabled={busy || undefined}
-          aria-describedby={id + '-order'} onClick={() => start(true)}>{t('walkPathTogether')}</button>}
+          onClick={() => start('solo')}>{t('walkPathStart')}</button>
+        {order.length >= 2 && <>
+          <button type="button" className="secondary" disabled={!hasPath} aria-disabled={busy || undefined}
+            aria-describedby={id + '-order'} onClick={() => start('together')}>{t('walkPathTogether')}</button>
+          <button type="button" className="secondary" disabled={!canWalkSavedPaths} aria-disabled={busy || undefined}
+            aria-describedby={canWalkSavedPaths ? undefined : id + '-saved-minimum'} onClick={() => start('saved')}>{t('walkPathSavedStart')}</button>
+        </>}
       </div>
       {order.length >= 2 && <p className="walk-path-order" id={id + '-order'}>
         {t('walkPathOrder')} <bdi>{[friend, ...order.filter(id => id !== friend)]
           .map(id => projectCompanion(state, id).pet.name).join(' → ')}</bdi>
       </p>}
+      {order.length >= 2 && !canWalkSavedPaths &&
+        <p className="walk-path-order" id={id + '-saved-minimum'}>{t('walkPathSavedMinimum')}</p>}
       {error && <p role="alert">{error}</p>}
       {notice && <p role="status">{notice}</p>}
     </div>;

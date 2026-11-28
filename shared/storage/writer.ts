@@ -11,10 +11,11 @@ import { mouseUnlockXp, portraitOf, remember, withFinishedFocus } from '../contr
 import { t } from '../i18n';
 import { changeTimer, patrolDelay } from '../contracts/timer';
 import { patrolElapsed } from '../../features/pet/core/shared-patrol';
+import type { Point } from '../../features/pet/core/interaction';
 import { isPetSpeciesId, getPetDefinition } from '../../features/pet/definitions/species';
 import { createCare, rewardCare, type CareReward } from '../contracts/care';
 import { maxHiddenHosts } from '../contracts/hostname';
-import { paradeIntervalMs } from '../contracts/walk-path';
+import { paradeIntervalMs, type WalkParade } from '../contracts/walk-path';
 import { failure, isSceneActionType, type Mutation, type StateCommand, type StateReply } from '../contracts/commands';
 import { createPetState, getSharedScene, inspectStoredState, isLegacyPetState, migrateLegacyPetState,
   type PetState, type SharedScene } from '../contracts/state';
@@ -135,21 +136,35 @@ export function createStateWriter(storage: LocalState) {
           base = withCompanion(stored, speciesId, companion);
           break;
         }
-        case 'START_DRAWN_WALK': {
-          const { speciesId, points: path, together } = command.payload;
-          const attic = atticFor(stored);
+        case 'START_DRAWN_WALK':
+        case 'START_SAVED_WALKS': {
           const at = Date.now();
           const timer = stored.timer;
-          if (!stored.settings.enabled || attic.center !== speciesId || stored.settings.reduceMotion === 'always' ||
-              (timer && (timer.phase === 'paused' || timer.endsAt > at)) || (together && attic.order.length < 2))
+          if (!stored.settings.enabled || stored.settings.reduceMotion === 'always' ||
+              (timer && (timer.phase === 'paused' || timer.endsAt > at)))
             return conflict();
-          const order = together ? [speciesId, ...attic.order.filter(id => id !== speciesId)] : [speciesId];
-          const speed = companionFor(stored, speciesId).settings.speed;
+          const attic = atticFor(stored);
+          const walks: { id: CompanionId; path: Point[]; parade?: WalkParade }[] = [];
+          if (command.type === 'START_SAVED_WALKS') {
+            for (const id of attic.order) {
+              const path = companionFor(stored, id).savedPath;
+              if (path) walks.push({ id, path });
+            }
+            if (walks.length < 2) return failure('CONFLICT', t('walkPathSavedMinimum'));
+          } else {
+            const { speciesId, points: path, together } = command.payload;
+            if (attic.center !== speciesId || (together && attic.order.length < 2)) return conflict();
+            const order = together ? [speciesId, ...attic.order.filter(id => id !== speciesId)] : [speciesId];
+            const speed = companionFor(stored, speciesId).settings.speed;
+            for (const [rank, id] of order.entries()) {
+              const parade = together && { delayMs: rank * paradeIntervalMs, speed, glide: speciesId === 'kkogit' };
+              walks.push({ id, path, ...(parade && { parade }) });
+            }
+          }
           base = stored;
-          for (const [rank, id] of order.entries()) {
+          for (const { id, path, parade } of walks) {
             const scene: SharedScene = {
-              anchor: { kind: 'placed-patrol', ...path[0]!, at, path,
-                ...(together && { parade: { delayMs: rank * paradeIntervalMs, speed, glide: speciesId === 'kkogit' } }) },
+              anchor: { kind: 'placed-patrol', ...path[0]!, at, path, ...(parade && { parade }) },
               pettedAt: 0,
             };
             base = withCompanion(base, id, { ...companionFor(base, id), scene });
